@@ -856,36 +856,6 @@
         "is_union" : false,
         "lineno" : 24
       },
-      "MyDataSafePatch" : {
-        "name" : "MyDataSafePatch",
-        "structured_annotations": {
-          "cpp.Frozen2Exclude" : {
-        "type" : {
-  "type" : "struct",
-  "name" : "Frozen2Exclude",
-  "path" : "thrift/annotation/cpp.thrift"
-},
-        "value" : {}
-      }
-        },
-        "fields" : {
-          "version" : {
-            "name" : "version",
-            "key" : 1,
-            "lineno" : 24,
-            "type" : "i32"
-                  },
-          "data" : {
-            "name" : "data",
-            "key" : 2,
-            "lineno" : 24,
-            "type" : "binary"
-                  }
-        },
-        "is_exception" : false,
-        "is_union" : false,
-        "lineno" : 24
-      },
       "MyDataWithCustomDefaultPatch" : {
         "name" : "MyDataWithCustomDefaultPatch",
         "structured_annotations": {
@@ -1065,36 +1035,6 @@
         "is_union" : false,
         "lineno" : 24
       },
-      "MyDataWithCustomDefaultSafePatch" : {
-        "name" : "MyDataWithCustomDefaultSafePatch",
-        "structured_annotations": {
-          "cpp.Frozen2Exclude" : {
-        "type" : {
-  "type" : "struct",
-  "name" : "Frozen2Exclude",
-  "path" : "thrift/annotation/cpp.thrift"
-},
-        "value" : {}
-      }
-        },
-        "fields" : {
-          "version" : {
-            "name" : "version",
-            "key" : 1,
-            "lineno" : 24,
-            "type" : "i32"
-                  },
-          "data" : {
-            "name" : "data",
-            "key" : 2,
-            "lineno" : 24,
-            "type" : "binary"
-                  }
-        },
-        "is_exception" : false,
-        "is_union" : false,
-        "lineno" : 24
-      },
       "InnerUnionPatch" : {
         "name" : "InnerUnionPatch",
         "structured_annotations": {
@@ -1217,36 +1157,6 @@
           }
                 }
           }
-        },
-        "is_exception" : false,
-        "is_union" : false,
-        "lineno" : 24
-      },
-      "InnerUnionSafePatch" : {
-        "name" : "InnerUnionSafePatch",
-        "structured_annotations": {
-          "cpp.Frozen2Exclude" : {
-        "type" : {
-  "type" : "struct",
-  "name" : "Frozen2Exclude",
-  "path" : "thrift/annotation/cpp.thrift"
-},
-        "value" : {}
-      }
-        },
-        "fields" : {
-          "version" : {
-            "name" : "version",
-            "key" : 1,
-            "lineno" : 24,
-            "type" : "i32"
-                  },
-          "data" : {
-            "name" : "data",
-            "key" : 2,
-            "lineno" : 24,
-            "type" : "binary"
-                  }
         },
         "is_exception" : false,
         "is_union" : false,
@@ -1415,36 +1325,6 @@
           }
                 }
           }
-        },
-        "is_exception" : false,
-        "is_union" : false,
-        "lineno" : 24
-      },
-      "MyUnionSafePatch" : {
-        "name" : "MyUnionSafePatch",
-        "structured_annotations": {
-          "cpp.Frozen2Exclude" : {
-        "type" : {
-  "type" : "struct",
-  "name" : "Frozen2Exclude",
-  "path" : "thrift/annotation/cpp.thrift"
-},
-        "value" : {}
-      }
-        },
-        "fields" : {
-          "version" : {
-            "name" : "version",
-            "key" : 1,
-            "lineno" : 24,
-            "type" : "i32"
-                  },
-          "data" : {
-            "name" : "data",
-            "key" : 2,
-            "lineno" : 24,
-            "type" : "binary"
-                  }
         },
         "is_exception" : false,
         "is_union" : false,
@@ -1886,7 +1766,7 @@
         },
         "is_exception" : false,
         "is_union" : false,
-        "lineno" : 25
+        "lineno" : 24
       },
       "MyStructField30Patch" : {
         "name" : "MyStructField30Patch",
@@ -1995,7 +1875,7 @@
         },
         "is_exception" : false,
         "is_union" : false,
-        "lineno" : 25
+        "lineno" : 24
       },
       "MyStructField30Patch1" : {
         "name" : "MyStructField30Patch1",
@@ -2094,7 +1974,7 @@
         },
         "is_exception" : false,
         "is_union" : false,
-        "lineno" : 25
+        "lineno" : 24
       },
       "MyStructFieldPatch" : {
         "name" : "MyStructFieldPatch",
@@ -2791,7 +2671,7 @@
         },
         "is_exception" : false,
         "is_union" : false,
-        "lineno" : 25
+        "lineno" : 24
       },
       "MyStructEnsureStruct" : {
         "name" : "MyStructEnsureStruct",
@@ -3171,36 +3051,6 @@
         "is_union" : false,
         "lineno" : 25
       },
-      "MyStructSafePatch" : {
-        "name" : "MyStructSafePatch",
-        "structured_annotations": {
-          "cpp.Frozen2Exclude" : {
-        "type" : {
-  "type" : "struct",
-  "name" : "Frozen2Exclude",
-  "path" : "thrift/annotation/cpp.thrift"
-},
-        "value" : {}
-      }
-        },
-        "fields" : {
-          "version" : {
-            "name" : "version",
-            "key" : 1,
-            "lineno" : 24,
-            "type" : "i32"
-                  },
-          "data" : {
-            "name" : "data",
-            "key" : 2,
-            "lineno" : 24,
-            "type" : "binary"
-                  }
-        },
-        "is_exception" : false,
-        "is_union" : false,
-        "lineno" : 25
-      },
       "LateDefStructPatch" : {
         "name" : "LateDefStructPatch",
         "structured_annotations": {
@@ -3315,36 +3165,6 @@
 },
         "value" : {}
       }
-        },
-        "is_exception" : false,
-        "is_union" : false,
-        "lineno" : 25
-      },
-      "LateDefStructSafePatch" : {
-        "name" : "LateDefStructSafePatch",
-        "structured_annotations": {
-          "cpp.Frozen2Exclude" : {
-        "type" : {
-  "type" : "struct",
-  "name" : "Frozen2Exclude",
-  "path" : "thrift/annotation/cpp.thrift"
-},
-        "value" : {}
-      }
-        },
-        "fields" : {
-          "version" : {
-            "name" : "version",
-            "key" : 1,
-            "lineno" : 24,
-            "type" : "i32"
-                  },
-          "data" : {
-            "name" : "data",
-            "key" : 2,
-            "lineno" : 24,
-            "type" : "binary"
-                  }
         },
         "is_exception" : false,
         "is_union" : false,
@@ -3547,36 +3367,6 @@
         "is_union" : false,
         "lineno" : 25
       },
-      "RecursiveSafePatch" : {
-        "name" : "RecursiveSafePatch",
-        "structured_annotations": {
-          "cpp.Frozen2Exclude" : {
-        "type" : {
-  "type" : "struct",
-  "name" : "Frozen2Exclude",
-  "path" : "thrift/annotation/cpp.thrift"
-},
-        "value" : {}
-      }
-        },
-        "fields" : {
-          "version" : {
-            "name" : "version",
-            "key" : 1,
-            "lineno" : 24,
-            "type" : "i32"
-                  },
-          "data" : {
-            "name" : "data",
-            "key" : 2,
-            "lineno" : 24,
-            "type" : "binary"
-                  }
-        },
-        "is_exception" : false,
-        "is_union" : false,
-        "lineno" : 25
-      },
       "BarPatch" : {
         "name" : "BarPatch",
         "structured_annotations": {
@@ -3741,36 +3531,6 @@
         "is_union" : false,
         "lineno" : 25
       },
-      "BarSafePatch" : {
-        "name" : "BarSafePatch",
-        "structured_annotations": {
-          "cpp.Frozen2Exclude" : {
-        "type" : {
-  "type" : "struct",
-  "name" : "Frozen2Exclude",
-  "path" : "thrift/annotation/cpp.thrift"
-},
-        "value" : {}
-      }
-        },
-        "fields" : {
-          "version" : {
-            "name" : "version",
-            "key" : 1,
-            "lineno" : 24,
-            "type" : "i32"
-                  },
-          "data" : {
-            "name" : "data",
-            "key" : 2,
-            "lineno" : 24,
-            "type" : "binary"
-                  }
-        },
-        "is_exception" : false,
-        "is_union" : false,
-        "lineno" : 25
-      },
       "LoopPatch" : {
         "name" : "LoopPatch",
         "structured_annotations": {
@@ -3812,36 +3572,6 @@
             "key" : 2,
             "lineno" : 24,
             "type" : "bool"
-                  }
-        },
-        "is_exception" : false,
-        "is_union" : false,
-        "lineno" : 25
-      },
-      "LoopSafePatch" : {
-        "name" : "LoopSafePatch",
-        "structured_annotations": {
-          "cpp.Frozen2Exclude" : {
-        "type" : {
-  "type" : "struct",
-  "name" : "Frozen2Exclude",
-  "path" : "thrift/annotation/cpp.thrift"
-},
-        "value" : {}
-      }
-        },
-        "fields" : {
-          "version" : {
-            "name" : "version",
-            "key" : 1,
-            "lineno" : 24,
-            "type" : "i32"
-                  },
-          "data" : {
-            "name" : "data",
-            "key" : 2,
-            "lineno" : 24,
-            "type" : "binary"
                   }
         },
         "is_exception" : false,
@@ -4263,36 +3993,6 @@
   "type" : "list",
   "inner_type" : "i32"
 }
-                  }
-        },
-        "is_exception" : false,
-        "is_union" : false,
-        "lineno" : 25
-      },
-      "RefFieldsSafePatch" : {
-        "name" : "RefFieldsSafePatch",
-        "structured_annotations": {
-          "cpp.Frozen2Exclude" : {
-        "type" : {
-  "type" : "struct",
-  "name" : "Frozen2Exclude",
-  "path" : "thrift/annotation/cpp.thrift"
-},
-        "value" : {}
-      }
-        },
-        "fields" : {
-          "version" : {
-            "name" : "version",
-            "key" : 1,
-            "lineno" : 24,
-            "type" : "i32"
-                  },
-          "data" : {
-            "name" : "data",
-            "key" : 2,
-            "lineno" : 24,
-            "type" : "binary"
                   }
         },
         "is_exception" : false,

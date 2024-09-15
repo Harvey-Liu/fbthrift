@@ -33,6 +33,8 @@ const testCallString = "this is a fairly lengthy test string \\ that ' has \x20 
 // createTestHeaderServer Create and bind a test server to localhost
 func createTestHeaderServer(handler thrifttest.ThriftTest) (*thrift.SimpleServer, net.Addr, error) {
 	processor := thrifttest.NewThriftTestProcessor(handler)
+	transportFactory := thrift.NewHeaderTransportFactory(thrift.NewTransportFactory())
+	protocolFactory := thrift.NewHeaderProtocolFactory()
 
 	transport, err := thrift.NewServerSocket("[::]:0")
 	if err != nil {
@@ -45,7 +47,7 @@ func createTestHeaderServer(handler thrifttest.ThriftTest) (*thrift.SimpleServer
 	}
 	taddr := transport.Addr()
 
-	server := thrift.NewSimpleServer(processor, transport, thrift.TransportIDHeader)
+	server := thrift.NewSimpleServerContext(processor, transport, transportFactory, protocolFactory)
 	go func(server *thrift.SimpleServer) {
 		err = server.Serve()
 		if err != nil && err != thrift.ErrServerClosed {
@@ -64,9 +66,13 @@ func createTestHeaderServer(handler thrifttest.ThriftTest) (*thrift.SimpleServer
 	return server, taddr, nil
 }
 
+type transportFactory = func(socket *thrift.Socket) thrift.Transport
+
 // connectTestHeaderServer Create a client and connect to a test server
 func connectTestHeaderServer(
 	addr net.Addr,
+	transportFactory func(socket *thrift.Socket) thrift.Transport,
+	protocolFactory thrift.ProtocolFactory,
 ) (*thrifttest.ThriftTestChannelClient, error) {
 	socket, err := thrift.NewSocket(thrift.SocketAddr(addr.String()), thrift.SocketTimeout(localConnTimeout))
 	if err != nil {
@@ -78,11 +84,12 @@ func connectTestHeaderServer(
 		return nil, err
 	}
 
-	prot := thrift.NewHeaderProtocol(socket)
+	trans := transportFactory(socket)
+	prot := protocolFactory.GetProtocol(trans)
 	return thrifttest.NewThriftTestChannelClient(thrift.NewSerialChannel(prot)), nil
 }
 
-func doClientTest(ctx context.Context, t *testing.T) {
+func doClientTest(ctx context.Context, t *testing.T, transportFactory transportFactory, protocolFactory thrift.ProtocolFactory) {
 	handler := &testHandler{}
 	serv, addr, err := createTestHeaderServer(handler)
 	if err != nil {
@@ -90,7 +97,7 @@ func doClientTest(ctx context.Context, t *testing.T) {
 	}
 	defer serv.Stop()
 
-	client, err := connectTestHeaderServer(addr)
+	client, err := connectTestHeaderServer(addr, transportFactory, protocolFactory)
 	if err != nil {
 		t.Fatalf("failed to connect to test server: %s", err.Error())
 	}
@@ -173,7 +180,40 @@ func doClientTest(ctx context.Context, t *testing.T) {
 func TestHeaderHeader(t *testing.T) {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
-	doClientTest(ctx, t)
+	doClientTest(
+		ctx,
+		t,
+		func(socket *thrift.Socket) thrift.Transport {
+			return thrift.NewHeaderTransport(socket)
+		},
+		thrift.NewHeaderProtocolFactory(),
+	)
+}
+
+func TestHeaderFramedBinary(t *testing.T) {
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+	doClientTest(
+		ctx,
+		t,
+		func(socket *thrift.Socket) thrift.Transport {
+			return thrift.NewFramedTransport(socket)
+		},
+		thrift.NewBinaryProtocolFactory(false, true),
+	)
+}
+
+func TestHeaderFramedCompact(t *testing.T) {
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+	doClientTest(
+		ctx,
+		t,
+		func(socket *thrift.Socket) thrift.Transport {
+			return thrift.NewFramedTransport(socket)
+		},
+		thrift.NewCompactProtocolFactory(),
+	)
 }
 
 func TestFunctionServiceMap(t *testing.T) {
@@ -189,3 +229,20 @@ func TestFunctionServiceMap(t *testing.T) {
 		t.Errorf("expected key 'doTestVoid' with value 'ThriftTest'")
 	}
 }
+
+// unframed not supported?
+// func TestHeaderUnframedBinary(t *testing.T) {
+// 	doClientTest(
+// 		t,
+// 		thrift.NewBufferedTransportFactory(8192),
+// 		thrift.NewBinaryProtocolFactory(false, true),
+// 	)
+// }
+//
+// func TestHeaderUnframedCompact(t *testing.T) {
+// 	doClientTest(
+// 		t,
+// 		thrift.NewBufferedTransportFactory(8192),
+// 		thrift.NewCompactProtocolFactory(),
+// 	)
+// }

@@ -759,8 +759,7 @@ RocketClientChannel::RocketClientChannel(
     : rocket::RocketClient(
           *eventBase,
           std::move(socket),
-          std::make_unique<rocket::SetupFrame>(makeSetupFrame(meta)),
-          meta.get_keepAliveTimeoutMs() ? *meta.get_keepAliveTimeoutMs() : 0,
+          std::make_unique<rocket::SetupFrame>(makeSetupFrame(std::move(meta))),
           allocatorPtr),
       evb_(eventBase) {
   apache::thrift::detail::hookForClientTransport(getTransport());

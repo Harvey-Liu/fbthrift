@@ -15,7 +15,6 @@
  */
 
 #include <algorithm>
-#include <filesystem>
 #include <iterator>
 #include <optional>
 #include <string>
@@ -24,6 +23,9 @@
 #include <utility>
 #include <vector>
 #include <fmt/format.h>
+
+#include <boost/algorithm/string.hpp>
+#include <boost/filesystem.hpp>
 
 #include <thrift/compiler/ast/t_field.h>
 #include <thrift/compiler/detail/mustache/mstch.h>
@@ -621,11 +623,11 @@ class t_mstch_python_capi_generator : public t_mstch_generator {
   bool should_resolve_typedefs() const override { return true; }
   void set_mstch_factories();
   void generate_file(
-      const std::string& file, const std::filesystem::path& base);
+      const std::string& file, const boost::filesystem::path& base);
   void generate_types();
-  std::filesystem::path package_to_path();
+  boost::filesystem::path package_to_path();
 
-  std::filesystem::path generate_root_path_;
+  boost::filesystem::path generate_root_path_;
 };
 
 void t_mstch_python_capi_generator::set_mstch_factories() {
@@ -635,13 +637,13 @@ void t_mstch_python_capi_generator::set_mstch_factories() {
   mstch_context_.add<python_capi_mstch_enum>();
 }
 
-std::filesystem::path t_mstch_python_capi_generator::package_to_path() {
+boost::filesystem::path t_mstch_python_capi_generator::package_to_path() {
   auto package = get_py3_namespace(get_program());
-  return fmt::format("{}", fmt::join(package, "/"));
+  return boost::algorithm::join(package, "/");
 }
 
 void t_mstch_python_capi_generator::generate_file(
-    const std::string& file, const std::filesystem::path& base = {}) {
+    const std::string& file, const boost::filesystem::path& base = {}) {
   auto program = get_program();
   const auto& name = program->name();
   auto mstch_program = make_mstch_program_cached(program, mstch_context_);

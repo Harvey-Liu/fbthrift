@@ -17,18 +17,16 @@
 package thrift
 
 // Protocol defines the interface that must be implemented by all protocols
-type Protocol interface {
-	Format
+// This is a temporary alias for Format until we can replace it with the more specific interface commented out below.
+type Protocol = Format
 
-	// used by SerialChannel and generated thrift Clients
-	Close() error
+// // Protocol defines the interface that must be implemented by all protocols
+// type Protocol interface {
+// 	Format
 
-	PersistentHeaders
-	ResponseHeaderGetter
-
-	// Deprecated
-	RequestHeaders
-}
+// 	// used by SerialChannel and generated thrift Clients
+// 	Close() error
+// }
 
 // Compile time check for interface conformance
 var _ Protocol = (*headerProtocol)(nil)

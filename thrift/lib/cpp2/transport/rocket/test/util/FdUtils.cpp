@@ -26,7 +26,7 @@ namespace rocket {
 namespace test {
 
 std::string abbrevStr(const std::string& s, size_t maxLen) {
-  constexpr std::string_view infix = "...";
+  const std::string_view infix = "...";
   CHECK_GE(maxLen, infix.size() + 2);
   if (s.size() <= maxLen) {
     return s;

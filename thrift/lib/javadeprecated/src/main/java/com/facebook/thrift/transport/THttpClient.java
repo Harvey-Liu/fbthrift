@@ -75,8 +75,7 @@ public class THttpClient extends TTransport {
     if (null != inputStream_) {
       try {
         inputStream_.close();
-      } catch (IOException ioe) {
-        ;
+      } catch (IOException ioe) {;
       }
       inputStream_ = null;
     }

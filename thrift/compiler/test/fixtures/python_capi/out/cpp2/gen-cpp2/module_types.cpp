@@ -15,13 +15,13 @@
 namespace apache { namespace thrift {
 
 folly::Range<::test::fixtures::python_capi::MyEnum const*> const TEnumTraits<::test::fixtures::python_capi::MyEnum>::values = folly::range(TEnumDataStorage<::test::fixtures::python_capi::MyEnum>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::test::fixtures::python_capi::MyEnum>::names = folly::range(TEnumDataStorage<::test::fixtures::python_capi::MyEnum>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::test::fixtures::python_capi::MyEnum>::names = folly::range(TEnumDataStorage<::test::fixtures::python_capi::MyEnum>::names);
 
-bool TEnumTraits<::test::fixtures::python_capi::MyEnum>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::test::fixtures::python_capi::MyEnum>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::test::fixtures::python_capi::MyEnum>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::test::fixtures::python_capi::MyEnum>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -31,13 +31,13 @@ bool TEnumTraits<::test::fixtures::python_capi::MyEnum>::findValue(std::string_v
 namespace apache { namespace thrift {
 
 folly::Range<::test::fixtures::python_capi::NormalDecentEnum const*> const TEnumTraits<::test::fixtures::python_capi::NormalDecentEnum>::values = folly::range(TEnumDataStorage<::test::fixtures::python_capi::NormalDecentEnum>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::test::fixtures::python_capi::NormalDecentEnum>::names = folly::range(TEnumDataStorage<::test::fixtures::python_capi::NormalDecentEnum>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::test::fixtures::python_capi::NormalDecentEnum>::names = folly::range(TEnumDataStorage<::test::fixtures::python_capi::NormalDecentEnum>::names);
 
-bool TEnumTraits<::test::fixtures::python_capi::NormalDecentEnum>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::test::fixtures::python_capi::NormalDecentEnum>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::test::fixtures::python_capi::NormalDecentEnum>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::test::fixtures::python_capi::NormalDecentEnum>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -49,7 +49,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::python_capi::MyStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::MyStruct>;
@@ -71,11 +71,11 @@ const char* MyStruct::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/MyStruct";
 }
 
-std::string_view MyStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MyStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MyStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MyStruct::__fbthrift_get_class_name() {
+const folly::StringPiece MyStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MyStruct>::name;
 }
 
@@ -233,7 +233,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::python_capi::MyDataItem>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::MyDataItem>;
@@ -255,11 +255,11 @@ const char* MyDataItem::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/MyDataItem";
 }
 
-std::string_view MyDataItem::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MyDataItem::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MyDataItem>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MyDataItem::__fbthrift_get_class_name() {
+const folly::StringPiece MyDataItem::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MyDataItem>::name;
 }
 
@@ -334,7 +334,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::python_capi::TransitiveDoubler>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::TransitiveDoubler>;
@@ -356,11 +356,11 @@ const char* TransitiveDoubler::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/TransitiveDoubler";
 }
 
-std::string_view TransitiveDoubler::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece TransitiveDoubler::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<TransitiveDoubler>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view TransitiveDoubler::__fbthrift_get_class_name() {
+const folly::StringPiece TransitiveDoubler::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<TransitiveDoubler>::name;
 }
 
@@ -409,7 +409,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::python_capi::detail::DoubledPair>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::detail::DoubledPair>;
@@ -432,11 +432,11 @@ const char* DoubledPair::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/DoubledPair";
 }
 
-std::string_view DoubledPair::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece DoubledPair::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<DoubledPair>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view DoubledPair::__fbthrift_get_class_name() {
+const folly::StringPiece DoubledPair::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<DoubledPair>::name;
 }
 
@@ -519,7 +519,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::python_capi::StringPair>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::StringPair>;
@@ -541,11 +541,11 @@ const char* StringPair::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/StringPair";
 }
 
-std::string_view StringPair::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece StringPair::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<StringPair>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view StringPair::__fbthrift_get_class_name() {
+const folly::StringPiece StringPair::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<StringPair>::name;
 }
 
@@ -641,7 +641,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::python_capi::VapidStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::VapidStruct>;
@@ -663,11 +663,11 @@ const char* VapidStruct::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/EmptyStruct";
 }
 
-std::string_view VapidStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece VapidStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<VapidStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view VapidStruct::__fbthrift_get_class_name() {
+const folly::StringPiece VapidStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<VapidStruct>::name;
 }
 
@@ -716,7 +716,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::python_capi::PrimitiveStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::PrimitiveStruct>;
@@ -738,11 +738,11 @@ const char* PrimitiveStruct::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/PrimitiveStruct";
 }
 
-std::string_view PrimitiveStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece PrimitiveStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<PrimitiveStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view PrimitiveStruct::__fbthrift_get_class_name() {
+const folly::StringPiece PrimitiveStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<PrimitiveStruct>::name;
 }
 
@@ -972,7 +972,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::python_capi::AdaptedFields>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::AdaptedFields>;
@@ -994,11 +994,11 @@ const char* AdaptedFields::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/AdaptedFields";
 }
 
-std::string_view AdaptedFields::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece AdaptedFields::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<AdaptedFields>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view AdaptedFields::__fbthrift_get_class_name() {
+const folly::StringPiece AdaptedFields::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<AdaptedFields>::name;
 }
 
@@ -1130,7 +1130,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::python_capi::ListStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::ListStruct>;
@@ -1152,11 +1152,11 @@ const char* ListStruct::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/ListStruct";
 }
 
-std::string_view ListStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece ListStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<ListStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view ListStruct::__fbthrift_get_class_name() {
+const folly::StringPiece ListStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<ListStruct>::name;
 }
 
@@ -1340,7 +1340,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::python_capi::SetStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::SetStruct>;
@@ -1362,11 +1362,11 @@ const char* SetStruct::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/SetStruct";
 }
 
-std::string_view SetStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece SetStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<SetStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view SetStruct::__fbthrift_get_class_name() {
+const folly::StringPiece SetStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<SetStruct>::name;
 }
 
@@ -1524,7 +1524,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::python_capi::MapStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::MapStruct>;
@@ -1546,11 +1546,11 @@ const char* MapStruct::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/MapStruct";
 }
 
-std::string_view MapStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MapStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MapStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MapStruct::__fbthrift_get_class_name() {
+const folly::StringPiece MapStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MapStruct>::name;
 }
 
@@ -1776,7 +1776,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::python_capi::ComposeStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::ComposeStruct>;
@@ -1798,11 +1798,11 @@ const char* ComposeStruct::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/ComposeStruct";
 }
 
-std::string_view ComposeStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece ComposeStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<ComposeStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view ComposeStruct::__fbthrift_get_class_name() {
+const folly::StringPiece ComposeStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<ComposeStruct>::name;
 }
 
@@ -2016,7 +2016,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::python_capi::Shallot>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::Shallot>;
@@ -2035,13 +2035,13 @@ void TccStructTraits<::test::fixtures::python_capi::Shallot>::translateFieldName
 namespace apache { namespace thrift {
 
 folly::Range<::test::fixtures::python_capi::Shallot::Type const*> const TEnumTraits<::test::fixtures::python_capi::Shallot::Type>::values = folly::range(TEnumDataStorage<::test::fixtures::python_capi::Shallot::Type>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::test::fixtures::python_capi::Shallot::Type>::names = folly::range(TEnumDataStorage<::test::fixtures::python_capi::Shallot::Type>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::test::fixtures::python_capi::Shallot::Type>::names = folly::range(TEnumDataStorage<::test::fixtures::python_capi::Shallot::Type>::names);
 
-bool TEnumTraits<::test::fixtures::python_capi::Shallot::Type>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::test::fixtures::python_capi::Shallot::Type>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::test::fixtures::python_capi::Shallot::Type>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::test::fixtures::python_capi::Shallot::Type>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 }} // apache::thrift
@@ -2051,11 +2051,11 @@ const char* Shallot::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/Onion";
 }
 
-std::string_view Shallot::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece Shallot::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<Shallot>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view Shallot::__fbthrift_get_class_name() {
+const folly::StringPiece Shallot::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<Shallot>::name;
 }
 
@@ -2205,7 +2205,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::python_capi::MyStructPatchStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::MyStructPatchStruct>;
@@ -2227,11 +2227,11 @@ const char* MyStructPatchStruct::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/MyStructPatch";
 }
 
-std::string_view MyStructPatchStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MyStructPatchStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MyStructPatchStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MyStructPatchStruct::__fbthrift_get_class_name() {
+const folly::StringPiece MyStructPatchStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MyStructPatchStruct>::name;
 }
 
@@ -2395,7 +2395,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::python_capi::MyStructField4PatchStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::MyStructField4PatchStruct>;
@@ -2417,11 +2417,11 @@ const char* MyStructField4PatchStruct::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/MyStructField4Patch";
 }
 
-std::string_view MyStructField4PatchStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MyStructField4PatchStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MyStructField4PatchStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MyStructField4PatchStruct::__fbthrift_get_class_name() {
+const folly::StringPiece MyStructField4PatchStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MyStructField4PatchStruct>::name;
 }
 
@@ -2482,7 +2482,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::python_capi::MyStructField6PatchStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::MyStructField6PatchStruct>;
@@ -2504,11 +2504,11 @@ const char* MyStructField6PatchStruct::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/MyStructField6Patch";
 }
 
-std::string_view MyStructField6PatchStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MyStructField6PatchStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MyStructField6PatchStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MyStructField6PatchStruct::__fbthrift_get_class_name() {
+const folly::StringPiece MyStructField6PatchStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MyStructField6PatchStruct>::name;
 }
 
@@ -2629,7 +2629,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::python_capi::MyStructField7PatchStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::MyStructField7PatchStruct>;
@@ -2651,11 +2651,11 @@ const char* MyStructField7PatchStruct::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/MyStructField7Patch";
 }
 
-std::string_view MyStructField7PatchStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MyStructField7PatchStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MyStructField7PatchStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MyStructField7PatchStruct::__fbthrift_get_class_name() {
+const folly::StringPiece MyStructField7PatchStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MyStructField7PatchStruct>::name;
 }
 
@@ -2833,7 +2833,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::python_capi::MyStructField8PatchStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::MyStructField8PatchStruct>;
@@ -2855,11 +2855,11 @@ const char* MyStructField8PatchStruct::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/MyStructField8Patch";
 }
 
-std::string_view MyStructField8PatchStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MyStructField8PatchStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MyStructField8PatchStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MyStructField8PatchStruct::__fbthrift_get_class_name() {
+const folly::StringPiece MyStructField8PatchStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MyStructField8PatchStruct>::name;
 }
 
@@ -2980,7 +2980,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::python_capi::MyStructFieldPatchStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::MyStructFieldPatchStruct>;
@@ -3002,11 +3002,11 @@ const char* MyStructFieldPatchStruct::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/MyStructFieldPatch";
 }
 
-std::string_view MyStructFieldPatchStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MyStructFieldPatchStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MyStructFieldPatchStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MyStructFieldPatchStruct::__fbthrift_get_class_name() {
+const folly::StringPiece MyStructFieldPatchStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MyStructFieldPatchStruct>::name;
 }
 
@@ -3222,7 +3222,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::python_capi::MyStructEnsureStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::MyStructEnsureStruct>;
@@ -3244,11 +3244,11 @@ const char* MyStructEnsureStruct::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/MyStructEnsureStruct";
 }
 
-std::string_view MyStructEnsureStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MyStructEnsureStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MyStructEnsureStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MyStructEnsureStruct::__fbthrift_get_class_name() {
+const folly::StringPiece MyStructEnsureStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MyStructEnsureStruct>::name;
 }
 
@@ -3403,124 +3403,8 @@ namespace apache {
 namespace thrift {
 namespace detail {
 
-void TccStructTraits<::test::fixtures::python_capi::MyStructSafePatch>::translateFieldName(
-    std::string_view _fname,
-    int16_t& fid,
-    apache::thrift::protocol::TType& _ftype) noexcept {
-  using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::MyStructSafePatch>;
-  static const st::translate_field_name_table table{
-      data::fields_size,
-      data::fields_names.data(),
-      data::fields_ids.data(),
-      data::fields_types.data()};
-  st::translate_field_name(_fname, fid, _ftype, table);
-}
-
-} // namespace detail
-} // namespace thrift
-} // namespace apache
-
-namespace test { namespace fixtures { namespace python_capi {
-
-const char* MyStructSafePatch::__fbthrift_thrift_uri() {
-  return "test.dev/fixtures/python_capi/MyStructSafePatch";
-}
-
-std::string_view MyStructSafePatch::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
-  if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
-  return apache::thrift::TStructDataStorage<MyStructSafePatch>::fields_names[folly::to_underlying(ord) - 1];
-}
-std::string_view MyStructSafePatch::__fbthrift_get_class_name() {
-  return apache::thrift::TStructDataStorage<MyStructSafePatch>::name;
-}
-
-MyStructSafePatch::MyStructSafePatch(const MyStructSafePatch& srcObj) :
-    __fbthrift_field_version(srcObj.__fbthrift_field_version),
-    __fbthrift_field_data(::apache::thrift::detail::st::copy_field<
-          ::apache::thrift::type_class::binary>(srcObj.__fbthrift_field_data)) {
-}
-
-static void __fbthrift_swap(MyStructSafePatch& lhs, MyStructSafePatch& rhs) { swap(lhs, rhs); }
-MyStructSafePatch& MyStructSafePatch::operator=(const MyStructSafePatch& other) {
-  MyStructSafePatch tmp(other);
-  __fbthrift_swap(*this, tmp);
-  return *this;
-}
-
-MyStructSafePatch::MyStructSafePatch() :
-      __fbthrift_field_version() {
-}
-
-
-MyStructSafePatch::~MyStructSafePatch() {}
-
-MyStructSafePatch::MyStructSafePatch([[maybe_unused]] MyStructSafePatch&& other) noexcept :
-    __fbthrift_field_version(std::move(other.__fbthrift_field_version)),
-    __fbthrift_field_data(std::move(other.__fbthrift_field_data)) {
-}
-
-MyStructSafePatch& MyStructSafePatch::operator=([[maybe_unused]] MyStructSafePatch&& other) noexcept {
-    this->__fbthrift_field_version = std::move(other.__fbthrift_field_version);
-    this->__fbthrift_field_data = std::move(other.__fbthrift_field_data);
-    return *this;
-}
-
-
-MyStructSafePatch::MyStructSafePatch(apache::thrift::FragileConstructor, ::std::int32_t version__arg, std::unique_ptr<folly::IOBuf> data__arg) :
-    __fbthrift_field_version(std::move(version__arg)),
-    __fbthrift_field_data(std::move(data__arg)) {
-}
-
-
-void MyStructSafePatch::__fbthrift_clear() {
-  // clear all fields
-  this->__fbthrift_field_version = ::std::int32_t();
-  this->__fbthrift_field_data = apache::thrift::StringTraits<std::unique_ptr<folly::IOBuf>>::fromStringLiteral("");
-}
-
-void MyStructSafePatch::__fbthrift_clear_terse_fields() {
-  this->__fbthrift_field_version = ::std::int32_t();
-  this->__fbthrift_field_data = apache::thrift::StringTraits<std::unique_ptr<folly::IOBuf>>::fromStringLiteral("");
-}
-
-bool MyStructSafePatch::__fbthrift_is_empty() const {
-  return ::apache::thrift::op::isEmpty<::apache::thrift::type::i32_t>(this->__fbthrift_field_version) &&
- ::apache::thrift::op::isEmpty<::apache::thrift::type::cpp_type<std::unique_ptr<folly::IOBuf>, ::apache::thrift::type::binary_t>>(this->__fbthrift_field_data);
-}
-
-bool MyStructSafePatch::operator==([[maybe_unused]] const MyStructSafePatch& rhs) const {
-  return ::apache::thrift::op::detail::StructEquality{}(*this, rhs);
-}
-
-bool MyStructSafePatch::operator<([[maybe_unused]] const MyStructSafePatch& rhs) const {
-  return ::apache::thrift::op::detail::StructLessThan{}(*this, rhs);
-}
-
-
-void swap([[maybe_unused]] MyStructSafePatch& a, [[maybe_unused]] MyStructSafePatch& b) {
-  using ::std::swap;
-  swap(a.__fbthrift_field_version, b.__fbthrift_field_version);
-  swap(a.__fbthrift_field_data, b.__fbthrift_field_data);
-}
-
-template void MyStructSafePatch::readNoXfer<>(apache::thrift::BinaryProtocolReader*);
-template uint32_t MyStructSafePatch::write<>(apache::thrift::BinaryProtocolWriter*) const;
-template uint32_t MyStructSafePatch::serializedSize<>(apache::thrift::BinaryProtocolWriter const*) const;
-template uint32_t MyStructSafePatch::serializedSizeZC<>(apache::thrift::BinaryProtocolWriter const*) const;
-template void MyStructSafePatch::readNoXfer<>(apache::thrift::CompactProtocolReader*);
-template uint32_t MyStructSafePatch::write<>(apache::thrift::CompactProtocolWriter*) const;
-template uint32_t MyStructSafePatch::serializedSize<>(apache::thrift::CompactProtocolWriter const*) const;
-template uint32_t MyStructSafePatch::serializedSizeZC<>(apache::thrift::CompactProtocolWriter const*) const;
-
-
-}}} // test::fixtures::python_capi
-
-namespace apache {
-namespace thrift {
-namespace detail {
-
 void TccStructTraits<::test::fixtures::python_capi::MyDataItemPatchStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::MyDataItemPatchStruct>;
@@ -3542,11 +3426,11 @@ const char* MyDataItemPatchStruct::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/MyDataItemPatch";
 }
 
-std::string_view MyDataItemPatchStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MyDataItemPatchStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MyDataItemPatchStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MyDataItemPatchStruct::__fbthrift_get_class_name() {
+const folly::StringPiece MyDataItemPatchStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MyDataItemPatchStruct>::name;
 }
 
@@ -3710,7 +3594,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::python_capi::MyDataItemFieldPatchStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::MyDataItemFieldPatchStruct>;
@@ -3732,11 +3616,11 @@ const char* MyDataItemFieldPatchStruct::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/MyDataItemFieldPatch";
 }
 
-std::string_view MyDataItemFieldPatchStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MyDataItemFieldPatchStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MyDataItemFieldPatchStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MyDataItemFieldPatchStruct::__fbthrift_get_class_name() {
+const folly::StringPiece MyDataItemFieldPatchStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MyDataItemFieldPatchStruct>::name;
 }
 
@@ -3826,7 +3710,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::python_capi::MyDataItemEnsureStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::MyDataItemEnsureStruct>;
@@ -3848,11 +3732,11 @@ const char* MyDataItemEnsureStruct::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/python_capi/MyDataItemEnsureStruct";
 }
 
-std::string_view MyDataItemEnsureStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MyDataItemEnsureStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MyDataItemEnsureStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MyDataItemEnsureStruct::__fbthrift_get_class_name() {
+const folly::StringPiece MyDataItemEnsureStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MyDataItemEnsureStruct>::name;
 }
 
@@ -3918,122 +3802,6 @@ template void MyDataItemEnsureStruct::readNoXfer<>(apache::thrift::CompactProtoc
 template uint32_t MyDataItemEnsureStruct::write<>(apache::thrift::CompactProtocolWriter*) const;
 template uint32_t MyDataItemEnsureStruct::serializedSize<>(apache::thrift::CompactProtocolWriter const*) const;
 template uint32_t MyDataItemEnsureStruct::serializedSizeZC<>(apache::thrift::CompactProtocolWriter const*) const;
-
-
-}}} // test::fixtures::python_capi
-
-namespace apache {
-namespace thrift {
-namespace detail {
-
-void TccStructTraits<::test::fixtures::python_capi::MyDataItemSafePatch>::translateFieldName(
-    std::string_view _fname,
-    int16_t& fid,
-    apache::thrift::protocol::TType& _ftype) noexcept {
-  using data = apache::thrift::TStructDataStorage<::test::fixtures::python_capi::MyDataItemSafePatch>;
-  static const st::translate_field_name_table table{
-      data::fields_size,
-      data::fields_names.data(),
-      data::fields_ids.data(),
-      data::fields_types.data()};
-  st::translate_field_name(_fname, fid, _ftype, table);
-}
-
-} // namespace detail
-} // namespace thrift
-} // namespace apache
-
-namespace test { namespace fixtures { namespace python_capi {
-
-const char* MyDataItemSafePatch::__fbthrift_thrift_uri() {
-  return "test.dev/fixtures/python_capi/MyDataItemSafePatch";
-}
-
-std::string_view MyDataItemSafePatch::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
-  if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
-  return apache::thrift::TStructDataStorage<MyDataItemSafePatch>::fields_names[folly::to_underlying(ord) - 1];
-}
-std::string_view MyDataItemSafePatch::__fbthrift_get_class_name() {
-  return apache::thrift::TStructDataStorage<MyDataItemSafePatch>::name;
-}
-
-MyDataItemSafePatch::MyDataItemSafePatch(const MyDataItemSafePatch& srcObj) :
-    __fbthrift_field_version(srcObj.__fbthrift_field_version),
-    __fbthrift_field_data(::apache::thrift::detail::st::copy_field<
-          ::apache::thrift::type_class::binary>(srcObj.__fbthrift_field_data)) {
-}
-
-static void __fbthrift_swap(MyDataItemSafePatch& lhs, MyDataItemSafePatch& rhs) { swap(lhs, rhs); }
-MyDataItemSafePatch& MyDataItemSafePatch::operator=(const MyDataItemSafePatch& other) {
-  MyDataItemSafePatch tmp(other);
-  __fbthrift_swap(*this, tmp);
-  return *this;
-}
-
-MyDataItemSafePatch::MyDataItemSafePatch() :
-      __fbthrift_field_version() {
-}
-
-
-MyDataItemSafePatch::~MyDataItemSafePatch() {}
-
-MyDataItemSafePatch::MyDataItemSafePatch([[maybe_unused]] MyDataItemSafePatch&& other) noexcept :
-    __fbthrift_field_version(std::move(other.__fbthrift_field_version)),
-    __fbthrift_field_data(std::move(other.__fbthrift_field_data)) {
-}
-
-MyDataItemSafePatch& MyDataItemSafePatch::operator=([[maybe_unused]] MyDataItemSafePatch&& other) noexcept {
-    this->__fbthrift_field_version = std::move(other.__fbthrift_field_version);
-    this->__fbthrift_field_data = std::move(other.__fbthrift_field_data);
-    return *this;
-}
-
-
-MyDataItemSafePatch::MyDataItemSafePatch(apache::thrift::FragileConstructor, ::std::int32_t version__arg, std::unique_ptr<folly::IOBuf> data__arg) :
-    __fbthrift_field_version(std::move(version__arg)),
-    __fbthrift_field_data(std::move(data__arg)) {
-}
-
-
-void MyDataItemSafePatch::__fbthrift_clear() {
-  // clear all fields
-  this->__fbthrift_field_version = ::std::int32_t();
-  this->__fbthrift_field_data = apache::thrift::StringTraits<std::unique_ptr<folly::IOBuf>>::fromStringLiteral("");
-}
-
-void MyDataItemSafePatch::__fbthrift_clear_terse_fields() {
-  this->__fbthrift_field_version = ::std::int32_t();
-  this->__fbthrift_field_data = apache::thrift::StringTraits<std::unique_ptr<folly::IOBuf>>::fromStringLiteral("");
-}
-
-bool MyDataItemSafePatch::__fbthrift_is_empty() const {
-  return ::apache::thrift::op::isEmpty<::apache::thrift::type::i32_t>(this->__fbthrift_field_version) &&
- ::apache::thrift::op::isEmpty<::apache::thrift::type::cpp_type<std::unique_ptr<folly::IOBuf>, ::apache::thrift::type::binary_t>>(this->__fbthrift_field_data);
-}
-
-bool MyDataItemSafePatch::operator==([[maybe_unused]] const MyDataItemSafePatch& rhs) const {
-  return ::apache::thrift::op::detail::StructEquality{}(*this, rhs);
-}
-
-bool MyDataItemSafePatch::operator<([[maybe_unused]] const MyDataItemSafePatch& rhs) const {
-  return ::apache::thrift::op::detail::StructLessThan{}(*this, rhs);
-}
-
-
-void swap([[maybe_unused]] MyDataItemSafePatch& a, [[maybe_unused]] MyDataItemSafePatch& b) {
-  using ::std::swap;
-  swap(a.__fbthrift_field_version, b.__fbthrift_field_version);
-  swap(a.__fbthrift_field_data, b.__fbthrift_field_data);
-}
-
-template void MyDataItemSafePatch::readNoXfer<>(apache::thrift::BinaryProtocolReader*);
-template uint32_t MyDataItemSafePatch::write<>(apache::thrift::BinaryProtocolWriter*) const;
-template uint32_t MyDataItemSafePatch::serializedSize<>(apache::thrift::BinaryProtocolWriter const*) const;
-template uint32_t MyDataItemSafePatch::serializedSizeZC<>(apache::thrift::BinaryProtocolWriter const*) const;
-template void MyDataItemSafePatch::readNoXfer<>(apache::thrift::CompactProtocolReader*);
-template uint32_t MyDataItemSafePatch::write<>(apache::thrift::CompactProtocolWriter*) const;
-template uint32_t MyDataItemSafePatch::serializedSize<>(apache::thrift::CompactProtocolWriter const*) const;
-template uint32_t MyDataItemSafePatch::serializedSizeZC<>(apache::thrift::CompactProtocolWriter const*) const;
 
 
 }}} // test::fixtures::python_capi

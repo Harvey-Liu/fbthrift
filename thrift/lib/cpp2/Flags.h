@@ -76,18 +76,10 @@ getFlagObserver<std::string>(std::string_view name) {
 }
 
 template <typename T>
-class FlagWrapper;
-
-template <typename T>
-void registerFlagWrapper(std::string_view name, FlagWrapper<T>* wrapper);
-
-template <typename T>
 class FlagWrapper {
  public:
   FlagWrapper(std::string_view name, T defaultValue)
-      : name_(name), defaultValue_(std::move(defaultValue)) {
-    registerFlagWrapper<T>(name, this);
-  }
+      : name_(name), defaultValue_(std::move(defaultValue)) {}
 
   T get() { return get(ensureInit()); }
 
@@ -156,11 +148,12 @@ class FlagWrapper {
   folly::observer::SimpleObservable<std::optional<T>> mockObservable_{
       std::nullopt};
 };
+
 } // namespace detail
 
 #define THRIFT_FLAG_DEFINE(_name, _type, _default)                             \
   apache::thrift::detail::FlagWrapper<_type>& THRIFT_FLAG_WRAPPER__##_name() { \
-    static constexpr std::string_view flagName = #_name;                       \
+    static const std::string_view flagName = #_name;                       \
     static folly::Indestructible<apache::thrift::detail::FlagWrapper<_type>>   \
         flagWrapper(flagName, _default);                                       \
     return *flagWrapper;                                                       \
@@ -194,11 +187,5 @@ class FlagWrapper {
 #define THRIFT_FLAG_SET_MOCK(_name, _val) \
   THRIFT_FLAG_WRAPPER__##_name().setMockValue(_val)
 
-struct ThriftFlagInfo {
-  std::string name;
-  std::string currentValue;
-};
-
-std::vector<ThriftFlagInfo> getAllThriftFlags();
 } // namespace thrift
 } // namespace apache

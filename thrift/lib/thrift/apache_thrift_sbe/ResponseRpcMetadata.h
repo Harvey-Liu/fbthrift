@@ -1,4 +1,5 @@
-/* Generated @generated SBE (Simple Binary Encoding) message codec */
+// @generated using thrift/lib/thrift/generate-rpc-metadata-sbe.sh
+/* Generated SBE (Simple Binary Encoding) message codec */
 #ifndef _APACHE_THRIFT_SBE_RESPONSERPCMETADATA_CXX_H_
 #define _APACHE_THRIFT_SBE_RESPONSERPCMETADATA_CXX_H_
 
@@ -128,14 +129,14 @@ private:
      *       V0_OTHERMETADATA_1_OTHERMETADATAKEY_DONE -> V0_OTHERMETADATA_1_OTHERMETADATAKEY_DONE [label="  otherMetadata.otherMetadataValueLength()  "];
      *       V0_OTHERMETADATA_N_OTHERMETADATAKEY_DONE -> V0_OTHERMETADATA_N_OTHERMETADATAVALUE_DONE [label="  otherMetadata.otherMetadataValue(?)  "];
      *       V0_OTHERMETADATA_1_OTHERMETADATAKEY_DONE -> V0_OTHERMETADATA_1_OTHERMETADATAVALUE_DONE [label="  otherMetadata.otherMetadataValue(?)  "];
-     *       V0_OTHERMETADATA_N_OTHERMETADATAVALUE_DONE -> V0_OTHERMETADATA_N_BLOCK [label="  otherMetadata.next()\n  where count - newIndex > 1  "];
      *       V0_OTHERMETADATA_N -> V0_OTHERMETADATA_N_BLOCK [label="  otherMetadata.next()\n  where count - newIndex > 1  "];
-     *       V0_OTHERMETADATA_N_OTHERMETADATAVALUE_DONE -> V0_OTHERMETADATA_1_BLOCK [label="  otherMetadata.next()\n  where count - newIndex == 1  "];
+     *       V0_OTHERMETADATA_N_OTHERMETADATAVALUE_DONE -> V0_OTHERMETADATA_N_BLOCK [label="  otherMetadata.next()\n  where count - newIndex > 1  "];
      *       V0_OTHERMETADATA_N -> V0_OTHERMETADATA_1_BLOCK [label="  otherMetadata.next()\n  where count - newIndex == 1  "];
+     *       V0_OTHERMETADATA_N_OTHERMETADATAVALUE_DONE -> V0_OTHERMETADATA_1_BLOCK [label="  otherMetadata.next()\n  where count - newIndex == 1  "];
      *       V0_OTHERMETADATA_1_OTHERMETADATAVALUE_DONE -> V0_OTHERMETADATA_DONE [label="  otherMetadata.resetCountToIndex()  "];
-     *       V0_OTHERMETADATA_DONE -> V0_OTHERMETADATA_DONE [label="  otherMetadata.resetCountToIndex()  "];
-     *       V0_OTHERMETADATA_N_OTHERMETADATAVALUE_DONE -> V0_OTHERMETADATA_DONE [label="  otherMetadata.resetCountToIndex()  "];
      *       V0_OTHERMETADATA_N -> V0_OTHERMETADATA_DONE [label="  otherMetadata.resetCountToIndex()  "];
+     *       V0_OTHERMETADATA_N_OTHERMETADATAVALUE_DONE -> V0_OTHERMETADATA_DONE [label="  otherMetadata.resetCountToIndex()  "];
+     *       V0_OTHERMETADATA_DONE -> V0_OTHERMETADATA_DONE [label="  otherMetadata.resetCountToIndex()  "];
      *       V0_OTHERMETADATA_1_OTHERMETADATAVALUE_DONE -> V0_OTHERMETADATA_1_OTHERMETADATAVALUE_DONE [label="  exceptionMetadataLength()  "];
      *       V0_OTHERMETADATA_DONE -> V0_OTHERMETADATA_DONE [label="  exceptionMetadataLength()  "];
      *       V0_OTHERMETADATA_1_OTHERMETADATAVALUE_DONE -> V0_EXCEPTIONMETADATA_DONE [label="  exceptionMetadata(?)  "];
@@ -632,8 +633,8 @@ public:
             {
                 switch (codecState())
                 {
-                    case CodecState::V0_OTHERMETADATA_N_OTHERMETADATAVALUE_DONE:
                     case CodecState::V0_OTHERMETADATA_N:
+                    case CodecState::V0_OTHERMETADATA_N_OTHERMETADATAVALUE_DONE:
                         codecState(CodecState::V0_OTHERMETADATA_N_BLOCK);
                         break;
                     default:
@@ -647,8 +648,8 @@ public:
             {
                 switch (codecState())
                 {
-                    case CodecState::V0_OTHERMETADATA_N_OTHERMETADATAVALUE_DONE:
                     case CodecState::V0_OTHERMETADATA_N:
+                    case CodecState::V0_OTHERMETADATA_N_OTHERMETADATAVALUE_DONE:
                         codecState(CodecState::V0_OTHERMETADATA_1_BLOCK);
                         break;
                     default:
@@ -665,9 +666,9 @@ public:
             switch (codecState())
             {
                 case CodecState::V0_OTHERMETADATA_1_OTHERMETADATAVALUE_DONE:
-                case CodecState::V0_OTHERMETADATA_DONE:
-                case CodecState::V0_OTHERMETADATA_N_OTHERMETADATAVALUE_DONE:
                 case CodecState::V0_OTHERMETADATA_N:
+                case CodecState::V0_OTHERMETADATA_N_OTHERMETADATAVALUE_DONE:
+                case CodecState::V0_OTHERMETADATA_DONE:
                     codecState(CodecState::V0_OTHERMETADATA_DONE);
                     break;
                 default:
@@ -704,7 +705,7 @@ public:
         {
             if (SBE_BOUNDS_CHECK_EXPECT((position > m_bufferLength), false))
             {
-                throw std::runtime_error("buffer too short [E100]OtherMetadata");
+                throw std::runtime_error("buffer too short [E100]");
             }
             return position;
         }
@@ -728,7 +729,7 @@ public:
         {
             if (m_index >= m_count)
             {
-                throw std::runtime_error("index >= count [E108] in OtherMetadata");
+                throw std::runtime_error("index >= count [E108]");
             }
 #if defined(SBE_ENABLE_PRECEDENCE_CHECKS)
             onNextElementAccessed();
@@ -736,7 +737,7 @@ public:
             m_offset = *m_positionPtr;
             if (SBE_BOUNDS_CHECK_EXPECT(((m_offset + m_blockLength) > m_bufferLength), false))
             {
-                throw std::runtime_error("buffer too short for next group index [E108] in OtherMetadata");
+                throw std::runtime_error("buffer too short for next group index [E108]");
             }
             *m_positionPtr = m_offset + m_blockLength;
             ++m_index;
@@ -891,25 +892,6 @@ public:
             return bytesToCopy;
         }
 
-        char* putOtherMetadataKey(const std::uint32_t length)
-        {
-#if defined(SBE_ENABLE_PRECEDENCE_CHECKS)
-            onOtherMetadataKeyAccessed();
-#endif
-            std::uint64_t lengthOfLengthField = 4;
-            std::uint64_t lengthPosition = sbePosition();
-            std::uint32_t lengthFieldValue = SBE_LITTLE_ENDIAN_ENCODE_32(length);
-            sbePosition(lengthPosition + lengthOfLengthField);
-            std::memcpy(m_buffer + lengthPosition, &lengthFieldValue, sizeof(std::uint32_t));
-            if (length != std::uint32_t(0))
-            {
-                std::uint64_t pos = sbePosition();
-                sbePosition(pos + length);
-                return m_buffer + pos;
-            }
-            return nullptr;
-        }
-
         OtherMetadata &putOtherMetadataKey(const char *src, const std::uint32_t length)
         {
 #if defined(SBE_ENABLE_PRECEDENCE_CHECKS)
@@ -1005,7 +987,7 @@ public:
         {
             if (str.length() > 1073741824)
             {
-                throw std::runtime_error("std::string too long for length type [E109] in OtherMetadata");
+                throw std::runtime_error("std::string too long for length type [E109]");
             }
             return putOtherMetadataKey(str.data(), static_cast<std::uint32_t>(str.length()));
         }
@@ -1015,7 +997,7 @@ public:
         {
             if (str.length() > 1073741824)
             {
-                throw std::runtime_error("std::string too long for length type [E109] in OtherMetadata");
+                throw std::runtime_error("std::string too long for length type [E109]");
             }
             return putOtherMetadataKey(str.data(), static_cast<std::uint32_t>(str.length()));
         }
@@ -1147,25 +1129,6 @@ public:
             return bytesToCopy;
         }
 
-        char* putOtherMetadataValue(const std::uint32_t length)
-        {
-#if defined(SBE_ENABLE_PRECEDENCE_CHECKS)
-            onOtherMetadataValueAccessed();
-#endif
-            std::uint64_t lengthOfLengthField = 4;
-            std::uint64_t lengthPosition = sbePosition();
-            std::uint32_t lengthFieldValue = SBE_LITTLE_ENDIAN_ENCODE_32(length);
-            sbePosition(lengthPosition + lengthOfLengthField);
-            std::memcpy(m_buffer + lengthPosition, &lengthFieldValue, sizeof(std::uint32_t));
-            if (length != std::uint32_t(0))
-            {
-                std::uint64_t pos = sbePosition();
-                sbePosition(pos + length);
-                return m_buffer + pos;
-            }
-            return nullptr;
-        }
-
         OtherMetadata &putOtherMetadataValue(const char *src, const std::uint32_t length)
         {
 #if defined(SBE_ENABLE_PRECEDENCE_CHECKS)
@@ -1261,7 +1224,7 @@ public:
         {
             if (str.length() > 1073741824)
             {
-                throw std::runtime_error("std::string too long for length type [E109] in OtherMetadata");
+                throw std::runtime_error("std::string too long for length type [E109]");
             }
             return putOtherMetadataValue(str.data(), static_cast<std::uint32_t>(str.length()));
         }
@@ -1271,7 +1234,7 @@ public:
         {
             if (str.length() > 1073741824)
             {
-                throw std::runtime_error("std::string too long for length type [E109] in OtherMetadata");
+                throw std::runtime_error("std::string too long for length type [E109]");
             }
             return putOtherMetadataValue(str.data(), static_cast<std::uint32_t>(str.length()));
         }
@@ -1319,14 +1282,14 @@ public:
             length += otherMetadataKeyHeaderLength();
             if (otherMetadataKeyLength > 1073741824LL)
             {
-                throw std::runtime_error("otherMetadataKeyLength too long for length type [E109]  in ResponseRpcMetadata");
+                throw std::runtime_error("otherMetadataKeyLength too long for length type [E109]");
             }
             length += otherMetadataKeyLength;
 
             length += otherMetadataValueHeaderLength();
             if (otherMetadataValueLength > 1073741824LL)
             {
-                throw std::runtime_error("otherMetadataValueLength too long for length type [E109]  in ResponseRpcMetadata");
+                throw std::runtime_error("otherMetadataValueLength too long for length type [E109]");
             }
             length += otherMetadataValueLength;
 
@@ -1532,25 +1495,6 @@ public:
         return bytesToCopy;
     }
 
-    char* putExceptionMetadata(const std::uint32_t length)
-    {
-#if defined(SBE_ENABLE_PRECEDENCE_CHECKS)
-        onExceptionMetadataAccessed();
-#endif
-        std::uint64_t lengthOfLengthField = 4;
-        std::uint64_t lengthPosition = sbePosition();
-        std::uint32_t lengthFieldValue = SBE_LITTLE_ENDIAN_ENCODE_32(length);
-        sbePosition(lengthPosition + lengthOfLengthField);
-        std::memcpy(m_buffer + lengthPosition, &lengthFieldValue, sizeof(std::uint32_t));
-        if (length != std::uint32_t(0))
-        {
-            std::uint64_t pos = sbePosition();
-            sbePosition(pos + length);
-            return m_buffer + pos;
-        }
-        return nullptr;
-    }
-
     ResponseRpcMetadata &putExceptionMetadata(const char *src, const std::uint32_t length)
     {
 #if defined(SBE_ENABLE_PRECEDENCE_CHECKS)
@@ -1646,7 +1590,7 @@ public:
     {
         if (str.length() > 1073741824)
         {
-            throw std::runtime_error("std::string too long for length type [E109] in ResponseRpcMetadata");
+            throw std::runtime_error("std::string too long for length type [E109]");
         }
         return putExceptionMetadata(str.data(), static_cast<std::uint32_t>(str.length()));
     }
@@ -1656,7 +1600,7 @@ public:
     {
         if (str.length() > 1073741824)
         {
-            throw std::runtime_error("std::string too long for length type [E109] in ResponseRpcMetadata");
+            throw std::runtime_error("std::string too long for length type [E109]");
         }
         return putExceptionMetadata(str.data(), static_cast<std::uint32_t>(str.length()));
     }
@@ -1783,25 +1727,6 @@ public:
         return bytesToCopy;
     }
 
-    char* putOptionalMetadata(const std::uint32_t length)
-    {
-#if defined(SBE_ENABLE_PRECEDENCE_CHECKS)
-        onOptionalMetadataAccessed();
-#endif
-        std::uint64_t lengthOfLengthField = 4;
-        std::uint64_t lengthPosition = sbePosition();
-        std::uint32_t lengthFieldValue = SBE_LITTLE_ENDIAN_ENCODE_32(length);
-        sbePosition(lengthPosition + lengthOfLengthField);
-        std::memcpy(m_buffer + lengthPosition, &lengthFieldValue, sizeof(std::uint32_t));
-        if (length != std::uint32_t(0))
-        {
-            std::uint64_t pos = sbePosition();
-            sbePosition(pos + length);
-            return m_buffer + pos;
-        }
-        return nullptr;
-    }
-
     ResponseRpcMetadata &putOptionalMetadata(const char *src, const std::uint32_t length)
     {
 #if defined(SBE_ENABLE_PRECEDENCE_CHECKS)
@@ -1897,7 +1822,7 @@ public:
     {
         if (str.length() > 1073741824)
         {
-            throw std::runtime_error("std::string too long for length type [E109] in ResponseRpcMetadata");
+            throw std::runtime_error("std::string too long for length type [E109]");
         }
         return putOptionalMetadata(str.data(), static_cast<std::uint32_t>(str.length()));
     }
@@ -1907,7 +1832,7 @@ public:
     {
         if (str.length() > 1073741824)
         {
-            throw std::runtime_error("std::string too long for length type [E109] in ResponseRpcMetadata");
+            throw std::runtime_error("std::string too long for length type [E109]");
         }
         return putOptionalMetadata(str.data(), static_cast<std::uint32_t>(str.length()));
     }
@@ -1995,7 +1920,7 @@ SBE_NODISCARD static std::size_t computeLength(
     length += OtherMetadata::sbeHeaderSize();
     if (otherMetadataItemLengths.size() > 65534LL)
     {
-        throw std::runtime_error("otherMetadataItemLengths.size() outside of allowed range [E110] in ResponseRpcMetadata");
+        throw std::runtime_error("otherMetadataItemLengths.size() outside of allowed range [E110]");
     }
 
     for (const auto &e: otherMetadataItemLengths)
@@ -2010,14 +1935,14 @@ SBE_NODISCARD static std::size_t computeLength(
     length += exceptionMetadataHeaderLength();
     if (exceptionMetadataLength > 1073741824LL)
     {
-        throw std::runtime_error("exceptionMetadataLength too long for length type [E109]  in ResponseRpcMetadata");
+        throw std::runtime_error("exceptionMetadataLength too long for length type [E109]");
     }
     length += exceptionMetadataLength;
 
     length += optionalMetadataHeaderLength();
     if (optionalMetadataLength > 1073741824LL)
     {
-        throw std::runtime_error("optionalMetadataLength too long for length type [E109]  in ResponseRpcMetadata");
+        throw std::runtime_error("optionalMetadataLength too long for length type [E109]");
     }
     length += optionalMetadataLength;
 
@@ -2027,8 +1952,6 @@ SBE_NODISCARD static std::size_t computeLength(
 #endif
 }
 };
-// prevent double free error
-#if defined(SBE_ENABLE_PRECEDENCE_CHECKS)
 
 const std::string ResponseRpcMetadata::STATE_NAME_LOOKUP[12] =
 {
@@ -2062,7 +1985,6 @@ const std::string ResponseRpcMetadata::STATE_TRANSITIONS_LOOKUP[12] =
     "",
 };
 
-#endif
 }
 }
 }

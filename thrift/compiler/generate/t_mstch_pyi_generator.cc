@@ -15,14 +15,13 @@
  */
 
 #include <algorithm>
-#include <filesystem>
 #include <memory>
 #include <set>
 #include <stdexcept>
 #include <string>
 
+#include <boost/algorithm/string/join.hpp>
 #include <boost/algorithm/string/replace.hpp>
-#include <fmt/format.h>
 
 #include <thrift/compiler/ast/t_program.h>
 #include <thrift/compiler/ast/t_type.h>
@@ -183,9 +182,8 @@ std::vector<std::string> gather_import_modules(
     }
 
     if (has_types(prog)) {
-      import_modules.push_back(fmt::format(
-          "{}",
-          fmt::join(get_py_namespaces_raw(prog, is_asyncio, "ttypes"), ".")));
+      import_modules.push_back(boost::algorithm::join(
+          get_py_namespaces_raw(prog, is_asyncio, "ttypes"), "."));
     }
   }
 
@@ -561,7 +559,7 @@ class t_mstch_pyi_generator : public t_mstch_generator {
   void generate_program() override;
 
  private:
-  std::filesystem::path root_path_;
+  boost::filesystem::path root_path_;
 
   bool should_resolve_typedefs() const override { return true; }
 
@@ -572,9 +570,9 @@ class t_mstch_pyi_generator : public t_mstch_generator {
   void generate_services();
   void render_file(
       const std::string& template_name,
-      const std::filesystem::path& path,
+      const boost::filesystem::path& path,
       const t_service* service = nullptr);
-  std::filesystem::path get_root_path() const;
+  boost::filesystem::path get_root_path() const;
 };
 
 void t_mstch_pyi_generator::generate_program() {
@@ -598,7 +596,7 @@ void t_mstch_pyi_generator::create_factories() {
 }
 
 void t_mstch_pyi_generator::generate_init_files() {
-  std::filesystem::path directory;
+  boost::filesystem::path directory;
   for (const auto& part : this->root_path_) {
     directory /= part;
 
@@ -627,7 +625,7 @@ void t_mstch_pyi_generator::generate_services() {
 
 void t_mstch_pyi_generator::render_file(
     const std::string& template_name,
-    const std::filesystem::path& path,
+    const boost::filesystem::path& path,
     const t_service* service) {
   auto mstchObject = (service == nullptr)
       ? make_mstch_program_cached(
@@ -638,15 +636,15 @@ void t_mstch_pyi_generator::render_file(
   t_mstch_generator::render_to_file(mstchObject, template_name, path);
 }
 
-std::filesystem::path t_mstch_pyi_generator::get_root_path() const {
-  std::filesystem::path path;
+boost::filesystem::path t_mstch_pyi_generator::get_root_path() const {
+  boost::filesystem::path path;
 
   auto namespaces = get_py_namespaces_raw(
       this->get_program(), t_mstch_generator::has_option("asyncio"));
   for (const auto& ns : namespaces) {
     path /= ns;
   }
-  path += std::filesystem::path::preferred_separator;
+  path += boost::filesystem::path::preferred_separator;
 
   return path;
 }

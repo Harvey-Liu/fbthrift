@@ -15,13 +15,13 @@
 namespace apache { namespace thrift {
 
 folly::Range<::facebook::thrift::test::terse_write::deprecated::MyEnum const*> const TEnumTraits<::facebook::thrift::test::terse_write::deprecated::MyEnum>::values = folly::range(TEnumDataStorage<::facebook::thrift::test::terse_write::deprecated::MyEnum>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::facebook::thrift::test::terse_write::deprecated::MyEnum>::names = folly::range(TEnumDataStorage<::facebook::thrift::test::terse_write::deprecated::MyEnum>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::facebook::thrift::test::terse_write::deprecated::MyEnum>::names = folly::range(TEnumDataStorage<::facebook::thrift::test::terse_write::deprecated::MyEnum>::names);
 
-bool TEnumTraits<::facebook::thrift::test::terse_write::deprecated::MyEnum>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::facebook::thrift::test::terse_write::deprecated::MyEnum>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::facebook::thrift::test::terse_write::deprecated::MyEnum>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::facebook::thrift::test::terse_write::deprecated::MyEnum>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -33,7 +33,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::facebook::thrift::test::terse_write::deprecated::MyStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::facebook::thrift::test::terse_write::deprecated::MyStruct>;
@@ -55,11 +55,11 @@ const char* MyStruct::__fbthrift_thrift_uri() {
   return "facebook.com/thrift/test/terse_write/deprecated/MyStruct";
 }
 
-std::string_view MyStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MyStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MyStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MyStruct::__fbthrift_get_class_name() {
+const folly::StringPiece MyStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MyStruct>::name;
 }
 
@@ -108,7 +108,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::facebook::thrift::test::terse_write::deprecated::StructLevelTerseStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::facebook::thrift::test::terse_write::deprecated::StructLevelTerseStruct>;
@@ -130,11 +130,11 @@ const char* StructLevelTerseStruct::__fbthrift_thrift_uri() {
   return "facebook.com/thrift/test/terse_write/deprecated/StructLevelTerseStruct";
 }
 
-std::string_view StructLevelTerseStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece StructLevelTerseStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<StructLevelTerseStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view StructLevelTerseStruct::__fbthrift_get_class_name() {
+const folly::StringPiece StructLevelTerseStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<StructLevelTerseStruct>::name;
 }
 
@@ -340,7 +340,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::facebook::thrift::test::terse_write::deprecated::FieldLevelTerseStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::facebook::thrift::test::terse_write::deprecated::FieldLevelTerseStruct>;
@@ -362,11 +362,11 @@ const char* FieldLevelTerseStruct::__fbthrift_thrift_uri() {
   return "facebook.com/thrift/test/terse_write/deprecated/FieldLevelTerseStruct";
 }
 
-std::string_view FieldLevelTerseStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece FieldLevelTerseStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<FieldLevelTerseStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view FieldLevelTerseStruct::__fbthrift_get_class_name() {
+const folly::StringPiece FieldLevelTerseStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<FieldLevelTerseStruct>::name;
 }
 

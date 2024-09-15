@@ -125,7 +125,7 @@ TEST(UniversalNameTest, ValidateUniversalHashBytes) {
 TEST(UniversalNameTest, UniversalHashSha2_256) {
   // The digest should include the fbthrift:// prefix.
   std::string expected(EVP_MAX_MD_SIZE, 0);
-  constexpr std::string_view message = "fbthrift://foo.com/my/type";
+  const std::string_view message = "fbthrift://foo.com/my/type";
   uint32_t size;
   EXPECT_TRUE(EVP_Digest(
       message.data(),

@@ -18,13 +18,14 @@
 
 #include <algorithm>
 #include <cctype>
-#include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
 #include <string>
 #include <vector>
+
+#include <boost/filesystem.hpp>
 
 using namespace std;
 
@@ -48,7 +49,7 @@ void t_java_deprecated_generator::init_generator() {
   out_dir_base_ = "gen-javadeprecated";
 
   // Make output directory
-  std::filesystem::create_directory(get_out_dir());
+  boost::filesystem::create_directory(get_out_dir());
   namespace_key_ = "java";
   package_name_ = program_->get_namespace(namespace_key_);
 
@@ -57,12 +58,12 @@ void t_java_deprecated_generator::init_generator() {
   string::size_type loc;
   while ((loc = dir.find('.')) != string::npos) {
     subdir = subdir + "/" + dir.substr(0, loc);
-    std::filesystem::create_directory(subdir);
+    boost::filesystem::create_directory(subdir);
     dir = dir.substr(loc + 1);
   }
   if (dir.size() > 0) {
     subdir = subdir + "/" + dir;
-    std::filesystem::create_directory(subdir);
+    boost::filesystem::create_directory(subdir);
   }
 
   package_dir_ = subdir;

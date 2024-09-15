@@ -73,7 +73,7 @@ func (c ConnInfo) TLS() *tls.ConnectionState {
 
 // WithConnInfo adds connection info (from a thrift.Transport) to context, if applicable
 func WithConnInfo(ctx context.Context, client Transport) context.Context {
-	s, ok := client.(*socket)
+	s, ok := client.(*Socket)
 	if !ok {
 		return ctx
 	}

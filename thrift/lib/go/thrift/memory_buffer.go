@@ -26,6 +26,24 @@ type MemoryBuffer struct {
 	size int
 }
 
+type MemoryBufferTransportFactory struct {
+	size int
+}
+
+func (p *MemoryBufferTransportFactory) GetTransport(trans Transport) Transport {
+	if trans != nil {
+		t, ok := trans.(*MemoryBuffer)
+		if ok && t.size > 0 {
+			return NewMemoryBufferLen(t.size)
+		}
+	}
+	return NewMemoryBufferLen(p.size)
+}
+
+func NewMemoryBufferTransportFactory(size int) *MemoryBufferTransportFactory {
+	return &MemoryBufferTransportFactory{size: size}
+}
+
 func NewMemoryBuffer() *MemoryBuffer {
 	return &MemoryBuffer{Buffer: &bytes.Buffer{}, size: 0}
 }

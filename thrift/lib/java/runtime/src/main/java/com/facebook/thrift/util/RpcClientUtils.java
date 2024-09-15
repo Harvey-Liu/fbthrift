@@ -109,8 +109,7 @@ public final class RpcClientUtils {
                 : unavailabilityCause.getMessage();
         throw new UnsupportedOperationException(
             String.format(
-                "Unsupported combination of EventLoopGroup-{%s} & SocketAddress-{%s}. Likely due to"
-                    + " system support for Epoll unavailable due to {%s}",
+                "Unsupported combination of EventLoopGroup-{%s} & SocketAddress-{%s}. Likely due to system support for Epoll unavailable due to {%s}",
                 group.getClass(), socketAddress.getClass(), errorMsg),
             unavailabilityCause);
       }
@@ -124,8 +123,7 @@ public final class RpcClientUtils {
                 : unavailabilityCause.getMessage();
         throw new UnsupportedOperationException(
             String.format(
-                "Unsupported combination of EventLoopGroup-{%s} & SocketAddress-{%s}. Likely due to"
-                    + " system support for Kqueue unavailable due to {%s}.",
+                "Unsupported combination of EventLoopGroup-{%s} & SocketAddress-{%s}. Likely due to system support for Kqueue unavailable due to {%s}.",
                 group.getClass(), socketAddress.getClass(), errorMsg),
             unavailabilityCause);
       }

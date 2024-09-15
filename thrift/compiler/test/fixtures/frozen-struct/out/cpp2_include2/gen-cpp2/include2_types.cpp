@@ -17,7 +17,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::some::ns::IncludedB>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::some::ns::IncludedB>;
@@ -35,11 +35,11 @@ void TccStructTraits<::some::ns::IncludedB>::translateFieldName(
 
 namespace some { namespace ns {
 
-std::string_view IncludedB::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece IncludedB::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<IncludedB>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view IncludedB::__fbthrift_get_class_name() {
+const folly::StringPiece IncludedB::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<IncludedB>::name;
 }
 

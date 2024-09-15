@@ -18,7 +18,7 @@ namespace detail {
 template <>
 struct TccStructTraits<::facebook::ns::qwerty::SomeStruct> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };

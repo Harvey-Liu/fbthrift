@@ -28,9 +28,7 @@ import reactor.core.Exceptions;
 import reactor.core.scheduler.Scheduler;
 import reactor.core.scheduler.Schedulers;
 
-/**
- * @author Stephane Maldini
- */
+/** @author Stephane Maldini */
 public abstract class AbstractSchedulerTest {
 
   protected abstract Scheduler scheduler();

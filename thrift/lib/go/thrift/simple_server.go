@@ -19,7 +19,6 @@ package thrift
 import (
 	"context"
 	"errors"
-	"fmt"
 	"runtime/debug"
 )
 
@@ -36,23 +35,27 @@ var ErrServerClosed = errors.New("thrift: Server closed")
 // connection are not supported, as the per-connection gofunc reads
 // the request, processes it, and writes the response serially
 type SimpleServer struct {
-	processorContext             ProcessorContext
+	processorFactoryContext      ProcessorFactoryContext
 	serverTransport              ServerTransport
-	newProtocol                  func(Transport) Protocol
+	transportFactory             TransportFactory
+	protocolFactory              ProtocolFactory
 	configurableRequestProcessor func(ctx context.Context, client Transport) error
 	*ServerOptions
 }
 
-// NewSimpleServer creates a new server that only supports Header Transport.
-func NewSimpleServer(processor ProcessorContext, serverTransport ServerTransport, transportType TransportID, options ...func(*ServerOptions)) *SimpleServer {
-	if transportType != TransportIDHeader {
-		panic(fmt.Sprintf("SimpleServer only supports Header Transport and not %s", transportType))
-	}
+// NewSimpleServer create a new server
+func NewSimpleServer(processor Processor, serverTransport ServerTransport, transportFactory TransportFactory, protocolFactory ProtocolFactory, options ...func(*ServerOptions)) *SimpleServer {
+	return NewSimpleServerContext(NewProcessorContextAdapter(processor), serverTransport, transportFactory, protocolFactory, options...)
+}
+
+// NewSimpleServerContext creates a new server that supports contexts
+func NewSimpleServerContext(processor ProcessorContext, serverTransport ServerTransport, transportFactory TransportFactory, protocolFactory ProtocolFactory, options ...func(*ServerOptions)) *SimpleServer {
 	return &SimpleServer{
-		processorContext: processor,
-		serverTransport:  serverTransport,
-		newProtocol:      NewHeaderProtocol,
-		ServerOptions:    simpleServerOptions(options...),
+		processorFactoryContext: NewProcessorFactoryContext(processor),
+		serverTransport:         serverTransport,
+		transportFactory:        transportFactory,
+		protocolFactory:         protocolFactory,
+		ServerOptions:           simpleServerOptions(options...),
 	}
 }
 
@@ -62,6 +65,11 @@ func simpleServerOptions(options ...func(*ServerOptions)) *ServerOptions {
 		option(opts)
 	}
 	return opts
+}
+
+// ProcessorFactoryContext returns the processor factory that supports contexts
+func (p *SimpleServer) ProcessorFactoryContext() ProcessorFactoryContext {
+	return p.processorFactoryContext
 }
 
 // ServerTransport returns the server transport
@@ -105,7 +113,7 @@ func (p *SimpleServer) AcceptLoopContext(ctx context.Context) error {
 }
 
 func (p *SimpleServer) addConnInfo(ctx context.Context, client Transport) context.Context {
-	if p.processorContext == nil {
+	if p.processorFactoryContext == nil {
 		return ctx
 	}
 	return WithConnInfo(ctx, client)
@@ -148,25 +156,46 @@ func (p *SimpleServer) processRequests(ctx context.Context, client Transport) er
 		return p.configurableRequestProcessor(ctx, client)
 	}
 
-	processor := p.processorContext
+	processor := p.processorFactoryContext.GetProcessorContext(client)
+	var (
+		inputTransport, outputTransport Transport
+		inputProtocol, outputProtocol   Protocol
+	)
 
-	protocol := p.newProtocol(client)
+	inputTransport = p.transportFactory.GetTransport(client)
 
-	// Store the protocol on the context so handlers can query headers.
+	// Special case for Header, it requires that the transport/protocol for
+	// input/output is the same object (to track session state).
+	if _, ok := inputTransport.(*HeaderTransport); ok {
+		outputTransport = nil
+		inputProtocol = p.protocolFactory.GetProtocol(inputTransport)
+		outputProtocol = inputProtocol
+	} else {
+		outputTransport = p.transportFactory.GetTransport(client)
+		inputProtocol = p.protocolFactory.GetProtocol(inputTransport)
+		outputProtocol = p.protocolFactory.GetProtocol(outputTransport)
+	}
+
+	// Store the input protocol on the context so handlers can query headers.
 	// See HeadersFromContext.
-	ctx = WithProtocol(ctx, protocol)
+	ctx = WithProtocol(ctx, inputProtocol)
 
 	defer func() {
 		if err := recover(); err != nil {
 			p.log.Printf("panic in processor: %v: %s", err, debug.Stack())
 		}
 	}()
-	defer protocol.Close()
+	if inputTransport != nil {
+		defer inputTransport.Close()
+	}
+	if outputTransport != nil {
+		defer outputTransport.Close()
+	}
 	intProcessor := WrapInterceptorContext(p.interceptor, processor)
 	for {
-		keepOpen, exc := processContext(ctx, intProcessor, protocol)
+		keepOpen, exc := ProcessContext(ctx, intProcessor, inputProtocol, outputProtocol)
 		if exc != nil {
-			protocol.Flush()
+			outputProtocol.Flush()
 			return exc
 		}
 		if !keepOpen {

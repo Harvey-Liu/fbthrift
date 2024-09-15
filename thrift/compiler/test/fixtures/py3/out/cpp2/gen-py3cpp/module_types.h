@@ -200,13 +200,17 @@ template <> struct TEnumTraits<::py3::simple::AnEnum> {
 
   static constexpr std::size_t const size = 5;
   static folly::Range<type const*> const values;
-  static folly::Range<std::string_view const*> const names;
+  static folly::Range<folly::StringPiece const*> const names;
 
-  static bool findName(type value, std::string_view* out) noexcept;
-  static bool findValue(std::string_view name, type* out) noexcept;
+  static bool findName(type value, folly::StringPiece* out) noexcept;
+  static bool findValue(folly::StringPiece name, type* out) noexcept;
 
+  static bool findName(type value, std::string_view* out) noexcept {
+    folly::StringPiece outp;
+    return findName(value, &outp) && ((*out = outp), true);
+  }
   static char const* findName(type value) noexcept {
-    std::string_view ret;
+    folly::StringPiece ret;
     (void)findName(value, &ret);
     return ret.data();
   }
@@ -222,13 +226,17 @@ template <> struct TEnumTraits<::py3::simple::AnEnumRenamed> {
 
   static constexpr std::size_t const size = 3;
   static folly::Range<type const*> const values;
-  static folly::Range<std::string_view const*> const names;
+  static folly::Range<folly::StringPiece const*> const names;
 
-  static bool findName(type value, std::string_view* out) noexcept;
-  static bool findValue(std::string_view name, type* out) noexcept;
+  static bool findName(type value, folly::StringPiece* out) noexcept;
+  static bool findValue(folly::StringPiece name, type* out) noexcept;
 
+  static bool findName(type value, std::string_view* out) noexcept {
+    folly::StringPiece outp;
+    return findName(value, &outp) && ((*out = outp), true);
+  }
   static char const* findName(type value) noexcept {
-    std::string_view ret;
+    folly::StringPiece ret;
     (void)findName(value, &ret);
     return ret.data();
   }
@@ -244,13 +252,17 @@ template <> struct TEnumTraits<::py3::simple::Flags> {
 
   static constexpr std::size_t const size = 4;
   static folly::Range<type const*> const values;
-  static folly::Range<std::string_view const*> const names;
+  static folly::Range<folly::StringPiece const*> const names;
 
-  static bool findName(type value, std::string_view* out) noexcept;
-  static bool findValue(std::string_view name, type* out) noexcept;
+  static bool findName(type value, folly::StringPiece* out) noexcept;
+  static bool findValue(folly::StringPiece name, type* out) noexcept;
 
+  static bool findName(type value, std::string_view* out) noexcept {
+    folly::StringPiece outp;
+    return findName(value, &outp) && ((*out = outp), true);
+  }
   static char const* findName(type value) noexcept {
-    std::string_view ret;
+    folly::StringPiece ret;
     (void)findName(value, &ret);
     return ret.data();
   }
@@ -303,8 +315,8 @@ class SimpleStruct final  {
   //  used by a static_assert in the corresponding source
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::is_on,
     ::apache::thrift::ident::tiny_int,
@@ -839,8 +851,8 @@ class AdaptedUnion final  {
   //  used by a static_assert in the corresponding source
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::best
   >;
@@ -1035,8 +1047,8 @@ class FOLLY_EXPORT SimpleException : public virtual apache::thrift::TException {
   //  used by a static_assert in the corresponding source
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::err_code
   >;
@@ -1195,8 +1207,8 @@ class OptionalRefStruct final  {
   //  used by a static_assert in the corresponding source
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::optional_blob
   >;
@@ -1350,8 +1362,8 @@ class HiddenTypeFieldsStruct final  {
   //  used by a static_assert in the corresponding source
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::field1,
     ::apache::thrift::ident::field2,
@@ -1595,8 +1607,8 @@ class FOLLY_EXPORT HiddenException : public virtual apache::thrift::TException {
   //  used by a static_assert in the corresponding source
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::test
   >;
@@ -1755,8 +1767,8 @@ class ComplexStruct final  {
   //  used by a static_assert in the corresponding source
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::structOne,
     ::apache::thrift::ident::structTwo,
@@ -2360,8 +2372,8 @@ class BinaryUnion final  {
   //  used by a static_assert in the corresponding source
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::iobuf_val
   >;
@@ -2568,8 +2580,8 @@ class BinaryUnionStruct final  {
   //  used by a static_assert in the corresponding source
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::u
   >;
@@ -2714,13 +2726,17 @@ template <> struct TEnumTraits<::py3::simple::detail::AdaptedUnion::Type> {
 
   static constexpr std::size_t const size = 1;
   static folly::Range<type const*> const values;
-  static folly::Range<std::string_view const*> const names;
+  static folly::Range<folly::StringPiece const*> const names;
 
-  static bool findName(type value, std::string_view* out) noexcept;
-  static bool findValue(std::string_view name, type* out) noexcept;
+  static bool findName(type value, folly::StringPiece* out) noexcept;
+  static bool findValue(folly::StringPiece name, type* out) noexcept;
 
+  static bool findName(type value, std::string_view* out) noexcept {
+    folly::StringPiece outp;
+    return findName(value, &outp) && ((*out = outp), true);
+  }
   static char const* findName(type value) noexcept {
-    std::string_view ret;
+    folly::StringPiece ret;
     (void)findName(value, &ret);
     return ret.data();
   }
@@ -2733,13 +2749,17 @@ template <> struct TEnumTraits<::py3::simple::BinaryUnion::Type> {
 
   static constexpr std::size_t const size = 1;
   static folly::Range<type const*> const values;
-  static folly::Range<std::string_view const*> const names;
+  static folly::Range<folly::StringPiece const*> const names;
 
-  static bool findName(type value, std::string_view* out) noexcept;
-  static bool findValue(std::string_view name, type* out) noexcept;
+  static bool findName(type value, folly::StringPiece* out) noexcept;
+  static bool findValue(folly::StringPiece name, type* out) noexcept;
 
+  static bool findName(type value, std::string_view* out) noexcept {
+    folly::StringPiece outp;
+    return findName(value, &outp) && ((*out = outp), true);
+  }
   static char const* findName(type value) noexcept {
-    std::string_view ret;
+    folly::StringPiece ret;
     (void)findName(value, &ret);
     return ret.data();
   }

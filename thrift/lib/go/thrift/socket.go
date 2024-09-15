@@ -22,28 +22,18 @@ import (
 	"time"
 )
 
-// Socket is a Transport that can be opened and reopened.
-type Socket interface {
-	Transport
-	// Opens the transport for communication
-	Open() error
-
-	// Returns true if the transport is open
-	IsOpen() bool
-}
-
-type socket struct {
+type Socket struct {
 	conn    net.Conn
 	addr    net.Addr
 	timeout time.Duration
 }
 
 // SocketOption is the type used to set options on the socket
-type SocketOption func(*socket) error
+type SocketOption func(*Socket) error
 
 // SocketTimeout sets the timeout
 func SocketTimeout(timeout time.Duration) SocketOption {
-	return func(socket *socket) error {
+	return func(socket *Socket) error {
 		socket.timeout = timeout
 		return nil
 	}
@@ -51,7 +41,7 @@ func SocketTimeout(timeout time.Duration) SocketOption {
 
 // SocketAddr sets the socket address
 func SocketAddr(hostPort string) SocketOption {
-	return func(socket *socket) error {
+	return func(socket *Socket) error {
 		addr, err := net.ResolveTCPAddr("tcp6", hostPort)
 		if err != nil {
 			addr, err = net.ResolveTCPAddr("tcp", hostPort)
@@ -66,7 +56,7 @@ func SocketAddr(hostPort string) SocketOption {
 
 // SocketConn sets the socket connection
 func SocketConn(conn net.Conn) SocketOption {
-	return func(socket *socket) error {
+	return func(socket *Socket) error {
 		socket.conn = conn
 		socket.addr = conn.RemoteAddr()
 		return nil
@@ -77,8 +67,8 @@ func SocketConn(conn net.Conn) SocketOption {
 // or an existing connection.
 //
 //	trans, err := thrift.NewSocket(thrift.SocketAddr("localhost:9090"))
-func NewSocket(options ...SocketOption) (Socket, error) {
-	socket := &socket{}
+func NewSocket(options ...SocketOption) (*Socket, error) {
+	socket := &Socket{}
 
 	for _, option := range options {
 		err := option(socket)
@@ -95,12 +85,12 @@ func NewSocket(options ...SocketOption) (Socket, error) {
 }
 
 // Sets the socket timeout
-func (p *socket) SetTimeout(timeout time.Duration) error {
+func (p *Socket) SetTimeout(timeout time.Duration) error {
 	p.timeout = timeout
 	return nil
 }
 
-func (p *socket) pushDeadline(read, write bool) {
+func (p *Socket) pushDeadline(read, write bool) {
 	var t time.Time
 	if p.timeout > 0 {
 		t = time.Now().Add(time.Duration(p.timeout))
@@ -114,8 +104,8 @@ func (p *socket) pushDeadline(read, write bool) {
 	}
 }
 
-// Open connects the socket to a server, creating a new socket object if necessary.
-func (p *socket) Open() error {
+// Connects the socket, creating a new socket object if necessary.
+func (p *Socket) Open() error {
 	if p.IsOpen() {
 		return NewTransportException(ALREADY_OPEN, "Socket already connected.")
 	}
@@ -135,23 +125,21 @@ func (p *socket) Open() error {
 	return nil
 }
 
-// IsOpen checks to see if we've dialed already.
-func (p *socket) IsOpen() bool {
-	return p.conn != nil
-}
-
-// Addr returns the address the Socket is listening on.
-func (p *socket) Addr() net.Addr {
-	return p.addr
-}
-
-// Conn retrieves the underlying net.Conn
-func (p *socket) Conn() net.Conn {
+// Retrieve the underlying net.Conn
+func (p *Socket) Conn() net.Conn {
 	return p.conn
 }
 
-// Close cleans up all resources used by the Socket.
-func (p *socket) Close() error {
+// Returns true if the connection is open
+func (p *Socket) IsOpen() bool {
+	if p.conn == nil {
+		return false
+	}
+	return true
+}
+
+// Closes the socket.
+func (p *Socket) Close() error {
 	// Close the socket
 	if p.conn != nil {
 		err := p.conn.Close()
@@ -163,31 +151,39 @@ func (p *socket) Close() error {
 	return nil
 }
 
-func (p *socket) Read(buf []byte) (int, error) {
+// Addr returns the remote address of the socket.
+func (p *Socket) Addr() net.Addr {
+	return p.addr
+}
+
+func (p *Socket) Read(buf []byte) (int, error) {
 	if !p.IsOpen() {
-		return 0, NewTransportException(NOT_OPEN, "connection not open")
+		return 0, NewTransportException(NOT_OPEN, "Connection not open")
 	}
 	p.pushDeadline(true, false)
 	n, err := p.conn.Read(buf)
 	return n, NewTransportExceptionFromError(err)
 }
 
-func (p *socket) Write(buf []byte) (int, error) {
+func (p *Socket) Write(buf []byte) (int, error) {
 	if !p.IsOpen() {
-		return 0, NewTransportException(NOT_OPEN, "connection not open")
+		return 0, NewTransportException(NOT_OPEN, "Connection not open")
 	}
 	p.pushDeadline(false, true)
 	return p.conn.Write(buf)
 }
 
-// Flush is not implementable by lower-level transports but must still be kept
-// for interface compatibility with Thrift1.
-func (p *socket) Flush() error {
+func (p *Socket) Flush() error {
 	return nil
 }
 
-// RemainingBytes is not implementable by lower-level transports but must still
-// be kept for interface compatibility with Thrift1.
-func (p *socket) RemainingBytes() uint64 {
+func (p *Socket) Interrupt() error {
+	if !p.IsOpen() {
+		return nil
+	}
+	return p.conn.Close()
+}
+
+func (p *Socket) RemainingBytes() uint64 {
 	return UnknownRemaining // the truth is, we just don't know unless framed is used
 }

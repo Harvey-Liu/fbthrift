@@ -16,11 +16,12 @@
 
 #pragma once
 
-#include <filesystem>
 #include <map>
 #include <memory>
 #include <string>
 #include <unordered_set>
+
+#include <boost/filesystem.hpp>
 
 #include <thrift/compiler/sema/ast_validator.h>
 
@@ -70,7 +71,7 @@ class t_generator {
   void record_genfile(const std::string& filename) {
     generated_files_.insert(filename);
   }
-  void record_genfile(const std::filesystem::path& filename) {
+  void record_genfile(const boost::filesystem::path& filename) {
     generated_files_.insert(filename.string());
   }
 
@@ -78,12 +79,12 @@ class t_generator {
    * Get the current output directory
    */
   virtual std::string get_out_dir() const { return get_out_path().string(); }
-  virtual std::filesystem::path get_out_path() const {
-    auto path = std::filesystem::path{out_path_};
+  virtual boost::filesystem::path get_out_path() const {
+    auto path = boost::filesystem::path{out_path_};
     if (add_gen_dir_) {
       path /= out_dir_base_;
     }
-    path += std::filesystem::path::preferred_separator;
+    path += boost::filesystem::path::preferred_separator;
     return path;
   }
 

@@ -19,12 +19,12 @@ package thrift
 // A Serializer is used to turn a Struct in to a byte stream
 type Serializer struct {
 	Transport *MemoryBuffer
-	Protocol  Format
+	Protocol  Protocol
 }
 
 // WritableStruct is an interface used to encapsulate a message that can be written to a protocol
 type WritableStruct interface {
-	Write(p Format) error
+	Write(p Protocol) error
 }
 
 // WritableException is an interface used to encapsulate an exception that can be written to a protocol
@@ -41,35 +41,39 @@ type WritableResult interface {
 
 // Struct is the interface used to encapsulate a message that can be read and written to a protocol
 type Struct interface {
-	Write(p Format) error
-	Read(p Format) error
+	Write(p Protocol) error
+	Read(p Protocol) error
 }
 
 // NewSerializer create a new serializer using the binary protocol
 func NewSerializer() *Serializer {
 	transport := NewMemoryBufferLen(1024)
-	protocol := NewBinaryProtocolTransport(transport)
+	protocol := NewBinaryProtocolFactoryDefault().GetProtocol(transport)
+
 	return &Serializer{transport, protocol}
 }
 
 // NewCompactSerializer creates a new serializer using the compact protocol
 func NewCompactSerializer() *Serializer {
 	transport := NewMemoryBufferLen(1024)
-	protocol := NewCompactProtocol(transport)
+	protocol := NewCompactProtocolFactory().GetProtocol(transport)
+
 	return &Serializer{transport, protocol}
 }
 
 // NewJSONSerializer creates a new serializer using the JSON protocol
 func NewJSONSerializer() *Serializer {
 	transport := NewMemoryBufferLen(1024)
-	protocol := NewJSONProtocol(transport)
+	protocol := NewJSONProtocolFactory().GetProtocol(transport)
+
 	return &Serializer{transport, protocol}
 }
 
 // NewSimpleJSONSerializer creates a new serializer using the SimpleJSON protocol
 func NewSimpleJSONSerializer() *Serializer {
 	transport := NewMemoryBufferLen(1024)
-	protocol := NewSimpleJSONProtocol(transport)
+	protocol := NewSimpleJSONProtocolFactory().GetProtocol(transport)
+
 	return &Serializer{transport, protocol}
 }
 

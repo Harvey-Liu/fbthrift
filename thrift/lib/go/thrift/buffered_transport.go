@@ -20,9 +20,21 @@ import (
 	"bufio"
 )
 
+type BufferedTransportFactory struct {
+	size int
+}
+
 type BufferedTransport struct {
 	bufio.ReadWriter
 	tp Transport
+}
+
+func (p *BufferedTransportFactory) GetTransport(trans Transport) Transport {
+	return NewBufferedTransport(trans, p.size)
+}
+
+func NewBufferedTransportFactory(bufferSize int) *BufferedTransportFactory {
+	return &BufferedTransportFactory{size: bufferSize}
 }
 
 func NewBufferedTransport(trans Transport, bufferSize int) *BufferedTransport {
@@ -33,6 +45,14 @@ func NewBufferedTransport(trans Transport, bufferSize int) *BufferedTransport {
 		},
 		tp: trans,
 	}
+}
+
+func (p *BufferedTransport) IsOpen() bool {
+	return p.tp.IsOpen()
+}
+
+func (p *BufferedTransport) Open() (err error) {
+	return p.tp.Open()
 }
 
 func (p *BufferedTransport) Close() (err error) {

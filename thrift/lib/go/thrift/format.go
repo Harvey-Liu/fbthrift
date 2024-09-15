@@ -105,6 +105,9 @@ type Format interface {
 
 	Skip(fieldType Type) (err error)
 	Flush() (err error)
+
+	// TODO: Remove this once we have regenerated and started using Protocol instead of Format.
+	Close() error
 }
 
 // Compile time check that all serialization formats implement the interface.
@@ -117,12 +120,12 @@ var _ Format = (*DebugProtocol)(nil)
 // The maximum recursive depth the skip() function will traverse
 const DEFAULT_RECURSION_DEPTH = 64
 
-// SkipDefaultDepth skips over the next data element from the provided Protocol object.
+// SkipDefaultDepth skips over the next data element from the provided input Protocol object.
 func SkipDefaultDepth(prot Format, typeID Type) (err error) {
 	return Skip(prot, typeID, DEFAULT_RECURSION_DEPTH)
 }
 
-// Skip skips over the next data element from the provided Protocol object.
+// Skip skips over the next data element from the provided input Protocol object.
 func Skip(self Format, fieldType Type, maxDepth int) (err error) {
 	if maxDepth <= 0 {
 		return NewProtocolExceptionWithType(DEPTH_LIMIT, errors.New("Depth limit exceeded"))

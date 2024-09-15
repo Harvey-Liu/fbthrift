@@ -25,7 +25,7 @@ import (
 )
 
 func TestHeaderTransport(t *testing.T) {
-	trans := newHeaderTransport(NewMemoryBuffer())
+	trans := NewHeaderTransport(NewMemoryBuffer())
 	TransportTest(t, trans, trans)
 }
 
@@ -33,7 +33,7 @@ func TestHeaderTransport(t *testing.T) {
 // Reflect the result after going through the header pipeline, and make sure that:
 // The original proto could still read what it sent
 // Header found the correct protocol from the incoming frame
-func testHeaderToProto(t *testing.T, clientType ClientType, tmb *MemoryBuffer, proto Format, headertrans *headerTransport) {
+func testHeaderToProto(t *testing.T, clientType ClientType, tmb *MemoryBuffer, proto Protocol, headertrans *HeaderTransport) {
 	tFname, tTypeID, tID, tData := "func", CALL, int32(1), "ASDF"
 	err := proto.WriteMessageBegin(tFname, tTypeID, tID)
 	if err != nil {
@@ -105,7 +105,7 @@ func TestHeaderFramedBinary(t *testing.T) {
 	testHeaderToProto(
 		t, FramedDeprecated, tmb,
 		NewBinaryProtocol(NewFramedTransport(tmb), true, true),
-		newHeaderTransport(tmb),
+		NewHeaderTransport(tmb),
 	)
 }
 
@@ -114,7 +114,7 @@ func TestHeaderFramedCompact(t *testing.T) {
 	testHeaderToProto(
 		t, FramedCompact, tmb,
 		NewCompactProtocol(NewFramedTransport(tmb)),
-		newHeaderTransport(tmb),
+		NewHeaderTransport(tmb),
 	)
 }
 
@@ -122,9 +122,9 @@ func TestHeaderProtoID(t *testing.T) {
 	n := 1
 	tmb := NewMemoryBuffer()
 	// write transport
-	trans1 := newHeaderTransport(tmb)
+	trans1 := NewHeaderTransport(tmb)
 	// read transport
-	trans2 := newHeaderTransport(tmb)
+	trans2 := NewHeaderTransport(tmb)
 	targetID := ProtocolIDBinary
 
 	assertEq(t, DefaulprotoID, trans1.ProtocolID())
@@ -158,9 +158,9 @@ func TestHeaderHeaders(t *testing.T) {
 	n := 1
 	tmb := NewMemoryBuffer()
 	// write transport
-	trans1 := newHeaderTransport(tmb)
+	trans1 := NewHeaderTransport(tmb)
 	// read transport
-	trans2 := newHeaderTransport(tmb)
+	trans2 := NewHeaderTransport(tmb)
 
 	// make sure we don't barf reading header with no frame
 	_, ok := trans1.GetResponseHeader("something")
@@ -220,7 +220,7 @@ func TestHeaderHeaders(t *testing.T) {
 func TestHeaderRWSmall(t *testing.T) {
 	n := 1
 	tmb := NewMemoryBuffer()
-	trans := newHeaderTransport(tmb)
+	trans := NewHeaderTransport(tmb)
 	data := []byte("ASDFASDFASDF")
 
 	_, err := trans.Write(data)
@@ -283,7 +283,7 @@ func TestHeaderRWSmall(t *testing.T) {
 func TestHeaderZlib(t *testing.T) {
 	n := 1
 	tmb := NewMemoryBuffer()
-	trans := newHeaderTransport(tmb)
+	trans := NewHeaderTransport(tmb)
 	data := []byte("ASDFASDFASDFASDFASDFASDFASDFASDFASDFASDFASDFASDFASDFASDFASDF")
 	uncompressedlen := 30
 
@@ -327,7 +327,7 @@ func TestHeaderZlib(t *testing.T) {
 	}
 }
 
-func testRWOnce(t *testing.T, n int, data []byte, trans *headerTransport) {
+func testRWOnce(t *testing.T, n int, data []byte, trans *HeaderTransport) {
 	_, err := trans.Write(data)
 	if err != nil {
 		t.Fatalf("failed to write frame %d: %s", n, err)
@@ -354,7 +354,7 @@ func testRWOnce(t *testing.T, n int, data []byte, trans *headerTransport) {
 
 func TestHeaderTransportRWMultiple(t *testing.T) {
 	tmb := NewMemoryBuffer()
-	trans := newHeaderTransport(tmb)
+	trans := NewHeaderTransport(tmb)
 
 	// Test Junk Data
 	testRWOnce(t, 1, []byte("ASDF"), trans)
@@ -368,7 +368,7 @@ func BenchmarkHeaderFlush(b *testing.B) {
 
 	for n := 0; n < b.N; n++ {
 		tmb := NewMemoryBuffer()
-		trans1 := newHeaderTransport(tmb)
+		trans1 := NewHeaderTransport(tmb)
 
 		trans1.SetIdentity("localhost")
 		trans1.SetRequestHeader("thrift_protocol", "compact")

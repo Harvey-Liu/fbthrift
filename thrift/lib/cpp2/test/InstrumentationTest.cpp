@@ -990,33 +990,23 @@ class RegistryTests : public testing::TestWithParam<std::tuple<size_t, bool>> {
   }
 
   class MockRequest : public ResponseChannelRequest {
-    std::unique_ptr<server::ServerConfigsMock> serverConfigs =
-        std::make_unique<server::ServerConfigsMock>();
-
     Cpp2ConnContext mockConnCtx_;
     Cpp2RequestContext mockReqCtx_{&mockConnCtx_};
 
     // mock ResponseChannelRequest so that it keeps registry alive.
     std::shared_ptr<RequestsRegistry> registry_;
-    RequestStateMachine stateMachine_;
 
    public:
-    template <typename... Args>
-    static auto colocateWithDebugStub(
-        RequestsRegistry::DebugStubColocator& /* alloc */, Args&...) {
-      return [](auto&& /* make */) { return folly::unit; };
-    }
-
     MockRequest(
-        RequestsRegistry::ColocatedData<folly::Unit> colocationParams,
+        RequestsRegistry::DebugStub* stub,
         std::shared_ptr<RequestsRegistry> registry)
-        : registry_(std::move(registry)),
+        : registry_(registry),
           stateMachine_(
               true,
-              serverConfigs->getAdaptiveConcurrencyController(),
-              serverConfigs->getCPUConcurrencyController()) {
-      new (colocationParams.debugStubToInit) RequestsRegistry::DebugStub(
-          *registry_,
+              serverConfigs.getAdaptiveConcurrencyController(),
+              serverConfigs.getCPUConcurrencyController()) {
+      new (stub) RequestsRegistry::DebugStub(
+          *registry,
           *this,
           mockReqCtx_,
           std::make_shared<folly::RequestContext>(0),
@@ -1048,6 +1038,10 @@ class RegistryTests : public testing::TestWithParam<std::tuple<size_t, bool>> {
         sendErrorWrapped,
         (folly::exception_wrapper, std::string),
         (override));
+
+   private:
+    server::ServerConfigsMock serverConfigs;
+    RequestStateMachine stateMachine_;
   };
 };
 

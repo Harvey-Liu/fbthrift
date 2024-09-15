@@ -29,11 +29,10 @@ cdef extern from "thrift/lib/cpp2/async/RequestChannel.h" namespace "::apache::t
     cdef cppclass cRequestChannel "::apache::thrift::RequestChannel":
         pass
 
-    cdef cppclass cRequestChannel_ptr "::apache::thrift::RequestChannel::Ptr":
+cdef extern from "thrift/lib/python/client/RequestChannel.h" namespace "::thrift::python::client":
+    cdef cppclass cRequestChannel_ptr "::thrift::python::client::RequestChannel_ptr":
         pass
 
-
-cdef extern from "thrift/lib/python/client/RequestChannel.h" namespace "::thrift::python::client":
     cdef cFollyFuture[cRequestChannel_ptr] createThriftChannelTCP(
         const string& host,
         const uint16_t port,

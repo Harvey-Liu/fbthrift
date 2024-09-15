@@ -19,7 +19,6 @@
 #include <thrift/compiler/ast/t_sink.h>
 #include <thrift/compiler/ast/t_stream.h>
 
-#include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <optional>
@@ -32,6 +31,7 @@
 #include <vector>
 
 #include <boost/algorithm/string.hpp>
+#include <boost/filesystem.hpp>
 
 #include <thrift/compiler/ast/t_const_value.h>
 #include <thrift/compiler/ast/t_field.h>
@@ -501,11 +501,12 @@ class t_hack_generator : public t_concat_generator {
       const t_service* tservice, bool mangle, bool async);
   void generate_process_function(
       const t_service* tservice, const t_function* tfunction, bool async);
-  void generate_process_metadata_function(
-      const t_service* tservice, bool mangle, bool async);
+  void generate_process_metadata_function(bool async);
   void generate_processor_event_handler_functions(std::ofstream& out);
   void generate_client_event_handler_functions(std::ofstream& out);
   void generate_event_handler_functions(std::ofstream& out, std::string cl);
+  void generate_get_thrift_metadata_trait(
+      const t_service* tservice, bool mangle);
 
   /**
    * Read thrift object from JSON string, generated using the
@@ -892,7 +893,7 @@ class t_hack_generator : public t_concat_generator {
           p->package().domain().end() - 1);
     }
     if (!pkg_path.empty()) {
-      std::string pkg_ns = fmt::format("{}", fmt::join(pkg_path, "\\"));
+      std::string pkg_ns = boost::algorithm::join(pkg_path, "\\");
       return pkg_ns;
     }
     return "";
@@ -1499,7 +1500,7 @@ void t_hack_generator::generate_instance_key(std::ofstream& out) {
  */
 void t_hack_generator::init_generator() {
   // Make output directory.
-  std::filesystem::create_directory(get_out_dir());
+  boost::filesystem::create_directory(get_out_dir());
   init_codegen_file(
       f_types_, get_out_dir() + get_program()->name() + "_types.php");
 
@@ -5566,6 +5567,7 @@ void t_hack_generator::generate_service(
   generate_service_client(tservice, mangle);
   generate_service_interactions(tservice, mangle);
   if (phps_) {
+    generate_get_thrift_metadata_trait(tservice, mangle);
     generate_service_processor(tservice, mangle, /*async*/ true);
     generate_service_processor(tservice, mangle, /*async*/ false);
   }
@@ -5626,7 +5628,8 @@ void t_hack_generator::generate_service_processor(
 
   f_service_ << indent() << "abstract class " << long_name << suffix
              << "ProcessorBase extends " << extends_processor << " {\n"
-             << indent() << "  use \\GetThriftServiceMetadata;\n"
+             << indent() << "  use " << php_servicename_mangle(mangle, tservice)
+             << "GetThriftServiceMetadata;\n"
              << indent() << "  abstract const type TThriftIf as " << long_name
              << (async ? "Async" : "") << "If;\n"
              << indent()
@@ -5644,7 +5647,7 @@ void t_hack_generator::generate_service_processor(
       generate_process_function(tservice, function, async);
     }
   }
-  generate_process_metadata_function(tservice, mangle, async);
+  generate_process_metadata_function(async);
 
   indent_down();
   f_service_ << "}\n";
@@ -5665,8 +5668,7 @@ void t_hack_generator::generate_service_processor(
   f_service_ << "\n";
 }
 
-void t_hack_generator::generate_process_metadata_function(
-    const t_service* tservice, bool mangle, bool async) {
+void t_hack_generator::generate_process_metadata_function(bool async) {
   // Open function
   indent(f_service_) << "protected" << (async ? " async" : "")
                      << " function process_getThriftServiceMetadata(int "
@@ -5676,11 +5678,97 @@ void t_hack_generator::generate_process_metadata_function(
 
   f_service_
       << indent()
-      << "$this->process_getThriftServiceMetadataHelper($seqid, $input, $output, "
-      << php_servicename_mangle(mangle, tservice) << "StaticMetadata::class"
-      << ");\n";
+      << "$this->process_getThriftServiceMetadataHelper($seqid, $input, $output);\n";
 
   // Close function
+  indent_down();
+  f_service_ << indent() << "}\n";
+}
+
+void t_hack_generator::generate_get_thrift_metadata_trait(
+    const t_service* tservice, bool mangle) {
+  f_service_ << indent() << "trait " << php_servicename_mangle(mangle, tservice)
+             << "GetThriftServiceMetadata {\n";
+
+  indent_up();
+  // Open function
+  indent(f_service_)
+      << "private function process_getThriftServiceMetadataHelper(int $seqid, "
+         "\\TProtocol $input, \\TProtocol $output): void {\n";
+  indent_up();
+
+  std::string function_name = "getThriftServiceMetadata";
+  std::string argsname =
+      "\\tmeta_ThriftMetadataService_" + function_name + "_args";
+  std::string resultname =
+      "\\tmeta_ThriftMetadataService_" + function_name + "_result";
+
+  f_service_ << indent() << "$reply_type = \\TMessageType::REPLY;\n"
+             << "\n"
+             << indent() << "if ($input is \\TBinaryProtocolAccelerated) {\n"
+             << indent() << "  $args = \\thrift_protocol_read_binary_struct("
+             << "$input, '" << argsname << "');\n"
+             << indent()
+             << "} else if ($input is \\TCompactProtocolAccelerated) {"
+             << "\n"
+             << indent()
+             << "  $args = \\thrift_protocol_read_compact_struct($input, '"
+             << argsname << "');\n"
+             << indent() << "} else {\n"
+             << indent() << "  $args = " << argsname
+             << "::withDefaultValues();\n"
+             << indent() << "  $args->read($input);\n"
+             << indent() << "}\n";
+
+  f_service_ << indent() << "$input->readMessageEnd();\n"
+             << indent() << "$result = " << resultname
+             << "::withDefaultValues();\n";
+
+  f_service_ << indent() << "try {\n"
+             << indent() << "  $result->success = "
+             << php_servicename_mangle(mangle, tservice)
+             << "StaticMetadata::getServiceMetadataResponse();\n"
+             << indent() << "} catch (\\Exception $ex) {\n"
+             << indent() << "  $reply_type = \\TMessageType::EXCEPTION;\n"
+             << indent()
+             << "  $result = new "
+                "\\TApplicationException($ex->getMessage().\"\\n\".$ex->"
+                "getTraceAsString());\n"
+             << indent() << "}\n";
+
+  f_service_ << indent() << "if ($output is \\TBinaryProtocolAccelerated)\n";
+  scope_up(f_service_);
+
+  f_service_ << indent() << "\\thrift_protocol_write_binary($output, '"
+             << function_name
+             << "', $reply_type, $result, $seqid, $output->isStrictWrite());\n";
+
+  scope_down(f_service_);
+  f_service_ << indent()
+             << "else if ($output is \\TCompactProtocolAccelerated)\n";
+  scope_up(f_service_);
+
+  f_service_ << indent() << "\\thrift_protocol_write_compact2($output, '"
+             << function_name << "', $reply_type, $result, $seqid, "
+             << "false, \\TCompactProtocolBase::VERSION);\n";
+
+  scope_down(f_service_);
+  f_service_ << indent() << "else\n";
+  scope_up(f_service_);
+
+  // Serialize the request header
+  f_service_ << indent() << "$output->writeMessageBegin(\"" << function_name
+             << "\", $reply_type, $seqid);\n"
+             << indent() << "$result->write($output);\n"
+             << indent() << "$output->writeMessageEnd();\n"
+             << indent() << "$output->getTransport()->flush();\n";
+
+  scope_down(f_service_);
+
+  // Close function
+  indent_down();
+  f_service_ << indent() << "}\n";
+
   indent_down();
   f_service_ << indent() << "}\n";
 }

@@ -24,10 +24,14 @@ namespace thrift {
 namespace python {
 namespace client {
 
+using RequestChannel_ptr = std::unique_ptr<
+    apache::thrift::RequestChannel,
+    folly::DelayedDestruction::Destructor>;
+
 /**
  * Create a thrift channel by connecting to a host:port over TCP.
  */
-folly::Future<apache::thrift::RequestChannel::Ptr> createThriftChannelTCP(
+folly::Future<RequestChannel_ptr> createThriftChannelTCP(
     const std::string& host,
     uint16_t port,
     uint32_t connect_timeout,
@@ -35,7 +39,7 @@ folly::Future<apache::thrift::RequestChannel::Ptr> createThriftChannelTCP(
     apache::thrift::protocol::PROTOCOL_TYPES proto,
     const std::string& endpoint);
 
-apache::thrift::RequestChannel::Ptr sync_createThriftChannelTCP(
+RequestChannel_ptr sync_createThriftChannelTCP(
     const std::string& host,
     uint16_t port,
     uint32_t connect_timeout,
@@ -46,19 +50,19 @@ apache::thrift::RequestChannel::Ptr sync_createThriftChannelTCP(
 /**
  * Create a thrift channel by connecting to a Unix domain socket.
  */
-folly::Future<apache::thrift::RequestChannel::Ptr> createThriftChannelUnix(
+folly::Future<RequestChannel_ptr> createThriftChannelUnix(
     const std::string& path,
     uint32_t connect_timeout,
     CLIENT_TYPE client_t,
     apache::thrift::protocol::PROTOCOL_TYPES proto);
 
-apache::thrift::RequestChannel::Ptr sync_createThriftChannelUnix(
+RequestChannel_ptr sync_createThriftChannelUnix(
     const std::string& path,
     uint32_t connect_timeout,
     CLIENT_TYPE client_t,
     apache::thrift::protocol::PROTOCOL_TYPES proto);
 
-apache::thrift::RequestChannel::Ptr createHeaderChannel(
+RequestChannel_ptr createHeaderChannel(
     folly::AsyncTransport::UniquePtr sock,
     CLIENT_TYPE client,
     apache::thrift::protocol::PROTOCOL_TYPES proto,

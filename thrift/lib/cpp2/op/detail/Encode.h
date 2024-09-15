@@ -1077,7 +1077,7 @@ struct Decode<type::adapted<Adapter, Tag>> {
             adapter_clear<Adapter, Tag, U>(m);
             Decode<Tag>{}(prot, Adapter::toThrift(m));
           } else {
-            type::native_type<Tag> orig;
+            type::native_type<Tag> orig{};
             Decode<Tag>{}(prot, orig);
             m = Adapter::fromThrift(std::move(orig));
           }

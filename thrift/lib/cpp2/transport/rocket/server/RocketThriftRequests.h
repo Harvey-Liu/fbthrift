@@ -45,20 +45,7 @@ class Payload;
 class RocketServerFrameContext;
 
 class RocketThriftRequest : public ThriftRequestCore {
- protected:
-  using CreateWithColocationParams =
-      RequestsRegistry::ColocatedData<folly::Unit>;
-
  public:
-  folly::EventBase* getEventBase() noexcept final { return &evb_; }
-
-  template <typename... Args>
-  static auto colocateWithDebugStub(
-      RequestsRegistry::DebugStubColocator& /* alloc */, Args&...) {
-    return [](auto&& /* make */) { return folly::unit; };
-  }
-
- protected:
   RocketThriftRequest(
       server::ServerConfigs& serverConfigs,
       RequestRpcMetadata&& metadata,
@@ -66,6 +53,9 @@ class RocketThriftRequest : public ThriftRequestCore {
       folly::EventBase& evb,
       RocketServerFrameContext&& context);
 
+  folly::EventBase* getEventBase() noexcept final { return &evb_; }
+
+ protected:
   folly::EventBase& evb_;
   RocketServerFrameContext context_;
 };
@@ -75,7 +65,7 @@ class RocketThriftRequest : public ThriftRequestCore {
 class ThriftServerRequestResponse final : public RocketThriftRequest {
  public:
   ThriftServerRequestResponse(
-      CreateWithColocationParams colocationParams,
+      RequestsRegistry::DebugStub* debugStubToInit,
       folly::EventBase& evb,
       server::ServerConfigs& serverConfigs,
       RequestRpcMetadata&& metadata,
@@ -117,7 +107,7 @@ class ThriftServerRequestResponse final : public RocketThriftRequest {
 class ThriftServerRequestFnf final : public RocketThriftRequest {
  public:
   ThriftServerRequestFnf(
-      CreateWithColocationParams colocationParams,
+      RequestsRegistry::DebugStub* debugStubToInit,
       folly::EventBase& evb,
       server::ServerConfigs& serverConfigs,
       RequestRpcMetadata&& metadata,
@@ -157,7 +147,7 @@ class ThriftServerRequestFnf final : public RocketThriftRequest {
 class ThriftServerRequestStream final : public RocketThriftRequest {
  public:
   ThriftServerRequestStream(
-      CreateWithColocationParams colocationParams,
+      RequestsRegistry::DebugStub* debugStubToInit,
       folly::EventBase& evb,
       server::ServerConfigs& serverConfigs,
       RequestRpcMetadata&& metadata,
@@ -214,7 +204,7 @@ class ThriftServerRequestStream final : public RocketThriftRequest {
 class ThriftServerRequestSink final : public RocketThriftRequest {
  public:
   ThriftServerRequestSink(
-      CreateWithColocationParams colocationParams,
+      RequestsRegistry::DebugStub* debugStubToInit,
       folly::EventBase& evb,
       server::ServerConfigs& serverConfigs,
       RequestRpcMetadata&& metadata,

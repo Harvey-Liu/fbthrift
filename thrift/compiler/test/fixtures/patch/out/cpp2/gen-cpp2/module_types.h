@@ -76,8 +76,6 @@ struct data1;
 struct data2;
 struct data1;
 struct data2;
-struct version;
-struct data;
 struct assign;
 struct clear;
 struct patchPrior;
@@ -88,16 +86,12 @@ struct data1;
 struct data2;
 struct data1;
 struct data2;
-struct version;
-struct data;
 struct assign;
 struct clear;
 struct patchPrior;
 struct ensure;
 struct patch;
 struct innerOption;
-struct version;
-struct data;
 struct assign;
 struct clear;
 struct patchPrior;
@@ -106,8 +100,6 @@ struct patch;
 struct option1;
 struct option2;
 struct option3;
-struct version;
-struct data;
 struct assign;
 struct clear;
 struct patchPrior;
@@ -217,16 +209,12 @@ struct i16Val;
 struct byteVal;
 struct boolVal;
 struct structWithFieldCustomDefault;
-struct version;
-struct data;
 struct assign;
 struct clear;
 struct patchPrior;
 struct ensure;
 struct patch;
 struct remove;
-struct version;
-struct data;
 struct assign;
 struct clear;
 struct patchPrior;
@@ -237,8 +225,6 @@ struct assign;
 struct clear;
 struct nodes;
 struct nodes;
-struct version;
-struct data;
 struct assign;
 struct clear;
 struct patchPrior;
@@ -247,12 +233,8 @@ struct patch;
 struct remove;
 struct loop;
 struct loop;
-struct version;
-struct data;
 struct assign;
 struct clear;
-struct version;
-struct data;
 struct assign;
 struct clear;
 struct patchPrior;
@@ -281,8 +263,6 @@ struct opt_unique;
 struct opt_shared_const;
 struct opt_shared_mustable;
 struct opt_box;
-struct version;
-struct data;
 } // namespace ident
 namespace detail {
 #ifndef APACHE_THRIFT_ACCESSOR_data1
@@ -529,14 +509,6 @@ APACHE_THRIFT_DEFINE_ACCESSOR(data1);
 #define APACHE_THRIFT_ACCESSOR_data2
 APACHE_THRIFT_DEFINE_ACCESSOR(data2);
 #endif
-#ifndef APACHE_THRIFT_ACCESSOR_version
-#define APACHE_THRIFT_ACCESSOR_version
-APACHE_THRIFT_DEFINE_ACCESSOR(version);
-#endif
-#ifndef APACHE_THRIFT_ACCESSOR_data
-#define APACHE_THRIFT_ACCESSOR_data
-APACHE_THRIFT_DEFINE_ACCESSOR(data);
-#endif
 #ifndef APACHE_THRIFT_ACCESSOR_assign
 #define APACHE_THRIFT_ACCESSOR_assign
 APACHE_THRIFT_DEFINE_ACCESSOR(assign);
@@ -577,14 +549,6 @@ APACHE_THRIFT_DEFINE_ACCESSOR(data1);
 #define APACHE_THRIFT_ACCESSOR_data2
 APACHE_THRIFT_DEFINE_ACCESSOR(data2);
 #endif
-#ifndef APACHE_THRIFT_ACCESSOR_version
-#define APACHE_THRIFT_ACCESSOR_version
-APACHE_THRIFT_DEFINE_ACCESSOR(version);
-#endif
-#ifndef APACHE_THRIFT_ACCESSOR_data
-#define APACHE_THRIFT_ACCESSOR_data
-APACHE_THRIFT_DEFINE_ACCESSOR(data);
-#endif
 #ifndef APACHE_THRIFT_ACCESSOR_assign
 #define APACHE_THRIFT_ACCESSOR_assign
 APACHE_THRIFT_DEFINE_ACCESSOR(assign);
@@ -608,14 +572,6 @@ APACHE_THRIFT_DEFINE_ACCESSOR(patch);
 #ifndef APACHE_THRIFT_ACCESSOR_innerOption
 #define APACHE_THRIFT_ACCESSOR_innerOption
 APACHE_THRIFT_DEFINE_ACCESSOR(innerOption);
-#endif
-#ifndef APACHE_THRIFT_ACCESSOR_version
-#define APACHE_THRIFT_ACCESSOR_version
-APACHE_THRIFT_DEFINE_ACCESSOR(version);
-#endif
-#ifndef APACHE_THRIFT_ACCESSOR_data
-#define APACHE_THRIFT_ACCESSOR_data
-APACHE_THRIFT_DEFINE_ACCESSOR(data);
 #endif
 #ifndef APACHE_THRIFT_ACCESSOR_assign
 #define APACHE_THRIFT_ACCESSOR_assign
@@ -649,14 +605,6 @@ APACHE_THRIFT_DEFINE_ACCESSOR(option2);
 #define APACHE_THRIFT_ACCESSOR_option3
 APACHE_THRIFT_DEFINE_ACCESSOR(option3);
 #endif
-#ifndef APACHE_THRIFT_ACCESSOR_version
-#define APACHE_THRIFT_ACCESSOR_version
-APACHE_THRIFT_DEFINE_ACCESSOR(version);
-#endif
-#ifndef APACHE_THRIFT_ACCESSOR_data
-#define APACHE_THRIFT_ACCESSOR_data
-APACHE_THRIFT_DEFINE_ACCESSOR(data);
-#endif
 #ifndef APACHE_THRIFT_ACCESSOR_assign
 #define APACHE_THRIFT_ACCESSOR_assign
 APACHE_THRIFT_DEFINE_ACCESSOR(assign);
@@ -1093,14 +1041,6 @@ APACHE_THRIFT_DEFINE_ACCESSOR(boolVal);
 #define APACHE_THRIFT_ACCESSOR_structWithFieldCustomDefault
 APACHE_THRIFT_DEFINE_ACCESSOR(structWithFieldCustomDefault);
 #endif
-#ifndef APACHE_THRIFT_ACCESSOR_version
-#define APACHE_THRIFT_ACCESSOR_version
-APACHE_THRIFT_DEFINE_ACCESSOR(version);
-#endif
-#ifndef APACHE_THRIFT_ACCESSOR_data
-#define APACHE_THRIFT_ACCESSOR_data
-APACHE_THRIFT_DEFINE_ACCESSOR(data);
-#endif
 #ifndef APACHE_THRIFT_ACCESSOR_assign
 #define APACHE_THRIFT_ACCESSOR_assign
 APACHE_THRIFT_DEFINE_ACCESSOR(assign);
@@ -1124,14 +1064,6 @@ APACHE_THRIFT_DEFINE_ACCESSOR(patch);
 #ifndef APACHE_THRIFT_ACCESSOR_remove
 #define APACHE_THRIFT_ACCESSOR_remove
 APACHE_THRIFT_DEFINE_ACCESSOR(remove);
-#endif
-#ifndef APACHE_THRIFT_ACCESSOR_version
-#define APACHE_THRIFT_ACCESSOR_version
-APACHE_THRIFT_DEFINE_ACCESSOR(version);
-#endif
-#ifndef APACHE_THRIFT_ACCESSOR_data
-#define APACHE_THRIFT_ACCESSOR_data
-APACHE_THRIFT_DEFINE_ACCESSOR(data);
 #endif
 #ifndef APACHE_THRIFT_ACCESSOR_assign
 #define APACHE_THRIFT_ACCESSOR_assign
@@ -1173,14 +1105,6 @@ APACHE_THRIFT_DEFINE_ACCESSOR(nodes);
 #define APACHE_THRIFT_ACCESSOR_nodes
 APACHE_THRIFT_DEFINE_ACCESSOR(nodes);
 #endif
-#ifndef APACHE_THRIFT_ACCESSOR_version
-#define APACHE_THRIFT_ACCESSOR_version
-APACHE_THRIFT_DEFINE_ACCESSOR(version);
-#endif
-#ifndef APACHE_THRIFT_ACCESSOR_data
-#define APACHE_THRIFT_ACCESSOR_data
-APACHE_THRIFT_DEFINE_ACCESSOR(data);
-#endif
 #ifndef APACHE_THRIFT_ACCESSOR_assign
 #define APACHE_THRIFT_ACCESSOR_assign
 APACHE_THRIFT_DEFINE_ACCESSOR(assign);
@@ -1213,14 +1137,6 @@ APACHE_THRIFT_DEFINE_ACCESSOR(loop);
 #define APACHE_THRIFT_ACCESSOR_loop
 APACHE_THRIFT_DEFINE_ACCESSOR(loop);
 #endif
-#ifndef APACHE_THRIFT_ACCESSOR_version
-#define APACHE_THRIFT_ACCESSOR_version
-APACHE_THRIFT_DEFINE_ACCESSOR(version);
-#endif
-#ifndef APACHE_THRIFT_ACCESSOR_data
-#define APACHE_THRIFT_ACCESSOR_data
-APACHE_THRIFT_DEFINE_ACCESSOR(data);
-#endif
 #ifndef APACHE_THRIFT_ACCESSOR_assign
 #define APACHE_THRIFT_ACCESSOR_assign
 APACHE_THRIFT_DEFINE_ACCESSOR(assign);
@@ -1228,14 +1144,6 @@ APACHE_THRIFT_DEFINE_ACCESSOR(assign);
 #ifndef APACHE_THRIFT_ACCESSOR_clear
 #define APACHE_THRIFT_ACCESSOR_clear
 APACHE_THRIFT_DEFINE_ACCESSOR(clear);
-#endif
-#ifndef APACHE_THRIFT_ACCESSOR_version
-#define APACHE_THRIFT_ACCESSOR_version
-APACHE_THRIFT_DEFINE_ACCESSOR(version);
-#endif
-#ifndef APACHE_THRIFT_ACCESSOR_data
-#define APACHE_THRIFT_ACCESSOR_data
-APACHE_THRIFT_DEFINE_ACCESSOR(data);
 #endif
 #ifndef APACHE_THRIFT_ACCESSOR_assign
 #define APACHE_THRIFT_ACCESSOR_assign
@@ -1349,14 +1257,6 @@ APACHE_THRIFT_DEFINE_ACCESSOR(opt_shared_mustable);
 #define APACHE_THRIFT_ACCESSOR_opt_box
 APACHE_THRIFT_DEFINE_ACCESSOR(opt_box);
 #endif
-#ifndef APACHE_THRIFT_ACCESSOR_version
-#define APACHE_THRIFT_ACCESSOR_version
-APACHE_THRIFT_DEFINE_ACCESSOR(version);
-#endif
-#ifndef APACHE_THRIFT_ACCESSOR_data
-#define APACHE_THRIFT_ACCESSOR_data
-APACHE_THRIFT_DEFINE_ACCESSOR(data);
-#endif
 } // namespace detail
 } // namespace thrift
 } // namespace apache
@@ -1387,13 +1287,17 @@ template <> struct TEnumTraits<::test::fixtures::patch::MyEnum> {
 
   static constexpr std::size_t const size = 1;
   static folly::Range<type const*> const values;
-  static folly::Range<std::string_view const*> const names;
+  static folly::Range<folly::StringPiece const*> const names;
 
-  static bool findName(type value, std::string_view* out) noexcept;
-  static bool findValue(std::string_view name, type* out) noexcept;
+  static bool findName(type value, folly::StringPiece* out) noexcept;
+  static bool findValue(folly::StringPiece name, type* out) noexcept;
 
+  static bool findName(type value, std::string_view* out) noexcept {
+    folly::StringPiece outp;
+    return findName(value, &outp) && ((*out = outp), true);
+  }
   static char const* findName(type value) noexcept {
-    std::string_view ret;
+    folly::StringPiece ret;
     (void)findName(value, &ret);
     return ret.data();
   }
@@ -1421,17 +1325,13 @@ class RefFields;
 class MyDataPatchStruct;
 class MyDataFieldPatchStruct;
 class MyDataEnsureStruct;
-class MyDataSafePatch;
 class MyDataWithCustomDefaultPatchStruct;
 class MyDataWithCustomDefaultFieldPatchStruct;
 class MyDataWithCustomDefaultEnsureStruct;
-class MyDataWithCustomDefaultSafePatch;
 class InnerUnionPatchStruct;
 class InnerUnionFieldPatchStruct;
-class InnerUnionSafePatch;
 class MyUnionPatchStruct;
 class MyUnionFieldPatchStruct;
-class MyUnionSafePatch;
 class MyStructPatchStruct;
 class MyStructField10PatchStruct;
 class MyStructField23PatchStruct;
@@ -1443,29 +1343,23 @@ class MyStructField30PatchStruct;
 class MyStructField30Patch1Struct;
 class MyStructFieldPatchStruct;
 class MyStructEnsureStruct;
-class MyStructSafePatch;
 class LateDefStructPatchStruct;
 class LateDefStructFieldPatchStruct;
 class LateDefStructEnsureStruct;
-class LateDefStructSafePatch;
 class RecursivePatchStruct;
 class RecursiveField1PatchStruct;
 class RecursiveFieldPatchStruct;
 class RecursiveEnsureStruct;
-class RecursiveSafePatch;
 class BarPatchStruct;
 class BarFieldPatchStruct;
 class BarEnsureStruct;
-class BarSafePatch;
 class LoopPatchStruct;
-class LoopSafePatch;
 class RefFieldsPatchStruct;
 class RefFieldsField1PatchStruct;
 class RefFieldsField4PatchStruct;
 class RefFieldsField7PatchStruct;
 class RefFieldsFieldPatchStruct;
 class RefFieldsEnsureStruct;
-class RefFieldsSafePatch;
 }}} // test::fixtures::patch
 // END forward_declare
 namespace apache::thrift::detail::annotation {
@@ -1536,10 +1430,9 @@ class MyData final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  using __fbthrift_safe_patch = MyDataSafePatch;
   using __fbthrift_patch_struct = MyDataPatchStruct;
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::data1,
     ::apache::thrift::ident::data2
@@ -1746,10 +1639,9 @@ class MyDataWithCustomDefault final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  using __fbthrift_safe_patch = MyDataWithCustomDefaultSafePatch;
   using __fbthrift_patch_struct = MyDataWithCustomDefaultPatchStruct;
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::data1,
     ::apache::thrift::ident::data2
@@ -1956,10 +1848,9 @@ class InnerUnion final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  using __fbthrift_safe_patch = InnerUnionSafePatch;
   using __fbthrift_patch_struct = InnerUnionPatchStruct;
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::innerOption
   >;
@@ -2170,10 +2061,9 @@ class MyUnion final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  using __fbthrift_safe_patch = MyUnionSafePatch;
   using __fbthrift_patch_struct = MyUnionPatchStruct;
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::option1,
     ::apache::thrift::ident::option2,
@@ -2522,10 +2412,9 @@ class LateDefStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  using __fbthrift_safe_patch = LateDefStructSafePatch;
   using __fbthrift_patch_struct = LateDefStructPatchStruct;
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
   >;
 
@@ -2617,10 +2506,9 @@ class MyStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  using __fbthrift_safe_patch = MyStructSafePatch;
   using __fbthrift_patch_struct = MyStructPatchStruct;
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::boolVal,
     ::apache::thrift::ident::byteVal,
@@ -4553,10 +4441,9 @@ class Recursive final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  using __fbthrift_safe_patch = RecursiveSafePatch;
   using __fbthrift_patch_struct = RecursivePatchStruct;
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::nodes
   >;
@@ -4703,10 +4590,9 @@ class Bar final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  using __fbthrift_safe_patch = BarSafePatch;
   using __fbthrift_patch_struct = BarPatchStruct;
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::loop
   >;
@@ -4842,10 +4728,9 @@ class Loop final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  using __fbthrift_safe_patch = LoopSafePatch;
   using __fbthrift_patch_struct = LoopPatchStruct;
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::bar
   >;
@@ -4989,10 +4874,9 @@ class RefFields final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  using __fbthrift_safe_patch = RefFieldsSafePatch;
   using __fbthrift_patch_struct = RefFieldsPatchStruct;
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::unique,
     ::apache::thrift::ident::shared_const,
@@ -5387,8 +5271,8 @@ class MyDataFieldPatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::data1,
     ::apache::thrift::ident::data2
@@ -5571,8 +5455,8 @@ class MyDataEnsureStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::data1,
     ::apache::thrift::ident::data2
@@ -5787,8 +5671,8 @@ class MyDataPatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::assign,
     ::apache::thrift::ident::clear,
@@ -6157,213 +6041,6 @@ unsigned long MyDataPatchStruct::read(Protocol_* iprot) {
 using MyDataPatch = ::apache::thrift::adapt_detail::adapted_t<::apache::thrift::op::detail::StructPatchAdapter<::test::fixtures::patch::MyDataPatchStruct>, ::test::fixtures::patch::MyDataPatchStruct>;
 
 
-class MyDataSafePatch final  {
- private:
-  friend struct ::apache::thrift::detail::st::struct_private_access;
-  template<class> friend struct ::apache::thrift::detail::invoke_reffer;
-
-  //  used by a static_assert in the corresponding source
-  static constexpr bool __fbthrift_cpp2_gen_json = false;
-  static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
-  static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
-  using __fbthrift_reflection_ident_list = folly::tag_t<
-    ::apache::thrift::ident::version,
-    ::apache::thrift::ident::data
-  >;
-
-  static constexpr std::int16_t __fbthrift_reflection_field_id_list[] = {0,1,2};
-  using __fbthrift_reflection_type_tags = folly::tag_t<
-    ::apache::thrift::type::i32_t,
-    ::apache::thrift::type::cpp_type<std::unique_ptr<folly::IOBuf>, ::apache::thrift::type::binary_t>
-  >;
-
-  static constexpr std::size_t __fbthrift_field_size_v = 2;
-
-  template<class T>
-  using __fbthrift_id = ::apache::thrift::type::field_id<__fbthrift_reflection_field_id_list[folly::to_underlying(T::value)]>;
-
-  template<class T>
-  using __fbthrift_type_tag = ::apache::thrift::detail::at<__fbthrift_reflection_type_tags, T::value>;
-
-  template<class T>
-  using __fbthrift_ident = ::apache::thrift::detail::at<__fbthrift_reflection_ident_list, T::value>;
-
-  template<class T> using __fbthrift_ordinal = ::apache::thrift::type::ordinal_tag<
-    ::apache::thrift::detail::getFieldOrdinal<T,
-                                              __fbthrift_reflection_ident_list,
-                                              __fbthrift_reflection_type_tags>(
-      __fbthrift_reflection_field_id_list
-    )
-  >;
-  void __fbthrift_clear();
-  void __fbthrift_clear_terse_fields();
-  bool __fbthrift_is_empty() const;
-
- public:
-  using __fbthrift_cpp2_type = MyDataSafePatch;
-  static constexpr bool __fbthrift_cpp2_is_union =
-    false;
-
-
- public:
-
-  MyDataSafePatch();
-
-  // FragileConstructor for use in initialization lists only.
-  [[deprecated("This constructor is deprecated")]]
-  MyDataSafePatch(apache::thrift::FragileConstructor, ::std::int32_t version__arg, std::unique_ptr<folly::IOBuf> data__arg);
-
-  MyDataSafePatch(MyDataSafePatch&&) noexcept;
-  MyDataSafePatch(const MyDataSafePatch& src);
-
-
-  MyDataSafePatch& operator=(MyDataSafePatch&&) noexcept;
-  MyDataSafePatch& operator=(const MyDataSafePatch& src);
-
-  ~MyDataSafePatch();
-
- private:
-  ::std::int32_t __fbthrift_field_version;
- private:
-  std::unique_ptr<folly::IOBuf> __fbthrift_field_data;
-
- public:
-
-  bool operator==(const MyDataSafePatch&) const;
-  bool operator<(const MyDataSafePatch&) const;
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> version_ref() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> version_ref() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> version_ref() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> version_ref() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> version() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> version() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> version() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> version() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> data_ref() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> data_ref() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> data_ref() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> data_ref() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> data() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> data() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> data() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> data() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_data)};
-  }
-
-  ::std::int32_t get_version() const {
-    return __fbthrift_field_version;
-  }
-
-  [[deprecated("Use `FOO.version_ref() = BAR;` instead of `FOO.set_version(BAR);`")]]
-  ::std::int32_t& set_version(::std::int32_t version_) {
-    version_ref() = version_;
-    return __fbthrift_field_version;
-  }
-
-  const std::unique_ptr<folly::IOBuf>& get_data() const& {
-    return __fbthrift_field_data;
-  }
-
-  std::unique_ptr<folly::IOBuf> get_data() && {
-    return std::move(__fbthrift_field_data);
-  }
-
-  template <typename T_MyDataSafePatch_data_struct_setter = std::unique_ptr<folly::IOBuf>>
-  [[deprecated("Use `FOO.data_ref() = BAR;` instead of `FOO.set_data(BAR);`")]]
-  std::unique_ptr<folly::IOBuf>& set_data(T_MyDataSafePatch_data_struct_setter&& data_) {
-    data_ref() = std::forward<T_MyDataSafePatch_data_struct_setter>(data_);
-    return __fbthrift_field_data;
-  }
-
-  template <class Protocol_>
-  unsigned long read(Protocol_* iprot);
-  template <class Protocol_>
-  uint32_t serializedSize(Protocol_ const* prot_) const;
-  template <class Protocol_>
-  uint32_t serializedSizeZC(Protocol_ const* prot_) const;
-  template <class Protocol_>
-  uint32_t write(Protocol_* prot_) const;
-
- private:
-  template <class Protocol_>
-  void readNoXfer(Protocol_* iprot);
-
-  friend class ::apache::thrift::Cpp2Ops<MyDataSafePatch>;
-  friend void swap(MyDataSafePatch& a, MyDataSafePatch& b);
-};
-
-template <class Protocol_>
-unsigned long MyDataSafePatch::read(Protocol_* iprot) {
-  auto _xferStart = iprot->getCursorPosition();
-  readNoXfer(iprot);
-  return iprot->getCursorPosition() - _xferStart;
-}
-
-
 class MyDataWithCustomDefaultFieldPatchStruct final  {
  private:
   friend struct ::apache::thrift::detail::st::struct_private_access;
@@ -6373,8 +6050,8 @@ class MyDataWithCustomDefaultFieldPatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::data1,
     ::apache::thrift::ident::data2
@@ -6557,8 +6234,8 @@ class MyDataWithCustomDefaultEnsureStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::data1,
     ::apache::thrift::ident::data2
@@ -6773,8 +6450,8 @@ class MyDataWithCustomDefaultPatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::assign,
     ::apache::thrift::ident::clear,
@@ -7143,213 +6820,6 @@ unsigned long MyDataWithCustomDefaultPatchStruct::read(Protocol_* iprot) {
 using MyDataWithCustomDefaultPatch = ::apache::thrift::adapt_detail::adapted_t<::apache::thrift::op::detail::StructPatchAdapter<::test::fixtures::patch::MyDataWithCustomDefaultPatchStruct>, ::test::fixtures::patch::MyDataWithCustomDefaultPatchStruct>;
 
 
-class MyDataWithCustomDefaultSafePatch final  {
- private:
-  friend struct ::apache::thrift::detail::st::struct_private_access;
-  template<class> friend struct ::apache::thrift::detail::invoke_reffer;
-
-  //  used by a static_assert in the corresponding source
-  static constexpr bool __fbthrift_cpp2_gen_json = false;
-  static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
-  static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
-  using __fbthrift_reflection_ident_list = folly::tag_t<
-    ::apache::thrift::ident::version,
-    ::apache::thrift::ident::data
-  >;
-
-  static constexpr std::int16_t __fbthrift_reflection_field_id_list[] = {0,1,2};
-  using __fbthrift_reflection_type_tags = folly::tag_t<
-    ::apache::thrift::type::i32_t,
-    ::apache::thrift::type::cpp_type<std::unique_ptr<folly::IOBuf>, ::apache::thrift::type::binary_t>
-  >;
-
-  static constexpr std::size_t __fbthrift_field_size_v = 2;
-
-  template<class T>
-  using __fbthrift_id = ::apache::thrift::type::field_id<__fbthrift_reflection_field_id_list[folly::to_underlying(T::value)]>;
-
-  template<class T>
-  using __fbthrift_type_tag = ::apache::thrift::detail::at<__fbthrift_reflection_type_tags, T::value>;
-
-  template<class T>
-  using __fbthrift_ident = ::apache::thrift::detail::at<__fbthrift_reflection_ident_list, T::value>;
-
-  template<class T> using __fbthrift_ordinal = ::apache::thrift::type::ordinal_tag<
-    ::apache::thrift::detail::getFieldOrdinal<T,
-                                              __fbthrift_reflection_ident_list,
-                                              __fbthrift_reflection_type_tags>(
-      __fbthrift_reflection_field_id_list
-    )
-  >;
-  void __fbthrift_clear();
-  void __fbthrift_clear_terse_fields();
-  bool __fbthrift_is_empty() const;
-
- public:
-  using __fbthrift_cpp2_type = MyDataWithCustomDefaultSafePatch;
-  static constexpr bool __fbthrift_cpp2_is_union =
-    false;
-
-
- public:
-
-  MyDataWithCustomDefaultSafePatch();
-
-  // FragileConstructor for use in initialization lists only.
-  [[deprecated("This constructor is deprecated")]]
-  MyDataWithCustomDefaultSafePatch(apache::thrift::FragileConstructor, ::std::int32_t version__arg, std::unique_ptr<folly::IOBuf> data__arg);
-
-  MyDataWithCustomDefaultSafePatch(MyDataWithCustomDefaultSafePatch&&) noexcept;
-  MyDataWithCustomDefaultSafePatch(const MyDataWithCustomDefaultSafePatch& src);
-
-
-  MyDataWithCustomDefaultSafePatch& operator=(MyDataWithCustomDefaultSafePatch&&) noexcept;
-  MyDataWithCustomDefaultSafePatch& operator=(const MyDataWithCustomDefaultSafePatch& src);
-
-  ~MyDataWithCustomDefaultSafePatch();
-
- private:
-  ::std::int32_t __fbthrift_field_version;
- private:
-  std::unique_ptr<folly::IOBuf> __fbthrift_field_data;
-
- public:
-
-  bool operator==(const MyDataWithCustomDefaultSafePatch&) const;
-  bool operator<(const MyDataWithCustomDefaultSafePatch&) const;
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> version_ref() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> version_ref() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> version_ref() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> version_ref() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> version() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> version() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> version() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> version() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> data_ref() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> data_ref() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> data_ref() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> data_ref() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> data() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> data() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> data() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> data() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_data)};
-  }
-
-  ::std::int32_t get_version() const {
-    return __fbthrift_field_version;
-  }
-
-  [[deprecated("Use `FOO.version_ref() = BAR;` instead of `FOO.set_version(BAR);`")]]
-  ::std::int32_t& set_version(::std::int32_t version_) {
-    version_ref() = version_;
-    return __fbthrift_field_version;
-  }
-
-  const std::unique_ptr<folly::IOBuf>& get_data() const& {
-    return __fbthrift_field_data;
-  }
-
-  std::unique_ptr<folly::IOBuf> get_data() && {
-    return std::move(__fbthrift_field_data);
-  }
-
-  template <typename T_MyDataWithCustomDefaultSafePatch_data_struct_setter = std::unique_ptr<folly::IOBuf>>
-  [[deprecated("Use `FOO.data_ref() = BAR;` instead of `FOO.set_data(BAR);`")]]
-  std::unique_ptr<folly::IOBuf>& set_data(T_MyDataWithCustomDefaultSafePatch_data_struct_setter&& data_) {
-    data_ref() = std::forward<T_MyDataWithCustomDefaultSafePatch_data_struct_setter>(data_);
-    return __fbthrift_field_data;
-  }
-
-  template <class Protocol_>
-  unsigned long read(Protocol_* iprot);
-  template <class Protocol_>
-  uint32_t serializedSize(Protocol_ const* prot_) const;
-  template <class Protocol_>
-  uint32_t serializedSizeZC(Protocol_ const* prot_) const;
-  template <class Protocol_>
-  uint32_t write(Protocol_* prot_) const;
-
- private:
-  template <class Protocol_>
-  void readNoXfer(Protocol_* iprot);
-
-  friend class ::apache::thrift::Cpp2Ops<MyDataWithCustomDefaultSafePatch>;
-  friend void swap(MyDataWithCustomDefaultSafePatch& a, MyDataWithCustomDefaultSafePatch& b);
-};
-
-template <class Protocol_>
-unsigned long MyDataWithCustomDefaultSafePatch::read(Protocol_* iprot) {
-  auto _xferStart = iprot->getCursorPosition();
-  readNoXfer(iprot);
-  return iprot->getCursorPosition() - _xferStart;
-}
-
-
 class InnerUnionFieldPatchStruct final  {
  private:
   friend struct ::apache::thrift::detail::st::struct_private_access;
@@ -7359,8 +6829,8 @@ class InnerUnionFieldPatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::innerOption
   >;
@@ -7499,8 +6969,8 @@ class InnerUnionPatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::assign,
     ::apache::thrift::ident::clear,
@@ -7816,213 +7286,6 @@ unsigned long InnerUnionPatchStruct::read(Protocol_* iprot) {
 using InnerUnionPatch = ::apache::thrift::adapt_detail::adapted_t<::apache::thrift::op::detail::UnionPatchAdapter<::test::fixtures::patch::InnerUnionPatchStruct>, ::test::fixtures::patch::InnerUnionPatchStruct>;
 
 
-class InnerUnionSafePatch final  {
- private:
-  friend struct ::apache::thrift::detail::st::struct_private_access;
-  template<class> friend struct ::apache::thrift::detail::invoke_reffer;
-
-  //  used by a static_assert in the corresponding source
-  static constexpr bool __fbthrift_cpp2_gen_json = false;
-  static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
-  static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
-  using __fbthrift_reflection_ident_list = folly::tag_t<
-    ::apache::thrift::ident::version,
-    ::apache::thrift::ident::data
-  >;
-
-  static constexpr std::int16_t __fbthrift_reflection_field_id_list[] = {0,1,2};
-  using __fbthrift_reflection_type_tags = folly::tag_t<
-    ::apache::thrift::type::i32_t,
-    ::apache::thrift::type::cpp_type<std::unique_ptr<folly::IOBuf>, ::apache::thrift::type::binary_t>
-  >;
-
-  static constexpr std::size_t __fbthrift_field_size_v = 2;
-
-  template<class T>
-  using __fbthrift_id = ::apache::thrift::type::field_id<__fbthrift_reflection_field_id_list[folly::to_underlying(T::value)]>;
-
-  template<class T>
-  using __fbthrift_type_tag = ::apache::thrift::detail::at<__fbthrift_reflection_type_tags, T::value>;
-
-  template<class T>
-  using __fbthrift_ident = ::apache::thrift::detail::at<__fbthrift_reflection_ident_list, T::value>;
-
-  template<class T> using __fbthrift_ordinal = ::apache::thrift::type::ordinal_tag<
-    ::apache::thrift::detail::getFieldOrdinal<T,
-                                              __fbthrift_reflection_ident_list,
-                                              __fbthrift_reflection_type_tags>(
-      __fbthrift_reflection_field_id_list
-    )
-  >;
-  void __fbthrift_clear();
-  void __fbthrift_clear_terse_fields();
-  bool __fbthrift_is_empty() const;
-
- public:
-  using __fbthrift_cpp2_type = InnerUnionSafePatch;
-  static constexpr bool __fbthrift_cpp2_is_union =
-    false;
-
-
- public:
-
-  InnerUnionSafePatch();
-
-  // FragileConstructor for use in initialization lists only.
-  [[deprecated("This constructor is deprecated")]]
-  InnerUnionSafePatch(apache::thrift::FragileConstructor, ::std::int32_t version__arg, std::unique_ptr<folly::IOBuf> data__arg);
-
-  InnerUnionSafePatch(InnerUnionSafePatch&&) noexcept;
-  InnerUnionSafePatch(const InnerUnionSafePatch& src);
-
-
-  InnerUnionSafePatch& operator=(InnerUnionSafePatch&&) noexcept;
-  InnerUnionSafePatch& operator=(const InnerUnionSafePatch& src);
-
-  ~InnerUnionSafePatch();
-
- private:
-  ::std::int32_t __fbthrift_field_version;
- private:
-  std::unique_ptr<folly::IOBuf> __fbthrift_field_data;
-
- public:
-
-  bool operator==(const InnerUnionSafePatch&) const;
-  bool operator<(const InnerUnionSafePatch&) const;
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> version_ref() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> version_ref() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> version_ref() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> version_ref() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> version() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> version() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> version() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> version() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> data_ref() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> data_ref() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> data_ref() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> data_ref() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> data() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> data() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> data() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> data() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_data)};
-  }
-
-  ::std::int32_t get_version() const {
-    return __fbthrift_field_version;
-  }
-
-  [[deprecated("Use `FOO.version_ref() = BAR;` instead of `FOO.set_version(BAR);`")]]
-  ::std::int32_t& set_version(::std::int32_t version_) {
-    version_ref() = version_;
-    return __fbthrift_field_version;
-  }
-
-  const std::unique_ptr<folly::IOBuf>& get_data() const& {
-    return __fbthrift_field_data;
-  }
-
-  std::unique_ptr<folly::IOBuf> get_data() && {
-    return std::move(__fbthrift_field_data);
-  }
-
-  template <typename T_InnerUnionSafePatch_data_struct_setter = std::unique_ptr<folly::IOBuf>>
-  [[deprecated("Use `FOO.data_ref() = BAR;` instead of `FOO.set_data(BAR);`")]]
-  std::unique_ptr<folly::IOBuf>& set_data(T_InnerUnionSafePatch_data_struct_setter&& data_) {
-    data_ref() = std::forward<T_InnerUnionSafePatch_data_struct_setter>(data_);
-    return __fbthrift_field_data;
-  }
-
-  template <class Protocol_>
-  unsigned long read(Protocol_* iprot);
-  template <class Protocol_>
-  uint32_t serializedSize(Protocol_ const* prot_) const;
-  template <class Protocol_>
-  uint32_t serializedSizeZC(Protocol_ const* prot_) const;
-  template <class Protocol_>
-  uint32_t write(Protocol_* prot_) const;
-
- private:
-  template <class Protocol_>
-  void readNoXfer(Protocol_* iprot);
-
-  friend class ::apache::thrift::Cpp2Ops<InnerUnionSafePatch>;
-  friend void swap(InnerUnionSafePatch& a, InnerUnionSafePatch& b);
-};
-
-template <class Protocol_>
-unsigned long InnerUnionSafePatch::read(Protocol_* iprot) {
-  auto _xferStart = iprot->getCursorPosition();
-  readNoXfer(iprot);
-  return iprot->getCursorPosition() - _xferStart;
-}
-
-
 class MyUnionFieldPatchStruct final  {
  private:
   friend struct ::apache::thrift::detail::st::struct_private_access;
@@ -8032,8 +7295,8 @@ class MyUnionFieldPatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::option1,
     ::apache::thrift::ident::option2,
@@ -8260,8 +7523,8 @@ class MyUnionPatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::assign,
     ::apache::thrift::ident::clear,
@@ -8577,213 +7840,6 @@ unsigned long MyUnionPatchStruct::read(Protocol_* iprot) {
 using MyUnionPatch = ::apache::thrift::adapt_detail::adapted_t<::apache::thrift::op::detail::UnionPatchAdapter<::test::fixtures::patch::MyUnionPatchStruct>, ::test::fixtures::patch::MyUnionPatchStruct>;
 
 
-class MyUnionSafePatch final  {
- private:
-  friend struct ::apache::thrift::detail::st::struct_private_access;
-  template<class> friend struct ::apache::thrift::detail::invoke_reffer;
-
-  //  used by a static_assert in the corresponding source
-  static constexpr bool __fbthrift_cpp2_gen_json = false;
-  static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
-  static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
-  using __fbthrift_reflection_ident_list = folly::tag_t<
-    ::apache::thrift::ident::version,
-    ::apache::thrift::ident::data
-  >;
-
-  static constexpr std::int16_t __fbthrift_reflection_field_id_list[] = {0,1,2};
-  using __fbthrift_reflection_type_tags = folly::tag_t<
-    ::apache::thrift::type::i32_t,
-    ::apache::thrift::type::cpp_type<std::unique_ptr<folly::IOBuf>, ::apache::thrift::type::binary_t>
-  >;
-
-  static constexpr std::size_t __fbthrift_field_size_v = 2;
-
-  template<class T>
-  using __fbthrift_id = ::apache::thrift::type::field_id<__fbthrift_reflection_field_id_list[folly::to_underlying(T::value)]>;
-
-  template<class T>
-  using __fbthrift_type_tag = ::apache::thrift::detail::at<__fbthrift_reflection_type_tags, T::value>;
-
-  template<class T>
-  using __fbthrift_ident = ::apache::thrift::detail::at<__fbthrift_reflection_ident_list, T::value>;
-
-  template<class T> using __fbthrift_ordinal = ::apache::thrift::type::ordinal_tag<
-    ::apache::thrift::detail::getFieldOrdinal<T,
-                                              __fbthrift_reflection_ident_list,
-                                              __fbthrift_reflection_type_tags>(
-      __fbthrift_reflection_field_id_list
-    )
-  >;
-  void __fbthrift_clear();
-  void __fbthrift_clear_terse_fields();
-  bool __fbthrift_is_empty() const;
-
- public:
-  using __fbthrift_cpp2_type = MyUnionSafePatch;
-  static constexpr bool __fbthrift_cpp2_is_union =
-    false;
-
-
- public:
-
-  MyUnionSafePatch();
-
-  // FragileConstructor for use in initialization lists only.
-  [[deprecated("This constructor is deprecated")]]
-  MyUnionSafePatch(apache::thrift::FragileConstructor, ::std::int32_t version__arg, std::unique_ptr<folly::IOBuf> data__arg);
-
-  MyUnionSafePatch(MyUnionSafePatch&&) noexcept;
-  MyUnionSafePatch(const MyUnionSafePatch& src);
-
-
-  MyUnionSafePatch& operator=(MyUnionSafePatch&&) noexcept;
-  MyUnionSafePatch& operator=(const MyUnionSafePatch& src);
-
-  ~MyUnionSafePatch();
-
- private:
-  ::std::int32_t __fbthrift_field_version;
- private:
-  std::unique_ptr<folly::IOBuf> __fbthrift_field_data;
-
- public:
-
-  bool operator==(const MyUnionSafePatch&) const;
-  bool operator<(const MyUnionSafePatch&) const;
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> version_ref() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> version_ref() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> version_ref() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> version_ref() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> version() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> version() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> version() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> version() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> data_ref() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> data_ref() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> data_ref() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> data_ref() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> data() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> data() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> data() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> data() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_data)};
-  }
-
-  ::std::int32_t get_version() const {
-    return __fbthrift_field_version;
-  }
-
-  [[deprecated("Use `FOO.version_ref() = BAR;` instead of `FOO.set_version(BAR);`")]]
-  ::std::int32_t& set_version(::std::int32_t version_) {
-    version_ref() = version_;
-    return __fbthrift_field_version;
-  }
-
-  const std::unique_ptr<folly::IOBuf>& get_data() const& {
-    return __fbthrift_field_data;
-  }
-
-  std::unique_ptr<folly::IOBuf> get_data() && {
-    return std::move(__fbthrift_field_data);
-  }
-
-  template <typename T_MyUnionSafePatch_data_struct_setter = std::unique_ptr<folly::IOBuf>>
-  [[deprecated("Use `FOO.data_ref() = BAR;` instead of `FOO.set_data(BAR);`")]]
-  std::unique_ptr<folly::IOBuf>& set_data(T_MyUnionSafePatch_data_struct_setter&& data_) {
-    data_ref() = std::forward<T_MyUnionSafePatch_data_struct_setter>(data_);
-    return __fbthrift_field_data;
-  }
-
-  template <class Protocol_>
-  unsigned long read(Protocol_* iprot);
-  template <class Protocol_>
-  uint32_t serializedSize(Protocol_ const* prot_) const;
-  template <class Protocol_>
-  uint32_t serializedSizeZC(Protocol_ const* prot_) const;
-  template <class Protocol_>
-  uint32_t write(Protocol_* prot_) const;
-
- private:
-  template <class Protocol_>
-  void readNoXfer(Protocol_* iprot);
-
-  friend class ::apache::thrift::Cpp2Ops<MyUnionSafePatch>;
-  friend void swap(MyUnionSafePatch& a, MyUnionSafePatch& b);
-};
-
-template <class Protocol_>
-unsigned long MyUnionSafePatch::read(Protocol_* iprot) {
-  auto _xferStart = iprot->getCursorPosition();
-  readNoXfer(iprot);
-  return iprot->getCursorPosition() - _xferStart;
-}
-
-
 class MyStructField10PatchStruct final  {
  private:
   friend struct ::apache::thrift::detail::st::struct_private_access;
@@ -8793,8 +7849,8 @@ class MyStructField10PatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::assign,
     ::apache::thrift::ident::clear
@@ -9005,8 +8061,8 @@ class MyStructField23PatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::assign,
     ::apache::thrift::ident::clear
@@ -9217,8 +8273,8 @@ class MyStructField26PatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::assign,
     ::apache::thrift::ident::clear,
@@ -9530,8 +8586,8 @@ class MyStructField27PatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::assign,
     ::apache::thrift::ident::clear,
@@ -9843,8 +8899,8 @@ class MyStructField28PatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::assign,
     ::apache::thrift::ident::clear,
@@ -10315,8 +9371,8 @@ class MyStructField29PatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::assign,
     ::apache::thrift::ident::clear,
@@ -10628,8 +9684,8 @@ class MyStructField30Patch1Struct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::assign,
     ::apache::thrift::ident::clear,
@@ -11100,8 +10156,8 @@ class MyStructField30PatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::assign,
     ::apache::thrift::ident::clear,
@@ -11572,8 +10628,8 @@ class LateDefStructFieldPatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
   >;
 
@@ -11667,8 +10723,8 @@ class LateDefStructEnsureStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
   >;
 
@@ -11760,8 +10816,8 @@ class LateDefStructPatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::assign,
     ::apache::thrift::ident::clear,
@@ -12139,8 +11195,8 @@ class MyStructFieldPatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::structWithCustomDefault,
     ::apache::thrift::ident::i32WithCustomDefault,
@@ -13687,8 +12743,8 @@ class MyStructEnsureStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::structWithCustomDefault,
     ::apache::thrift::ident::i32WithCustomDefault,
@@ -15605,8 +14661,8 @@ class MyStructPatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::assign,
     ::apache::thrift::ident::clear,
@@ -15975,420 +15031,6 @@ unsigned long MyStructPatchStruct::read(Protocol_* iprot) {
 using MyStructPatch = ::apache::thrift::adapt_detail::adapted_t<::apache::thrift::op::detail::StructPatchAdapter<::test::fixtures::patch::MyStructPatchStruct>, ::test::fixtures::patch::MyStructPatchStruct>;
 
 
-class MyStructSafePatch final  {
- private:
-  friend struct ::apache::thrift::detail::st::struct_private_access;
-  template<class> friend struct ::apache::thrift::detail::invoke_reffer;
-
-  //  used by a static_assert in the corresponding source
-  static constexpr bool __fbthrift_cpp2_gen_json = false;
-  static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
-  static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
-  using __fbthrift_reflection_ident_list = folly::tag_t<
-    ::apache::thrift::ident::version,
-    ::apache::thrift::ident::data
-  >;
-
-  static constexpr std::int16_t __fbthrift_reflection_field_id_list[] = {0,1,2};
-  using __fbthrift_reflection_type_tags = folly::tag_t<
-    ::apache::thrift::type::i32_t,
-    ::apache::thrift::type::cpp_type<std::unique_ptr<folly::IOBuf>, ::apache::thrift::type::binary_t>
-  >;
-
-  static constexpr std::size_t __fbthrift_field_size_v = 2;
-
-  template<class T>
-  using __fbthrift_id = ::apache::thrift::type::field_id<__fbthrift_reflection_field_id_list[folly::to_underlying(T::value)]>;
-
-  template<class T>
-  using __fbthrift_type_tag = ::apache::thrift::detail::at<__fbthrift_reflection_type_tags, T::value>;
-
-  template<class T>
-  using __fbthrift_ident = ::apache::thrift::detail::at<__fbthrift_reflection_ident_list, T::value>;
-
-  template<class T> using __fbthrift_ordinal = ::apache::thrift::type::ordinal_tag<
-    ::apache::thrift::detail::getFieldOrdinal<T,
-                                              __fbthrift_reflection_ident_list,
-                                              __fbthrift_reflection_type_tags>(
-      __fbthrift_reflection_field_id_list
-    )
-  >;
-  void __fbthrift_clear();
-  void __fbthrift_clear_terse_fields();
-  bool __fbthrift_is_empty() const;
-
- public:
-  using __fbthrift_cpp2_type = MyStructSafePatch;
-  static constexpr bool __fbthrift_cpp2_is_union =
-    false;
-
-
- public:
-
-  MyStructSafePatch();
-
-  // FragileConstructor for use in initialization lists only.
-  [[deprecated("This constructor is deprecated")]]
-  MyStructSafePatch(apache::thrift::FragileConstructor, ::std::int32_t version__arg, std::unique_ptr<folly::IOBuf> data__arg);
-
-  MyStructSafePatch(MyStructSafePatch&&) noexcept;
-  MyStructSafePatch(const MyStructSafePatch& src);
-
-
-  MyStructSafePatch& operator=(MyStructSafePatch&&) noexcept;
-  MyStructSafePatch& operator=(const MyStructSafePatch& src);
-
-  ~MyStructSafePatch();
-
- private:
-  ::std::int32_t __fbthrift_field_version;
- private:
-  std::unique_ptr<folly::IOBuf> __fbthrift_field_data;
-
- public:
-
-  bool operator==(const MyStructSafePatch&) const;
-  bool operator<(const MyStructSafePatch&) const;
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> version_ref() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> version_ref() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> version_ref() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> version_ref() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> version() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> version() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> version() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> version() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> data_ref() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> data_ref() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> data_ref() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> data_ref() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> data() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> data() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> data() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> data() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_data)};
-  }
-
-  ::std::int32_t get_version() const {
-    return __fbthrift_field_version;
-  }
-
-  [[deprecated("Use `FOO.version_ref() = BAR;` instead of `FOO.set_version(BAR);`")]]
-  ::std::int32_t& set_version(::std::int32_t version_) {
-    version_ref() = version_;
-    return __fbthrift_field_version;
-  }
-
-  const std::unique_ptr<folly::IOBuf>& get_data() const& {
-    return __fbthrift_field_data;
-  }
-
-  std::unique_ptr<folly::IOBuf> get_data() && {
-    return std::move(__fbthrift_field_data);
-  }
-
-  template <typename T_MyStructSafePatch_data_struct_setter = std::unique_ptr<folly::IOBuf>>
-  [[deprecated("Use `FOO.data_ref() = BAR;` instead of `FOO.set_data(BAR);`")]]
-  std::unique_ptr<folly::IOBuf>& set_data(T_MyStructSafePatch_data_struct_setter&& data_) {
-    data_ref() = std::forward<T_MyStructSafePatch_data_struct_setter>(data_);
-    return __fbthrift_field_data;
-  }
-
-  template <class Protocol_>
-  unsigned long read(Protocol_* iprot);
-  template <class Protocol_>
-  uint32_t serializedSize(Protocol_ const* prot_) const;
-  template <class Protocol_>
-  uint32_t serializedSizeZC(Protocol_ const* prot_) const;
-  template <class Protocol_>
-  uint32_t write(Protocol_* prot_) const;
-
- private:
-  template <class Protocol_>
-  void readNoXfer(Protocol_* iprot);
-
-  friend class ::apache::thrift::Cpp2Ops<MyStructSafePatch>;
-  friend void swap(MyStructSafePatch& a, MyStructSafePatch& b);
-};
-
-template <class Protocol_>
-unsigned long MyStructSafePatch::read(Protocol_* iprot) {
-  auto _xferStart = iprot->getCursorPosition();
-  readNoXfer(iprot);
-  return iprot->getCursorPosition() - _xferStart;
-}
-
-
-class LateDefStructSafePatch final  {
- private:
-  friend struct ::apache::thrift::detail::st::struct_private_access;
-  template<class> friend struct ::apache::thrift::detail::invoke_reffer;
-
-  //  used by a static_assert in the corresponding source
-  static constexpr bool __fbthrift_cpp2_gen_json = false;
-  static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
-  static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
-  using __fbthrift_reflection_ident_list = folly::tag_t<
-    ::apache::thrift::ident::version,
-    ::apache::thrift::ident::data
-  >;
-
-  static constexpr std::int16_t __fbthrift_reflection_field_id_list[] = {0,1,2};
-  using __fbthrift_reflection_type_tags = folly::tag_t<
-    ::apache::thrift::type::i32_t,
-    ::apache::thrift::type::cpp_type<std::unique_ptr<folly::IOBuf>, ::apache::thrift::type::binary_t>
-  >;
-
-  static constexpr std::size_t __fbthrift_field_size_v = 2;
-
-  template<class T>
-  using __fbthrift_id = ::apache::thrift::type::field_id<__fbthrift_reflection_field_id_list[folly::to_underlying(T::value)]>;
-
-  template<class T>
-  using __fbthrift_type_tag = ::apache::thrift::detail::at<__fbthrift_reflection_type_tags, T::value>;
-
-  template<class T>
-  using __fbthrift_ident = ::apache::thrift::detail::at<__fbthrift_reflection_ident_list, T::value>;
-
-  template<class T> using __fbthrift_ordinal = ::apache::thrift::type::ordinal_tag<
-    ::apache::thrift::detail::getFieldOrdinal<T,
-                                              __fbthrift_reflection_ident_list,
-                                              __fbthrift_reflection_type_tags>(
-      __fbthrift_reflection_field_id_list
-    )
-  >;
-  void __fbthrift_clear();
-  void __fbthrift_clear_terse_fields();
-  bool __fbthrift_is_empty() const;
-
- public:
-  using __fbthrift_cpp2_type = LateDefStructSafePatch;
-  static constexpr bool __fbthrift_cpp2_is_union =
-    false;
-
-
- public:
-
-  LateDefStructSafePatch();
-
-  // FragileConstructor for use in initialization lists only.
-  [[deprecated("This constructor is deprecated")]]
-  LateDefStructSafePatch(apache::thrift::FragileConstructor, ::std::int32_t version__arg, std::unique_ptr<folly::IOBuf> data__arg);
-
-  LateDefStructSafePatch(LateDefStructSafePatch&&) noexcept;
-  LateDefStructSafePatch(const LateDefStructSafePatch& src);
-
-
-  LateDefStructSafePatch& operator=(LateDefStructSafePatch&&) noexcept;
-  LateDefStructSafePatch& operator=(const LateDefStructSafePatch& src);
-
-  ~LateDefStructSafePatch();
-
- private:
-  ::std::int32_t __fbthrift_field_version;
- private:
-  std::unique_ptr<folly::IOBuf> __fbthrift_field_data;
-
- public:
-
-  bool operator==(const LateDefStructSafePatch&) const;
-  bool operator<(const LateDefStructSafePatch&) const;
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> version_ref() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> version_ref() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> version_ref() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> version_ref() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> version() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> version() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> version() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> version() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> data_ref() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> data_ref() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> data_ref() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> data_ref() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> data() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> data() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> data() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> data() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_data)};
-  }
-
-  ::std::int32_t get_version() const {
-    return __fbthrift_field_version;
-  }
-
-  [[deprecated("Use `FOO.version_ref() = BAR;` instead of `FOO.set_version(BAR);`")]]
-  ::std::int32_t& set_version(::std::int32_t version_) {
-    version_ref() = version_;
-    return __fbthrift_field_version;
-  }
-
-  const std::unique_ptr<folly::IOBuf>& get_data() const& {
-    return __fbthrift_field_data;
-  }
-
-  std::unique_ptr<folly::IOBuf> get_data() && {
-    return std::move(__fbthrift_field_data);
-  }
-
-  template <typename T_LateDefStructSafePatch_data_struct_setter = std::unique_ptr<folly::IOBuf>>
-  [[deprecated("Use `FOO.data_ref() = BAR;` instead of `FOO.set_data(BAR);`")]]
-  std::unique_ptr<folly::IOBuf>& set_data(T_LateDefStructSafePatch_data_struct_setter&& data_) {
-    data_ref() = std::forward<T_LateDefStructSafePatch_data_struct_setter>(data_);
-    return __fbthrift_field_data;
-  }
-
-  template <class Protocol_>
-  unsigned long read(Protocol_* iprot);
-  template <class Protocol_>
-  uint32_t serializedSize(Protocol_ const* prot_) const;
-  template <class Protocol_>
-  uint32_t serializedSizeZC(Protocol_ const* prot_) const;
-  template <class Protocol_>
-  uint32_t write(Protocol_* prot_) const;
-
- private:
-  template <class Protocol_>
-  void readNoXfer(Protocol_* iprot);
-
-  friend class ::apache::thrift::Cpp2Ops<LateDefStructSafePatch>;
-  friend void swap(LateDefStructSafePatch& a, LateDefStructSafePatch& b);
-};
-
-template <class Protocol_>
-unsigned long LateDefStructSafePatch::read(Protocol_* iprot) {
-  auto _xferStart = iprot->getCursorPosition();
-  readNoXfer(iprot);
-  return iprot->getCursorPosition() - _xferStart;
-}
-
-
 class RecursiveField1PatchStruct final  {
  private:
   friend struct ::apache::thrift::detail::st::struct_private_access;
@@ -16398,8 +15040,8 @@ class RecursiveField1PatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::assign,
     ::apache::thrift::ident::clear
@@ -16605,8 +15247,8 @@ class RecursiveFieldPatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::nodes
   >;
@@ -16745,8 +15387,8 @@ class RecursiveEnsureStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::nodes
   >;
@@ -16896,8 +15538,8 @@ class RecursivePatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::assign,
     ::apache::thrift::ident::clear,
@@ -17266,213 +15908,6 @@ unsigned long RecursivePatchStruct::read(Protocol_* iprot) {
 using RecursivePatch = ::apache::thrift::adapt_detail::adapted_t<::apache::thrift::op::detail::StructPatchAdapter<::test::fixtures::patch::RecursivePatchStruct>, ::test::fixtures::patch::RecursivePatchStruct>;
 
 
-class RecursiveSafePatch final  {
- private:
-  friend struct ::apache::thrift::detail::st::struct_private_access;
-  template<class> friend struct ::apache::thrift::detail::invoke_reffer;
-
-  //  used by a static_assert in the corresponding source
-  static constexpr bool __fbthrift_cpp2_gen_json = false;
-  static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
-  static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
-  using __fbthrift_reflection_ident_list = folly::tag_t<
-    ::apache::thrift::ident::version,
-    ::apache::thrift::ident::data
-  >;
-
-  static constexpr std::int16_t __fbthrift_reflection_field_id_list[] = {0,1,2};
-  using __fbthrift_reflection_type_tags = folly::tag_t<
-    ::apache::thrift::type::i32_t,
-    ::apache::thrift::type::cpp_type<std::unique_ptr<folly::IOBuf>, ::apache::thrift::type::binary_t>
-  >;
-
-  static constexpr std::size_t __fbthrift_field_size_v = 2;
-
-  template<class T>
-  using __fbthrift_id = ::apache::thrift::type::field_id<__fbthrift_reflection_field_id_list[folly::to_underlying(T::value)]>;
-
-  template<class T>
-  using __fbthrift_type_tag = ::apache::thrift::detail::at<__fbthrift_reflection_type_tags, T::value>;
-
-  template<class T>
-  using __fbthrift_ident = ::apache::thrift::detail::at<__fbthrift_reflection_ident_list, T::value>;
-
-  template<class T> using __fbthrift_ordinal = ::apache::thrift::type::ordinal_tag<
-    ::apache::thrift::detail::getFieldOrdinal<T,
-                                              __fbthrift_reflection_ident_list,
-                                              __fbthrift_reflection_type_tags>(
-      __fbthrift_reflection_field_id_list
-    )
-  >;
-  void __fbthrift_clear();
-  void __fbthrift_clear_terse_fields();
-  bool __fbthrift_is_empty() const;
-
- public:
-  using __fbthrift_cpp2_type = RecursiveSafePatch;
-  static constexpr bool __fbthrift_cpp2_is_union =
-    false;
-
-
- public:
-
-  RecursiveSafePatch();
-
-  // FragileConstructor for use in initialization lists only.
-  [[deprecated("This constructor is deprecated")]]
-  RecursiveSafePatch(apache::thrift::FragileConstructor, ::std::int32_t version__arg, std::unique_ptr<folly::IOBuf> data__arg);
-
-  RecursiveSafePatch(RecursiveSafePatch&&) noexcept;
-  RecursiveSafePatch(const RecursiveSafePatch& src);
-
-
-  RecursiveSafePatch& operator=(RecursiveSafePatch&&) noexcept;
-  RecursiveSafePatch& operator=(const RecursiveSafePatch& src);
-
-  ~RecursiveSafePatch();
-
- private:
-  ::std::int32_t __fbthrift_field_version;
- private:
-  std::unique_ptr<folly::IOBuf> __fbthrift_field_data;
-
- public:
-
-  bool operator==(const RecursiveSafePatch&) const;
-  bool operator<(const RecursiveSafePatch&) const;
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> version_ref() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> version_ref() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> version_ref() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> version_ref() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> version() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> version() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> version() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> version() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> data_ref() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> data_ref() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> data_ref() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> data_ref() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> data() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> data() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> data() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> data() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_data)};
-  }
-
-  ::std::int32_t get_version() const {
-    return __fbthrift_field_version;
-  }
-
-  [[deprecated("Use `FOO.version_ref() = BAR;` instead of `FOO.set_version(BAR);`")]]
-  ::std::int32_t& set_version(::std::int32_t version_) {
-    version_ref() = version_;
-    return __fbthrift_field_version;
-  }
-
-  const std::unique_ptr<folly::IOBuf>& get_data() const& {
-    return __fbthrift_field_data;
-  }
-
-  std::unique_ptr<folly::IOBuf> get_data() && {
-    return std::move(__fbthrift_field_data);
-  }
-
-  template <typename T_RecursiveSafePatch_data_struct_setter = std::unique_ptr<folly::IOBuf>>
-  [[deprecated("Use `FOO.data_ref() = BAR;` instead of `FOO.set_data(BAR);`")]]
-  std::unique_ptr<folly::IOBuf>& set_data(T_RecursiveSafePatch_data_struct_setter&& data_) {
-    data_ref() = std::forward<T_RecursiveSafePatch_data_struct_setter>(data_);
-    return __fbthrift_field_data;
-  }
-
-  template <class Protocol_>
-  unsigned long read(Protocol_* iprot);
-  template <class Protocol_>
-  uint32_t serializedSize(Protocol_ const* prot_) const;
-  template <class Protocol_>
-  uint32_t serializedSizeZC(Protocol_ const* prot_) const;
-  template <class Protocol_>
-  uint32_t write(Protocol_* prot_) const;
-
- private:
-  template <class Protocol_>
-  void readNoXfer(Protocol_* iprot);
-
-  friend class ::apache::thrift::Cpp2Ops<RecursiveSafePatch>;
-  friend void swap(RecursiveSafePatch& a, RecursiveSafePatch& b);
-};
-
-template <class Protocol_>
-unsigned long RecursiveSafePatch::read(Protocol_* iprot) {
-  auto _xferStart = iprot->getCursorPosition();
-  readNoXfer(iprot);
-  return iprot->getCursorPosition() - _xferStart;
-}
-
-
 class LoopPatchStruct final  {
  private:
   friend struct ::apache::thrift::detail::st::struct_private_access;
@@ -17482,8 +15917,8 @@ class LoopPatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::assign,
     ::apache::thrift::ident::clear
@@ -17677,8 +16112,8 @@ class BarFieldPatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::loop
   >;
@@ -17817,8 +16252,8 @@ class BarEnsureStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::loop
   >;
@@ -17956,8 +16391,8 @@ class BarPatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::assign,
     ::apache::thrift::ident::clear,
@@ -18326,420 +16761,6 @@ unsigned long BarPatchStruct::read(Protocol_* iprot) {
 using BarPatch = ::apache::thrift::adapt_detail::adapted_t<::apache::thrift::op::detail::StructPatchAdapter<::test::fixtures::patch::BarPatchStruct>, ::test::fixtures::patch::BarPatchStruct>;
 
 
-class BarSafePatch final  {
- private:
-  friend struct ::apache::thrift::detail::st::struct_private_access;
-  template<class> friend struct ::apache::thrift::detail::invoke_reffer;
-
-  //  used by a static_assert in the corresponding source
-  static constexpr bool __fbthrift_cpp2_gen_json = false;
-  static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
-  static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
-  using __fbthrift_reflection_ident_list = folly::tag_t<
-    ::apache::thrift::ident::version,
-    ::apache::thrift::ident::data
-  >;
-
-  static constexpr std::int16_t __fbthrift_reflection_field_id_list[] = {0,1,2};
-  using __fbthrift_reflection_type_tags = folly::tag_t<
-    ::apache::thrift::type::i32_t,
-    ::apache::thrift::type::cpp_type<std::unique_ptr<folly::IOBuf>, ::apache::thrift::type::binary_t>
-  >;
-
-  static constexpr std::size_t __fbthrift_field_size_v = 2;
-
-  template<class T>
-  using __fbthrift_id = ::apache::thrift::type::field_id<__fbthrift_reflection_field_id_list[folly::to_underlying(T::value)]>;
-
-  template<class T>
-  using __fbthrift_type_tag = ::apache::thrift::detail::at<__fbthrift_reflection_type_tags, T::value>;
-
-  template<class T>
-  using __fbthrift_ident = ::apache::thrift::detail::at<__fbthrift_reflection_ident_list, T::value>;
-
-  template<class T> using __fbthrift_ordinal = ::apache::thrift::type::ordinal_tag<
-    ::apache::thrift::detail::getFieldOrdinal<T,
-                                              __fbthrift_reflection_ident_list,
-                                              __fbthrift_reflection_type_tags>(
-      __fbthrift_reflection_field_id_list
-    )
-  >;
-  void __fbthrift_clear();
-  void __fbthrift_clear_terse_fields();
-  bool __fbthrift_is_empty() const;
-
- public:
-  using __fbthrift_cpp2_type = BarSafePatch;
-  static constexpr bool __fbthrift_cpp2_is_union =
-    false;
-
-
- public:
-
-  BarSafePatch();
-
-  // FragileConstructor for use in initialization lists only.
-  [[deprecated("This constructor is deprecated")]]
-  BarSafePatch(apache::thrift::FragileConstructor, ::std::int32_t version__arg, std::unique_ptr<folly::IOBuf> data__arg);
-
-  BarSafePatch(BarSafePatch&&) noexcept;
-  BarSafePatch(const BarSafePatch& src);
-
-
-  BarSafePatch& operator=(BarSafePatch&&) noexcept;
-  BarSafePatch& operator=(const BarSafePatch& src);
-
-  ~BarSafePatch();
-
- private:
-  ::std::int32_t __fbthrift_field_version;
- private:
-  std::unique_ptr<folly::IOBuf> __fbthrift_field_data;
-
- public:
-
-  bool operator==(const BarSafePatch&) const;
-  bool operator<(const BarSafePatch&) const;
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> version_ref() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> version_ref() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> version_ref() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> version_ref() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> version() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> version() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> version() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> version() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> data_ref() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> data_ref() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> data_ref() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> data_ref() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> data() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> data() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> data() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> data() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_data)};
-  }
-
-  ::std::int32_t get_version() const {
-    return __fbthrift_field_version;
-  }
-
-  [[deprecated("Use `FOO.version_ref() = BAR;` instead of `FOO.set_version(BAR);`")]]
-  ::std::int32_t& set_version(::std::int32_t version_) {
-    version_ref() = version_;
-    return __fbthrift_field_version;
-  }
-
-  const std::unique_ptr<folly::IOBuf>& get_data() const& {
-    return __fbthrift_field_data;
-  }
-
-  std::unique_ptr<folly::IOBuf> get_data() && {
-    return std::move(__fbthrift_field_data);
-  }
-
-  template <typename T_BarSafePatch_data_struct_setter = std::unique_ptr<folly::IOBuf>>
-  [[deprecated("Use `FOO.data_ref() = BAR;` instead of `FOO.set_data(BAR);`")]]
-  std::unique_ptr<folly::IOBuf>& set_data(T_BarSafePatch_data_struct_setter&& data_) {
-    data_ref() = std::forward<T_BarSafePatch_data_struct_setter>(data_);
-    return __fbthrift_field_data;
-  }
-
-  template <class Protocol_>
-  unsigned long read(Protocol_* iprot);
-  template <class Protocol_>
-  uint32_t serializedSize(Protocol_ const* prot_) const;
-  template <class Protocol_>
-  uint32_t serializedSizeZC(Protocol_ const* prot_) const;
-  template <class Protocol_>
-  uint32_t write(Protocol_* prot_) const;
-
- private:
-  template <class Protocol_>
-  void readNoXfer(Protocol_* iprot);
-
-  friend class ::apache::thrift::Cpp2Ops<BarSafePatch>;
-  friend void swap(BarSafePatch& a, BarSafePatch& b);
-};
-
-template <class Protocol_>
-unsigned long BarSafePatch::read(Protocol_* iprot) {
-  auto _xferStart = iprot->getCursorPosition();
-  readNoXfer(iprot);
-  return iprot->getCursorPosition() - _xferStart;
-}
-
-
-class LoopSafePatch final  {
- private:
-  friend struct ::apache::thrift::detail::st::struct_private_access;
-  template<class> friend struct ::apache::thrift::detail::invoke_reffer;
-
-  //  used by a static_assert in the corresponding source
-  static constexpr bool __fbthrift_cpp2_gen_json = false;
-  static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
-  static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
-  using __fbthrift_reflection_ident_list = folly::tag_t<
-    ::apache::thrift::ident::version,
-    ::apache::thrift::ident::data
-  >;
-
-  static constexpr std::int16_t __fbthrift_reflection_field_id_list[] = {0,1,2};
-  using __fbthrift_reflection_type_tags = folly::tag_t<
-    ::apache::thrift::type::i32_t,
-    ::apache::thrift::type::cpp_type<std::unique_ptr<folly::IOBuf>, ::apache::thrift::type::binary_t>
-  >;
-
-  static constexpr std::size_t __fbthrift_field_size_v = 2;
-
-  template<class T>
-  using __fbthrift_id = ::apache::thrift::type::field_id<__fbthrift_reflection_field_id_list[folly::to_underlying(T::value)]>;
-
-  template<class T>
-  using __fbthrift_type_tag = ::apache::thrift::detail::at<__fbthrift_reflection_type_tags, T::value>;
-
-  template<class T>
-  using __fbthrift_ident = ::apache::thrift::detail::at<__fbthrift_reflection_ident_list, T::value>;
-
-  template<class T> using __fbthrift_ordinal = ::apache::thrift::type::ordinal_tag<
-    ::apache::thrift::detail::getFieldOrdinal<T,
-                                              __fbthrift_reflection_ident_list,
-                                              __fbthrift_reflection_type_tags>(
-      __fbthrift_reflection_field_id_list
-    )
-  >;
-  void __fbthrift_clear();
-  void __fbthrift_clear_terse_fields();
-  bool __fbthrift_is_empty() const;
-
- public:
-  using __fbthrift_cpp2_type = LoopSafePatch;
-  static constexpr bool __fbthrift_cpp2_is_union =
-    false;
-
-
- public:
-
-  LoopSafePatch();
-
-  // FragileConstructor for use in initialization lists only.
-  [[deprecated("This constructor is deprecated")]]
-  LoopSafePatch(apache::thrift::FragileConstructor, ::std::int32_t version__arg, std::unique_ptr<folly::IOBuf> data__arg);
-
-  LoopSafePatch(LoopSafePatch&&) noexcept;
-  LoopSafePatch(const LoopSafePatch& src);
-
-
-  LoopSafePatch& operator=(LoopSafePatch&&) noexcept;
-  LoopSafePatch& operator=(const LoopSafePatch& src);
-
-  ~LoopSafePatch();
-
- private:
-  ::std::int32_t __fbthrift_field_version;
- private:
-  std::unique_ptr<folly::IOBuf> __fbthrift_field_data;
-
- public:
-
-  bool operator==(const LoopSafePatch&) const;
-  bool operator<(const LoopSafePatch&) const;
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> version_ref() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> version_ref() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> version_ref() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> version_ref() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> version() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> version() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> version() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> version() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> data_ref() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> data_ref() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> data_ref() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> data_ref() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> data() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> data() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> data() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> data() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_data)};
-  }
-
-  ::std::int32_t get_version() const {
-    return __fbthrift_field_version;
-  }
-
-  [[deprecated("Use `FOO.version_ref() = BAR;` instead of `FOO.set_version(BAR);`")]]
-  ::std::int32_t& set_version(::std::int32_t version_) {
-    version_ref() = version_;
-    return __fbthrift_field_version;
-  }
-
-  const std::unique_ptr<folly::IOBuf>& get_data() const& {
-    return __fbthrift_field_data;
-  }
-
-  std::unique_ptr<folly::IOBuf> get_data() && {
-    return std::move(__fbthrift_field_data);
-  }
-
-  template <typename T_LoopSafePatch_data_struct_setter = std::unique_ptr<folly::IOBuf>>
-  [[deprecated("Use `FOO.data_ref() = BAR;` instead of `FOO.set_data(BAR);`")]]
-  std::unique_ptr<folly::IOBuf>& set_data(T_LoopSafePatch_data_struct_setter&& data_) {
-    data_ref() = std::forward<T_LoopSafePatch_data_struct_setter>(data_);
-    return __fbthrift_field_data;
-  }
-
-  template <class Protocol_>
-  unsigned long read(Protocol_* iprot);
-  template <class Protocol_>
-  uint32_t serializedSize(Protocol_ const* prot_) const;
-  template <class Protocol_>
-  uint32_t serializedSizeZC(Protocol_ const* prot_) const;
-  template <class Protocol_>
-  uint32_t write(Protocol_* prot_) const;
-
- private:
-  template <class Protocol_>
-  void readNoXfer(Protocol_* iprot);
-
-  friend class ::apache::thrift::Cpp2Ops<LoopSafePatch>;
-  friend void swap(LoopSafePatch& a, LoopSafePatch& b);
-};
-
-template <class Protocol_>
-unsigned long LoopSafePatch::read(Protocol_* iprot) {
-  auto _xferStart = iprot->getCursorPosition();
-  readNoXfer(iprot);
-  return iprot->getCursorPosition() - _xferStart;
-}
-
-
 class RefFieldsField1PatchStruct final  {
  private:
   friend struct ::apache::thrift::detail::st::struct_private_access;
@@ -18749,8 +16770,8 @@ class RefFieldsField1PatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::assign,
     ::apache::thrift::ident::clear,
@@ -19062,8 +17083,8 @@ class RefFieldsField4PatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::assign,
     ::apache::thrift::ident::clear,
@@ -19375,8 +17396,8 @@ class RefFieldsField7PatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::assign,
     ::apache::thrift::ident::clear,
@@ -19688,8 +17709,8 @@ class RefFieldsFieldPatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::unique,
     ::apache::thrift::ident::opt_unique,
@@ -19916,8 +17937,8 @@ class RefFieldsEnsureStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::unique,
     ::apache::thrift::ident::shared_const,
@@ -20391,8 +18412,8 @@ class RefFieldsPatchStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::assign,
     ::apache::thrift::ident::clear,
@@ -20761,213 +18782,6 @@ unsigned long RefFieldsPatchStruct::read(Protocol_* iprot) {
 using RefFieldsPatch = ::apache::thrift::adapt_detail::adapted_t<::apache::thrift::op::detail::StructPatchAdapter<::test::fixtures::patch::RefFieldsPatchStruct>, ::test::fixtures::patch::RefFieldsPatchStruct>;
 
 
-class RefFieldsSafePatch final  {
- private:
-  friend struct ::apache::thrift::detail::st::struct_private_access;
-  template<class> friend struct ::apache::thrift::detail::invoke_reffer;
-
-  //  used by a static_assert in the corresponding source
-  static constexpr bool __fbthrift_cpp2_gen_json = false;
-  static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
-  static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
-  using __fbthrift_reflection_ident_list = folly::tag_t<
-    ::apache::thrift::ident::version,
-    ::apache::thrift::ident::data
-  >;
-
-  static constexpr std::int16_t __fbthrift_reflection_field_id_list[] = {0,1,2};
-  using __fbthrift_reflection_type_tags = folly::tag_t<
-    ::apache::thrift::type::i32_t,
-    ::apache::thrift::type::cpp_type<std::unique_ptr<folly::IOBuf>, ::apache::thrift::type::binary_t>
-  >;
-
-  static constexpr std::size_t __fbthrift_field_size_v = 2;
-
-  template<class T>
-  using __fbthrift_id = ::apache::thrift::type::field_id<__fbthrift_reflection_field_id_list[folly::to_underlying(T::value)]>;
-
-  template<class T>
-  using __fbthrift_type_tag = ::apache::thrift::detail::at<__fbthrift_reflection_type_tags, T::value>;
-
-  template<class T>
-  using __fbthrift_ident = ::apache::thrift::detail::at<__fbthrift_reflection_ident_list, T::value>;
-
-  template<class T> using __fbthrift_ordinal = ::apache::thrift::type::ordinal_tag<
-    ::apache::thrift::detail::getFieldOrdinal<T,
-                                              __fbthrift_reflection_ident_list,
-                                              __fbthrift_reflection_type_tags>(
-      __fbthrift_reflection_field_id_list
-    )
-  >;
-  void __fbthrift_clear();
-  void __fbthrift_clear_terse_fields();
-  bool __fbthrift_is_empty() const;
-
- public:
-  using __fbthrift_cpp2_type = RefFieldsSafePatch;
-  static constexpr bool __fbthrift_cpp2_is_union =
-    false;
-
-
- public:
-
-  RefFieldsSafePatch();
-
-  // FragileConstructor for use in initialization lists only.
-  [[deprecated("This constructor is deprecated")]]
-  RefFieldsSafePatch(apache::thrift::FragileConstructor, ::std::int32_t version__arg, std::unique_ptr<folly::IOBuf> data__arg);
-
-  RefFieldsSafePatch(RefFieldsSafePatch&&) noexcept;
-  RefFieldsSafePatch(const RefFieldsSafePatch& src);
-
-
-  RefFieldsSafePatch& operator=(RefFieldsSafePatch&&) noexcept;
-  RefFieldsSafePatch& operator=(const RefFieldsSafePatch& src);
-
-  ~RefFieldsSafePatch();
-
- private:
-  ::std::int32_t __fbthrift_field_version;
- private:
-  std::unique_ptr<folly::IOBuf> __fbthrift_field_data;
-
- public:
-
-  bool operator==(const RefFieldsSafePatch&) const;
-  bool operator<(const RefFieldsSafePatch&) const;
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> version_ref() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> version_ref() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> version_ref() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> version_ref() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> version() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> version() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> version() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_version};
-  }
-
-  template <typename..., typename T = ::std::int32_t>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> version() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_version)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> data_ref() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> data_ref() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> data_ref() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> data_ref() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&> data() const& {
-    return ::apache::thrift::terse_field_ref<const T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<const T&&> data() const&& {
-    return ::apache::thrift::terse_field_ref<const T&&>{static_cast<const T&&>(this->__fbthrift_field_data)};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&> data() & {
-    return ::apache::thrift::terse_field_ref<T&>{this->__fbthrift_field_data};
-  }
-
-  template <typename..., typename T = std::unique_ptr<folly::IOBuf>>
-  FOLLY_ERASE ::apache::thrift::terse_field_ref<T&&> data() && {
-    return ::apache::thrift::terse_field_ref<T&&>{static_cast<T&&>(this->__fbthrift_field_data)};
-  }
-
-  ::std::int32_t get_version() const {
-    return __fbthrift_field_version;
-  }
-
-  [[deprecated("Use `FOO.version_ref() = BAR;` instead of `FOO.set_version(BAR);`")]]
-  ::std::int32_t& set_version(::std::int32_t version_) {
-    version_ref() = version_;
-    return __fbthrift_field_version;
-  }
-
-  const std::unique_ptr<folly::IOBuf>& get_data() const& {
-    return __fbthrift_field_data;
-  }
-
-  std::unique_ptr<folly::IOBuf> get_data() && {
-    return std::move(__fbthrift_field_data);
-  }
-
-  template <typename T_RefFieldsSafePatch_data_struct_setter = std::unique_ptr<folly::IOBuf>>
-  [[deprecated("Use `FOO.data_ref() = BAR;` instead of `FOO.set_data(BAR);`")]]
-  std::unique_ptr<folly::IOBuf>& set_data(T_RefFieldsSafePatch_data_struct_setter&& data_) {
-    data_ref() = std::forward<T_RefFieldsSafePatch_data_struct_setter>(data_);
-    return __fbthrift_field_data;
-  }
-
-  template <class Protocol_>
-  unsigned long read(Protocol_* iprot);
-  template <class Protocol_>
-  uint32_t serializedSize(Protocol_ const* prot_) const;
-  template <class Protocol_>
-  uint32_t serializedSizeZC(Protocol_ const* prot_) const;
-  template <class Protocol_>
-  uint32_t write(Protocol_* prot_) const;
-
- private:
-  template <class Protocol_>
-  void readNoXfer(Protocol_* iprot);
-
-  friend class ::apache::thrift::Cpp2Ops<RefFieldsSafePatch>;
-  friend void swap(RefFieldsSafePatch& a, RefFieldsSafePatch& b);
-};
-
-template <class Protocol_>
-unsigned long RefFieldsSafePatch::read(Protocol_* iprot) {
-  auto _xferStart = iprot->getCursorPosition();
-  readNoXfer(iprot);
-  return iprot->getCursorPosition() - _xferStart;
-}
-
-
 }}} // test::fixtures::patch
 
 namespace apache { namespace thrift {
@@ -20979,13 +18793,17 @@ template <> struct TEnumTraits<::test::fixtures::patch::InnerUnion::Type> {
 
   static constexpr std::size_t const size = 1;
   static folly::Range<type const*> const values;
-  static folly::Range<std::string_view const*> const names;
+  static folly::Range<folly::StringPiece const*> const names;
 
-  static bool findName(type value, std::string_view* out) noexcept;
-  static bool findValue(std::string_view name, type* out) noexcept;
+  static bool findName(type value, folly::StringPiece* out) noexcept;
+  static bool findValue(folly::StringPiece name, type* out) noexcept;
 
+  static bool findName(type value, std::string_view* out) noexcept {
+    folly::StringPiece outp;
+    return findName(value, &outp) && ((*out = outp), true);
+  }
   static char const* findName(type value) noexcept {
-    std::string_view ret;
+    folly::StringPiece ret;
     (void)findName(value, &ret);
     return ret.data();
   }
@@ -20998,13 +18816,17 @@ template <> struct TEnumTraits<::test::fixtures::patch::MyUnion::Type> {
 
   static constexpr std::size_t const size = 3;
   static folly::Range<type const*> const values;
-  static folly::Range<std::string_view const*> const names;
+  static folly::Range<folly::StringPiece const*> const names;
 
-  static bool findName(type value, std::string_view* out) noexcept;
-  static bool findValue(std::string_view name, type* out) noexcept;
+  static bool findName(type value, folly::StringPiece* out) noexcept;
+  static bool findValue(folly::StringPiece name, type* out) noexcept;
 
+  static bool findName(type value, std::string_view* out) noexcept {
+    folly::StringPiece outp;
+    return findName(value, &outp) && ((*out = outp), true);
+  }
   static char const* findName(type value) noexcept {
-    std::string_view ret;
+    folly::StringPiece ret;
     (void)findName(value, &ret);
     return ret.data();
   }

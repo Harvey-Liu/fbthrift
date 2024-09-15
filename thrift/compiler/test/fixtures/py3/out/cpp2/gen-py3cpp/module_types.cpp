@@ -15,13 +15,13 @@
 namespace apache { namespace thrift {
 
 folly::Range<::py3::simple::AnEnum const*> const TEnumTraits<::py3::simple::AnEnum>::values = folly::range(TEnumDataStorage<::py3::simple::AnEnum>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::py3::simple::AnEnum>::names = folly::range(TEnumDataStorage<::py3::simple::AnEnum>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::py3::simple::AnEnum>::names = folly::range(TEnumDataStorage<::py3::simple::AnEnum>::names);
 
-bool TEnumTraits<::py3::simple::AnEnum>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::py3::simple::AnEnum>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::py3::simple::AnEnum>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::py3::simple::AnEnum>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -31,13 +31,13 @@ bool TEnumTraits<::py3::simple::AnEnum>::findValue(std::string_view name, type* 
 namespace apache { namespace thrift {
 
 folly::Range<::py3::simple::AnEnumRenamed const*> const TEnumTraits<::py3::simple::AnEnumRenamed>::values = folly::range(TEnumDataStorage<::py3::simple::AnEnumRenamed>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::py3::simple::AnEnumRenamed>::names = folly::range(TEnumDataStorage<::py3::simple::AnEnumRenamed>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::py3::simple::AnEnumRenamed>::names = folly::range(TEnumDataStorage<::py3::simple::AnEnumRenamed>::names);
 
-bool TEnumTraits<::py3::simple::AnEnumRenamed>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::py3::simple::AnEnumRenamed>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::py3::simple::AnEnumRenamed>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::py3::simple::AnEnumRenamed>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -47,13 +47,13 @@ bool TEnumTraits<::py3::simple::AnEnumRenamed>::findValue(std::string_view name,
 namespace apache { namespace thrift {
 
 folly::Range<::py3::simple::Flags const*> const TEnumTraits<::py3::simple::Flags>::values = folly::range(TEnumDataStorage<::py3::simple::Flags>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::py3::simple::Flags>::names = folly::range(TEnumDataStorage<::py3::simple::Flags>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::py3::simple::Flags>::names = folly::range(TEnumDataStorage<::py3::simple::Flags>::names);
 
-bool TEnumTraits<::py3::simple::Flags>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::py3::simple::Flags>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::py3::simple::Flags>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::py3::simple::Flags>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -65,7 +65,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::py3::simple::SimpleException>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::py3::simple::SimpleException>;
@@ -83,11 +83,11 @@ void TccStructTraits<::py3::simple::SimpleException>::translateFieldName(
 
 namespace py3 { namespace simple {
 
-std::string_view SimpleException::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece SimpleException::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<SimpleException>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view SimpleException::__fbthrift_get_class_name() {
+const folly::StringPiece SimpleException::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<SimpleException>::name;
 }
 
@@ -163,7 +163,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::py3::simple::OptionalRefStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::py3::simple::OptionalRefStruct>;
@@ -181,11 +181,11 @@ void TccStructTraits<::py3::simple::OptionalRefStruct>::translateFieldName(
 
 namespace py3 { namespace simple {
 
-std::string_view OptionalRefStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece OptionalRefStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<OptionalRefStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view OptionalRefStruct::__fbthrift_get_class_name() {
+const folly::StringPiece OptionalRefStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<OptionalRefStruct>::name;
 }
 
@@ -271,7 +271,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::py3::simple::SimpleStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::py3::simple::SimpleStruct>;
@@ -289,11 +289,11 @@ void TccStructTraits<::py3::simple::SimpleStruct>::translateFieldName(
 
 namespace py3 { namespace simple {
 
-std::string_view SimpleStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece SimpleStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<SimpleStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view SimpleStruct::__fbthrift_get_class_name() {
+const folly::StringPiece SimpleStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<SimpleStruct>::name;
 }
 
@@ -404,7 +404,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::py3::simple::HiddenTypeFieldsStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::py3::simple::HiddenTypeFieldsStruct>;
@@ -422,11 +422,11 @@ void TccStructTraits<::py3::simple::HiddenTypeFieldsStruct>::translateFieldName(
 
 namespace py3 { namespace simple {
 
-std::string_view HiddenTypeFieldsStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece HiddenTypeFieldsStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<HiddenTypeFieldsStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view HiddenTypeFieldsStruct::__fbthrift_get_class_name() {
+const folly::StringPiece HiddenTypeFieldsStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<HiddenTypeFieldsStruct>::name;
 }
 
@@ -547,7 +547,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::py3::simple::detail::AdaptedUnion>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::py3::simple::detail::AdaptedUnion>;
@@ -566,24 +566,24 @@ void TccStructTraits<::py3::simple::detail::AdaptedUnion>::translateFieldName(
 namespace apache { namespace thrift {
 
 folly::Range<::py3::simple::detail::AdaptedUnion::Type const*> const TEnumTraits<::py3::simple::detail::AdaptedUnion::Type>::values = folly::range(TEnumDataStorage<::py3::simple::detail::AdaptedUnion::Type>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::py3::simple::detail::AdaptedUnion::Type>::names = folly::range(TEnumDataStorage<::py3::simple::detail::AdaptedUnion::Type>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::py3::simple::detail::AdaptedUnion::Type>::names = folly::range(TEnumDataStorage<::py3::simple::detail::AdaptedUnion::Type>::names);
 
-bool TEnumTraits<::py3::simple::detail::AdaptedUnion::Type>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::py3::simple::detail::AdaptedUnion::Type>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::py3::simple::detail::AdaptedUnion::Type>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::py3::simple::detail::AdaptedUnion::Type>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 }} // apache::thrift
 namespace py3 { namespace simple {namespace detail {
 
 
-std::string_view AdaptedUnion::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece AdaptedUnion::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<AdaptedUnion>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view AdaptedUnion::__fbthrift_get_class_name() {
+const folly::StringPiece AdaptedUnion::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<AdaptedUnion>::name;
 }
 
@@ -671,7 +671,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::py3::simple::HiddenException>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::py3::simple::HiddenException>;
@@ -689,11 +689,11 @@ void TccStructTraits<::py3::simple::HiddenException>::translateFieldName(
 
 namespace py3 { namespace simple {
 
-std::string_view HiddenException::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece HiddenException::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<HiddenException>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view HiddenException::__fbthrift_get_class_name() {
+const folly::StringPiece HiddenException::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<HiddenException>::name;
 }
 
@@ -769,7 +769,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::py3::simple::ComplexStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::py3::simple::ComplexStruct>;
@@ -787,11 +787,11 @@ void TccStructTraits<::py3::simple::ComplexStruct>::translateFieldName(
 
 namespace py3 { namespace simple {
 
-std::string_view ComplexStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece ComplexStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<ComplexStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view ComplexStruct::__fbthrift_get_class_name() {
+const folly::StringPiece ComplexStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<ComplexStruct>::name;
 }
 
@@ -944,7 +944,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::py3::simple::BinaryUnion>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::py3::simple::BinaryUnion>;
@@ -963,23 +963,23 @@ void TccStructTraits<::py3::simple::BinaryUnion>::translateFieldName(
 namespace apache { namespace thrift {
 
 folly::Range<::py3::simple::BinaryUnion::Type const*> const TEnumTraits<::py3::simple::BinaryUnion::Type>::values = folly::range(TEnumDataStorage<::py3::simple::BinaryUnion::Type>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::py3::simple::BinaryUnion::Type>::names = folly::range(TEnumDataStorage<::py3::simple::BinaryUnion::Type>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::py3::simple::BinaryUnion::Type>::names = folly::range(TEnumDataStorage<::py3::simple::BinaryUnion::Type>::names);
 
-bool TEnumTraits<::py3::simple::BinaryUnion::Type>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::py3::simple::BinaryUnion::Type>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::py3::simple::BinaryUnion::Type>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::py3::simple::BinaryUnion::Type>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 }} // apache::thrift
 namespace py3 { namespace simple {
 
-std::string_view BinaryUnion::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece BinaryUnion::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<BinaryUnion>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view BinaryUnion::__fbthrift_get_class_name() {
+const folly::StringPiece BinaryUnion::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<BinaryUnion>::name;
 }
 
@@ -1062,7 +1062,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::py3::simple::BinaryUnionStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::py3::simple::BinaryUnionStruct>;
@@ -1080,11 +1080,11 @@ void TccStructTraits<::py3::simple::BinaryUnionStruct>::translateFieldName(
 
 namespace py3 { namespace simple {
 
-std::string_view BinaryUnionStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece BinaryUnionStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<BinaryUnionStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view BinaryUnionStruct::__fbthrift_get_class_name() {
+const folly::StringPiece BinaryUnionStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<BinaryUnionStruct>::name;
 }
 

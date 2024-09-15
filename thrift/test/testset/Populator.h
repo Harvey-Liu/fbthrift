@@ -24,7 +24,7 @@ namespace apache::thrift::test {
 namespace detail {
 template <class T>
 constexpr bool has_adapter() {
-  constexpr std::string_view name = folly::pretty_name<T>();
+  const std::string_view name = folly::pretty_name<T>();
   return name.find("_adapted_") != name.npos;
 }
 } // namespace detail

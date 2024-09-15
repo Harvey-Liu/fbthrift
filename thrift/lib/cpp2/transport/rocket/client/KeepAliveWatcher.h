@@ -36,6 +36,7 @@ class KeepAliveWatcher : public folly::HHWheelTimer::Callback,
   KeepAliveWatcher(
       folly::EventBase* evb,
       folly::AsyncTransport* socket,
+      const std::chrono::milliseconds interval,
       const std::chrono::milliseconds timeout);
 
   KeepAliveWatcher(const KeepAliveWatcher&) = delete;

@@ -27,18 +27,14 @@ import (
 func TestEnsureTransportsAreRich(t *testing.T) {
 	buf := bytes.NewBuffer(make([]byte, 0, 1024))
 
-	http, err := newHTTPPostClientWithOptions("http://127.0.0.1", httpClientOptions{})
-	if err != nil {
-		t.Fatal(err)
+	transports := []TransportFactory{
+		NewMemoryBufferTransportFactory(1024),
+		NewStreamTransportFactory(buf, buf, true),
+		NewFramedTransportFactory(NewMemoryBufferTransportFactory(1024)),
+		NewHTTPPostClientTransportFactory("http://127.0.0.1"),
 	}
-
-	transports := []Transport{
-		NewMemoryBufferLen(1024),
-		NewStreamTransportRW(buf),
-		NewFramedTransportMaxLength(NewMemoryBufferLen(1024), DEFAULT_MAX_LENGTH),
-		http,
-	}
-	for _, trans := range transports {
+	for _, tf := range transports {
+		trans := tf.GetTransport(nil)
 		_, ok := trans.(RichTransport)
 		if !ok {
 			t.Errorf("Transport %s does not implement RichTransport interface", reflect.ValueOf(trans))

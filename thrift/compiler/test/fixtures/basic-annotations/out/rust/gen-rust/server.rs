@@ -263,7 +263,6 @@ pub struct MyServiceProcessor<P, H, R, RS> {
 
 struct Args_MyService_ping {
 }
-
 impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_MyService_ping {
     #[inline]
     #[::tracing::instrument(skip_all, level = "trace", name = "deserialize_args", fields(method = "MyService.ping"))]
@@ -287,7 +286,6 @@ impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_My
 
 struct Args_MyService_getRandomData {
 }
-
 impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_MyService_getRandomData {
     #[inline]
     #[::tracing::instrument(skip_all, level = "trace", name = "deserialize_args", fields(method = "MyService.getRandomData"))]
@@ -312,7 +310,6 @@ impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_My
 struct Args_MyService_hasDataById {
     id: ::std::primitive::i64,
 }
-
 impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_MyService_hasDataById {
     #[inline]
     #[::tracing::instrument(skip_all, level = "trace", name = "deserialize_args", fields(method = "MyService.hasDataById"))]
@@ -341,7 +338,6 @@ impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_My
 struct Args_MyService_getDataById {
     id: ::std::primitive::i64,
 }
-
 impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_MyService_getDataById {
     #[inline]
     #[::tracing::instrument(skip_all, level = "trace", name = "deserialize_args", fields(method = "MyService.getDataById"))]
@@ -371,7 +367,6 @@ struct Args_MyService_putDataById {
     id: ::std::primitive::i64,
     data: ::std::string::String,
 }
-
 impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_MyService_putDataById {
     #[inline]
     #[::tracing::instrument(skip_all, level = "trace", name = "deserialize_args", fields(method = "MyService.putDataById"))]
@@ -405,7 +400,6 @@ struct Args_MyService_lobDataById {
     id: ::std::primitive::i64,
     data: ::std::string::String,
 }
-
 impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_MyService_lobDataById {
     #[inline]
     #[::tracing::instrument(skip_all, level = "trace", name = "deserialize_args", fields(method = "MyService.lobDataById"))]
@@ -437,7 +431,6 @@ impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_My
 
 struct Args_MyService_doNothing {
 }
-
 impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_MyService_doNothing {
     #[inline]
     #[::tracing::instrument(skip_all, level = "trace", name = "deserialize_args", fields(method = "MyService.doNothing"))]
@@ -1289,7 +1282,6 @@ pub struct MyServicePrioParentProcessor<P, H, R, RS> {
 
 struct Args_MyServicePrioParent_ping {
 }
-
 impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_MyServicePrioParent_ping {
     #[inline]
     #[::tracing::instrument(skip_all, level = "trace", name = "deserialize_args", fields(method = "MyServicePrioParent.ping"))]
@@ -1313,7 +1305,6 @@ impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_My
 
 struct Args_MyServicePrioParent_pong {
 }
-
 impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_MyServicePrioParent_pong {
     #[inline]
     #[::tracing::instrument(skip_all, level = "trace", name = "deserialize_args", fields(method = "MyServicePrioParent.pong"))]
@@ -1747,7 +1738,6 @@ pub struct MyServicePrioChildProcessor<P, H, R, RS, SS> {
 
 struct Args_MyServicePrioChild_pang {
 }
-
 impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_MyServicePrioChild_pang {
     #[inline]
     #[::tracing::instrument(skip_all, level = "trace", name = "deserialize_args", fields(method = "MyServicePrioChild.pang"))]
@@ -2124,7 +2114,6 @@ pub struct BadInteractionProcessor<P, H, R, RS> {
 
 struct Args_BadInteraction_foo {
 }
-
 impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_BadInteraction_foo {
     #[inline]
     #[::tracing::instrument(skip_all, level = "trace", name = "deserialize_args", fields(method = "BadInteraction.foo"))]
@@ -2467,7 +2456,6 @@ pub struct BadServiceProcessor<P, H, R, RS> {
 
 struct Args_BadService_bar {
 }
-
 impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_BadService_bar {
     #[inline]
     #[::tracing::instrument(skip_all, level = "trace", name = "deserialize_args", fields(method = "BadService.bar"))]
@@ -2880,7 +2868,6 @@ pub struct FooBarBazServiceProcessor<P, H, R, RS> {
 
 struct Args_FooBarBazService_foo {
 }
-
 impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_FooBarBazService_foo {
     #[inline]
     #[::tracing::instrument(skip_all, level = "trace", name = "deserialize_args", fields(method = "FooBarBazService.foo"))]
@@ -2904,7 +2891,6 @@ impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_Fo
 
 struct Args_FooBarBazService_bar {
 }
-
 impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_FooBarBazService_bar {
     #[inline]
     #[::tracing::instrument(skip_all, level = "trace", name = "deserialize_args", fields(method = "FooBarBazService.bar"))]
@@ -2928,7 +2914,6 @@ impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_Fo
 
 struct Args_FooBarBazService_baz {
 }
-
 impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_FooBarBazService_baz {
     #[inline]
     #[::tracing::instrument(skip_all, level = "trace", name = "deserialize_args", fields(method = "FooBarBazService.baz"))]

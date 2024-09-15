@@ -15,13 +15,13 @@
 namespace apache { namespace thrift {
 
 folly::Range<::test::fixtures::enums::Metasyntactic const*> const TEnumTraits<::test::fixtures::enums::Metasyntactic>::values = folly::range(TEnumDataStorage<::test::fixtures::enums::Metasyntactic>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::test::fixtures::enums::Metasyntactic>::names = folly::range(TEnumDataStorage<::test::fixtures::enums::Metasyntactic>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::test::fixtures::enums::Metasyntactic>::names = folly::range(TEnumDataStorage<::test::fixtures::enums::Metasyntactic>::names);
 
-bool TEnumTraits<::test::fixtures::enums::Metasyntactic>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::test::fixtures::enums::Metasyntactic>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::test::fixtures::enums::Metasyntactic>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::test::fixtures::enums::Metasyntactic>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -31,13 +31,13 @@ bool TEnumTraits<::test::fixtures::enums::Metasyntactic>::findValue(std::string_
 namespace apache { namespace thrift {
 
 folly::Range<::test::fixtures::enums::MyEnum1 const*> const TEnumTraits<::test::fixtures::enums::MyEnum1>::values = folly::range(TEnumDataStorage<::test::fixtures::enums::MyEnum1>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::test::fixtures::enums::MyEnum1>::names = folly::range(TEnumDataStorage<::test::fixtures::enums::MyEnum1>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::test::fixtures::enums::MyEnum1>::names = folly::range(TEnumDataStorage<::test::fixtures::enums::MyEnum1>::names);
 
-bool TEnumTraits<::test::fixtures::enums::MyEnum1>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::test::fixtures::enums::MyEnum1>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::test::fixtures::enums::MyEnum1>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::test::fixtures::enums::MyEnum1>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -47,13 +47,13 @@ bool TEnumTraits<::test::fixtures::enums::MyEnum1>::findValue(std::string_view n
 namespace apache { namespace thrift {
 
 folly::Range<::test::fixtures::enums::MyEnum2 const*> const TEnumTraits<::test::fixtures::enums::MyEnum2>::values = folly::range(TEnumDataStorage<::test::fixtures::enums::MyEnum2>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::test::fixtures::enums::MyEnum2>::names = folly::range(TEnumDataStorage<::test::fixtures::enums::MyEnum2>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::test::fixtures::enums::MyEnum2>::names = folly::range(TEnumDataStorage<::test::fixtures::enums::MyEnum2>::names);
 
-bool TEnumTraits<::test::fixtures::enums::MyEnum2>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::test::fixtures::enums::MyEnum2>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::test::fixtures::enums::MyEnum2>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::test::fixtures::enums::MyEnum2>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -63,13 +63,13 @@ bool TEnumTraits<::test::fixtures::enums::MyEnum2>::findValue(std::string_view n
 namespace apache { namespace thrift {
 
 folly::Range<::test::fixtures::enums::MyEnum3 const*> const TEnumTraits<::test::fixtures::enums::MyEnum3>::values = folly::range(TEnumDataStorage<::test::fixtures::enums::MyEnum3>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::test::fixtures::enums::MyEnum3>::names = folly::range(TEnumDataStorage<::test::fixtures::enums::MyEnum3>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::test::fixtures::enums::MyEnum3>::names = folly::range(TEnumDataStorage<::test::fixtures::enums::MyEnum3>::names);
 
-bool TEnumTraits<::test::fixtures::enums::MyEnum3>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::test::fixtures::enums::MyEnum3>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::test::fixtures::enums::MyEnum3>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::test::fixtures::enums::MyEnum3>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -79,13 +79,13 @@ bool TEnumTraits<::test::fixtures::enums::MyEnum3>::findValue(std::string_view n
 namespace apache { namespace thrift {
 
 folly::Range<::test::fixtures::enums::MyEnum4 const*> const TEnumTraits<::test::fixtures::enums::MyEnum4>::values = folly::range(TEnumDataStorage<::test::fixtures::enums::MyEnum4>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::test::fixtures::enums::MyEnum4>::names = folly::range(TEnumDataStorage<::test::fixtures::enums::MyEnum4>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::test::fixtures::enums::MyEnum4>::names = folly::range(TEnumDataStorage<::test::fixtures::enums::MyEnum4>::names);
 
-bool TEnumTraits<::test::fixtures::enums::MyEnum4>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::test::fixtures::enums::MyEnum4>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::test::fixtures::enums::MyEnum4>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::test::fixtures::enums::MyEnum4>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -95,13 +95,13 @@ bool TEnumTraits<::test::fixtures::enums::MyEnum4>::findValue(std::string_view n
 namespace apache { namespace thrift {
 
 folly::Range<::test::fixtures::enums::MyBitmaskEnum1 const*> const TEnumTraits<::test::fixtures::enums::MyBitmaskEnum1>::values = folly::range(TEnumDataStorage<::test::fixtures::enums::MyBitmaskEnum1>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::test::fixtures::enums::MyBitmaskEnum1>::names = folly::range(TEnumDataStorage<::test::fixtures::enums::MyBitmaskEnum1>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::test::fixtures::enums::MyBitmaskEnum1>::names = folly::range(TEnumDataStorage<::test::fixtures::enums::MyBitmaskEnum1>::names);
 
-bool TEnumTraits<::test::fixtures::enums::MyBitmaskEnum1>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::test::fixtures::enums::MyBitmaskEnum1>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::test::fixtures::enums::MyBitmaskEnum1>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::test::fixtures::enums::MyBitmaskEnum1>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -111,13 +111,13 @@ bool TEnumTraits<::test::fixtures::enums::MyBitmaskEnum1>::findValue(std::string
 namespace apache { namespace thrift {
 
 folly::Range<::test::fixtures::enums::MyBitmaskEnum2 const*> const TEnumTraits<::test::fixtures::enums::MyBitmaskEnum2>::values = folly::range(TEnumDataStorage<::test::fixtures::enums::MyBitmaskEnum2>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::test::fixtures::enums::MyBitmaskEnum2>::names = folly::range(TEnumDataStorage<::test::fixtures::enums::MyBitmaskEnum2>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::test::fixtures::enums::MyBitmaskEnum2>::names = folly::range(TEnumDataStorage<::test::fixtures::enums::MyBitmaskEnum2>::names);
 
-bool TEnumTraits<::test::fixtures::enums::MyBitmaskEnum2>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::test::fixtures::enums::MyBitmaskEnum2>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::test::fixtures::enums::MyBitmaskEnum2>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::test::fixtures::enums::MyBitmaskEnum2>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -129,7 +129,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::enums::SomeStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::enums::SomeStruct>;
@@ -151,11 +151,11 @@ const char* SomeStruct::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/enums/SomeStruct";
 }
 
-std::string_view SomeStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece SomeStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<SomeStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view SomeStruct::__fbthrift_get_class_name() {
+const folly::StringPiece SomeStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<SomeStruct>::name;
 }
 
@@ -259,7 +259,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::enums::MyStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::enums::MyStruct>;
@@ -281,11 +281,11 @@ const char* MyStruct::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/enums/MyStruct";
 }
 
-std::string_view MyStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MyStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MyStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MyStruct::__fbthrift_get_class_name() {
+const folly::StringPiece MyStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MyStruct>::name;
 }
 

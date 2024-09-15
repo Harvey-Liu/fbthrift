@@ -85,6 +85,7 @@ class TypeErasedStorageTest : public testing::Test {
       other.clear();
     }
     LifetimeOperationsTracker& operator=(LifetimeOperationsTracker&& other) {
+      CHECK(other.operations_);
       operations_ = other.operations_;
       initialized_ = other.initialized_;
       other.clear();
@@ -115,6 +116,9 @@ class TypeErasedStorageTest : public testing::Test {
     int count_{0};
   };
 
+  using TypeErasedStorageTestType = TypeErasedStorage<
+      sizeof(LifetimeOperationsTracker),
+      alignof(LifetimeOperationsTracker)>;
   using TypeErasedValueTestType = TypeErasedValue<
       sizeof(LifetimeOperationsTracker),
       alignof(LifetimeOperationsTracker)>;
@@ -201,7 +205,7 @@ TEST_F(TypeErasedStorageTest, lifetimeOperationsTrackerTest) {
 
 TEST_F(TypeErasedStorageTest, constructDestructTest) {
   {
-    TypeErasedValueTestType storage;
+    TypeErasedStorageTestType storage;
     ASSERT_FALSE(storage.has_value());
     ASSERT_TRUE(storage.emplace<LifetimeOperationsTracker>(sequence_));
     ASSERT_TRUE(storage.has_value());
@@ -221,13 +225,13 @@ TEST_F(TypeErasedStorageTest, constructDestructTest) {
 
 TEST_F(TypeErasedStorageTest, moveTest) {
   {
-    TypeErasedValueTestType storage;
+    TypeErasedStorageTestType storage;
     ASSERT_FALSE(storage.has_value());
     ASSERT_TRUE(storage.emplace<LifetimeOperationsTracker>(sequence_));
     ASSERT_TRUE(storage.holds_alternative<LifetimeOperationsTracker>());
     ASSERT_TRUE(storage.has_value());
     ASSERT_TRUE(storage.value<LifetimeOperationsTracker>());
-    TypeErasedValueTestType otherStorage(std::move(storage));
+    TypeErasedStorageTestType otherStorage(std::move(storage));
     // @lint-ignore CLANGTIDY bugprone-use-after-move
     ASSERT_FALSE(storage.holds_alternative<LifetimeOperationsTracker>());
     // @lint-ignore CLANGTIDY bugprone-use-after-move
@@ -236,12 +240,12 @@ TEST_F(TypeErasedStorageTest, moveTest) {
     ASSERT_TRUE(otherStorage.has_value());
   }
   {
-    TypeErasedValueTestType storage;
+    TypeErasedStorageTestType storage;
     ASSERT_FALSE(storage.has_value());
     ASSERT_TRUE(storage.emplace<LifetimeOperationsTracker>(sequence_));
     ASSERT_TRUE(storage.has_value());
     ASSERT_TRUE(storage.value<LifetimeOperationsTracker>());
-    TypeErasedValueTestType otherStorage;
+    TypeErasedStorageTestType otherStorage;
     otherStorage = std::move(storage);
     // @lint-ignore CLANGTIDY bugprone-use-after-move
     ASSERT_FALSE(storage.has_value());
@@ -263,23 +267,23 @@ TEST_F(TypeErasedStorageTest, moveTest) {
 
 TEST_F(TypeErasedStorageTest, emptyStorageTest) {
   {
-    TypeErasedValueTestType storage;
+    TypeErasedStorageTestType storage;
     ASSERT_FALSE(storage.has_value());
     ASSERT_FALSE(storage.holds_alternative<NoopStorage>());
-    TypeErasedValueTestType otherStorage(std::move(storage));
+    TypeErasedStorageTestType otherStorage(std::move(storage));
     ASSERT_FALSE(otherStorage.has_value());
     ASSERT_FALSE(otherStorage.holds_alternative<NoopStorage>());
   }
   {
-    TypeErasedValueTestType storage;
-    TypeErasedValueTestType otherStorage;
+    TypeErasedStorageTestType storage;
+    TypeErasedStorageTestType otherStorage;
     otherStorage = std::move(storage);
   }
 }
 
 TEST_F(TypeErasedStorageTest, wrongTypeTest) {
   {
-    TypeErasedValueTestType storage;
+    TypeErasedStorageTestType storage;
     ASSERT_TRUE(storage.emplace<LifetimeOperationsTracker>(sequence_));
     ASSERT_TRUE(storage.value<LifetimeOperationsTracker>());
     ASSERT_THROW(storage.value<NoopStorage>(), std::bad_cast);
@@ -294,7 +298,7 @@ TEST_F(TypeErasedStorageTest, wrongTypeTest) {
 
 TEST_F(TypeErasedStorageTest, replaceTypeTest) {
   {
-    TypeErasedValueTestType storage;
+    TypeErasedStorageTestType storage;
     ASSERT_FALSE(storage.holds_alternative<LifetimeOperationsTracker>());
     ASSERT_TRUE(storage.emplace<LifetimeOperationsTracker>(sequence_));
     ASSERT_TRUE(storage.holds_alternative<LifetimeOperationsTracker>());
@@ -317,7 +321,7 @@ TEST_F(TypeErasedStorageTest, replaceTypeTest) {
 
 TEST_F(TypeErasedStorageTest, resetTest) {
   {
-    TypeErasedValueTestType storage;
+    TypeErasedStorageTestType storage;
     ASSERT_FALSE(storage.has_value());
     ASSERT_TRUE(storage.emplace<LifetimeOperationsTracker>(sequence_));
     ASSERT_TRUE(storage.has_value());
@@ -333,8 +337,8 @@ TEST_F(TypeErasedStorageTest, resetTest) {
 
 TEST_F(TypeErasedStorageTest, makeValueTest) {
   {
-    TypeErasedValueTestType storage{
-        std::in_place_type<LifetimeOperationsTracker>, sequence_};
+    TypeErasedValueTestType storage =
+        TypeErasedValueTestType::make<LifetimeOperationsTracker>(sequence_);
     ASSERT_TRUE(storage.value<LifetimeOperationsTracker>());
     ASSERT_TRUE(storage.value_unchecked<LifetimeOperationsTracker>());
     ASSERT_EQ(storage.emplace<CounterStorage>(1).getCount(), 1);
@@ -348,13 +352,16 @@ TEST_F(TypeErasedStorageTest, makeValueTest) {
 }
 
 TEST_F(TypeErasedStorageTest, makeEmptyTest) {
-  TypeErasedValueTestType storage{std::in_place_type<std::monostate>};
+  TypeErasedValueTestType storage =
+      TypeErasedValueTestType::make<std::monostate>();
   ASSERT_THROW(storage.value<NoopStorage>(), std::bad_cast);
 }
 
 TEST_F(TypeErasedStorageTest, swapTest) {
-  TypeErasedValueTestType storageOne{std::in_place_type<CounterStorage>, 1};
-  TypeErasedValueTestType storageTwo{std::in_place_type<CounterStorage>, 2};
+  TypeErasedValueTestType storageOne =
+      TypeErasedValueTestType::make<CounterStorage>(1);
+  TypeErasedValueTestType storageTwo =
+      TypeErasedValueTestType::make<CounterStorage>(2);
   ASSERT_EQ(storageOne.value<CounterStorage>().getCount(), 1);
   ASSERT_EQ(storageTwo.value<CounterStorage>().getCount(), 2);
   std::swap(storageOne, storageTwo);

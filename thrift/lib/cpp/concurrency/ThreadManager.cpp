@@ -421,7 +421,7 @@ class ThreadManager::Impl : public ThreadManager,
 
   bool codelEnabled_;
 
-  folly::Optional<std::vector<std::unique_ptr<folly::QueueObserver>>>
+  folly::Optional<std::vector<std::shared_ptr<folly::QueueObserver>>>
       queueObservers_;
   std::vector<std::shared_ptr<Observer>> taskObservers_;
 };

@@ -15,13 +15,13 @@
 namespace apache { namespace thrift {
 
 folly::Range<::test::fixtures::enumstrict::EmptyEnum const*> const TEnumTraits<::test::fixtures::enumstrict::EmptyEnum>::values = {};
-folly::Range<std::string_view const*> const TEnumTraits<::test::fixtures::enumstrict::EmptyEnum>::names = {};
+folly::Range<folly::StringPiece const*> const TEnumTraits<::test::fixtures::enumstrict::EmptyEnum>::names = {};
 
-bool TEnumTraits<::test::fixtures::enumstrict::EmptyEnum>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::test::fixtures::enumstrict::EmptyEnum>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::test::fixtures::enumstrict::EmptyEnum>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::test::fixtures::enumstrict::EmptyEnum>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -31,13 +31,13 @@ bool TEnumTraits<::test::fixtures::enumstrict::EmptyEnum>::findValue(std::string
 namespace apache { namespace thrift {
 
 folly::Range<::test::fixtures::enumstrict::MyEnum const*> const TEnumTraits<::test::fixtures::enumstrict::MyEnum>::values = folly::range(TEnumDataStorage<::test::fixtures::enumstrict::MyEnum>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::test::fixtures::enumstrict::MyEnum>::names = folly::range(TEnumDataStorage<::test::fixtures::enumstrict::MyEnum>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::test::fixtures::enumstrict::MyEnum>::names = folly::range(TEnumDataStorage<::test::fixtures::enumstrict::MyEnum>::names);
 
-bool TEnumTraits<::test::fixtures::enumstrict::MyEnum>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::test::fixtures::enumstrict::MyEnum>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::test::fixtures::enumstrict::MyEnum>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::test::fixtures::enumstrict::MyEnum>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -47,13 +47,13 @@ bool TEnumTraits<::test::fixtures::enumstrict::MyEnum>::findValue(std::string_vi
 namespace apache { namespace thrift {
 
 folly::Range<::test::fixtures::enumstrict::MyBigEnum const*> const TEnumTraits<::test::fixtures::enumstrict::MyBigEnum>::values = folly::range(TEnumDataStorage<::test::fixtures::enumstrict::MyBigEnum>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::test::fixtures::enumstrict::MyBigEnum>::names = folly::range(TEnumDataStorage<::test::fixtures::enumstrict::MyBigEnum>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::test::fixtures::enumstrict::MyBigEnum>::names = folly::range(TEnumDataStorage<::test::fixtures::enumstrict::MyBigEnum>::names);
 
-bool TEnumTraits<::test::fixtures::enumstrict::MyBigEnum>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::test::fixtures::enumstrict::MyBigEnum>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::test::fixtures::enumstrict::MyBigEnum>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::test::fixtures::enumstrict::MyBigEnum>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -65,7 +65,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::enumstrict::MyStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::enumstrict::MyStruct>;
@@ -83,11 +83,11 @@ void TccStructTraits<::test::fixtures::enumstrict::MyStruct>::translateFieldName
 
 namespace test { namespace fixtures { namespace enumstrict {
 
-std::string_view MyStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MyStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MyStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MyStruct::__fbthrift_get_class_name() {
+const folly::StringPiece MyStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MyStruct>::name;
 }
 

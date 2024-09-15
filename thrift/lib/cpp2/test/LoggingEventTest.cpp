@@ -41,16 +41,16 @@ using apache::thrift::ServerTrackerHandler;
 using apache::thrift::ThriftServer;
 using apache::thrift::instrumentation::ServerTracker;
 
-constexpr std::string_view kServe = "serve";
-constexpr std::string_view kResourcePoolsEnabled = "resourcepoolsenabled";
-constexpr std::string_view kDcheck = "dcheck";
+const std::string_view kServe = "serve";
+const std::string_view kResourcePoolsEnabled = "resourcepoolsenabled";
+const std::string_view kDcheck = "dcheck";
 // Note not setting a ssl config is seen as a manual override
-constexpr std::string_view kNonTls = "non_tls.manual_policy";
-constexpr std::string_view kNewConnection = "new_connection";
-constexpr std::string_view kNewConnectionRocket = "new_connection.rocket";
-constexpr std::string_view kNewConnectionHeader = "new_connection.header";
-constexpr std::string_view kRocketSetup = "rocket.setup";
-constexpr std::string_view kTransportMetadata = "transport.metadata";
+const std::string_view kNonTls = "non_tls.manual_policy";
+const std::string_view kNewConnection = "new_connection";
+const std::string_view kNewConnectionRocket = "new_connection.rocket";
+const std::string_view kNewConnectionHeader = "new_connection.header";
+const std::string_view kRocketSetup = "rocket.setup";
+const std::string_view kTransportMetadata = "transport.metadata";
 
 using namespace apache::thrift;
 
