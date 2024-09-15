@@ -784,8 +784,7 @@ abstract class AbstractTSimpleJSONProtocol extends TProtocol {
   @Override
   public TStruct readStructBegin() {
     throw new UnsupportedOperationException(
-        "You need to specify a \"field name\" -> \"field Id\" mapping to deserialize with"
-            + " TSimpleJSON");
+        "You need to specify a \"field name\" -> \"field Id\" mapping to deserialize with TSimpleJSON");
   }
 
   @Override

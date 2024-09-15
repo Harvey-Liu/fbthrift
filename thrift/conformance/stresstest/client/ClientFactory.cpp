@@ -213,7 +213,8 @@ folly::AsyncTransport::UniquePtr createFizzSocket(
 
 folly::AsyncTransport::UniquePtr createIOUring(
     folly::EventBase* evb, const ClientConnectionConfig& cfg) {
-  auto ring = new folly::AsyncIoUringSocket(evb);
+  auto backend = dynamic_cast<folly::IoUringBackend*>(evb->getBackend());
+  auto ring = new folly::AsyncIoUringSocket(evb, backend);
   ring->connect(new ConnectCallback(), cfg.serverHost);
   return folly::AsyncTransport::UniquePtr(ring);
 }
@@ -221,7 +222,8 @@ folly::AsyncTransport::UniquePtr createIOUring(
 folly::AsyncTransport::UniquePtr createIOUringTLS(
     folly::EventBase* evb, const ClientConnectionConfig& cfg) {
   auto sock = folly::AsyncSSLSocket::newSocket(getSslContext(cfg), evb);
-  auto ring = new folly::AsyncIoUringSocket(std::move(sock));
+  auto backend = dynamic_cast<folly::IoUringBackend*>(evb->getBackend());
+  auto ring = new folly::AsyncIoUringSocket(std::move(sock), backend);
   ring->connect(new ConnectCallback(), cfg.serverHost);
   return folly::AsyncTransport::UniquePtr(ring);
 }
@@ -230,7 +232,8 @@ folly::AsyncTransport::UniquePtr createIOUringFizz(
     folly::EventBase* evb, const ClientConnectionConfig& cfg) {
   auto fizzClient = fizz::client::AsyncFizzClient::UniquePtr(
       new fizz::client::AsyncFizzClient(evb, getFizzContext(cfg)));
-  auto ring = new folly::AsyncIoUringSocket(std::move(fizzClient));
+  auto backend = dynamic_cast<folly::IoUringBackend*>(evb->getBackend());
+  auto ring = new folly::AsyncIoUringSocket(std::move(fizzClient), backend);
   ring->connect(new ConnectCallback(), cfg.serverHost);
   return folly::AsyncTransport::UniquePtr(ring);
 }

@@ -20,22 +20,34 @@ import (
 	"context"
 )
 
+// upgradeProtocolFactory is a ProtocolFactory for a protocol that upgrades from Header to Rocket protocol.
+type upgradeToRocketProtocolFactory struct {
+	headerProtocolFactory ProtocolFactory
+	rocketProtocolFactory ProtocolFactory
+}
+
+// NewUpgradeToRocketProtocolFactory creates a new upgradeProtocolFactory that upgrades from Header to Rocket protocol.
+func NewUpgradeToRocketProtocolFactory() ProtocolFactory {
+	return &upgradeToRocketProtocolFactory{
+		headerProtocolFactory: NewHeaderProtocolFactory(),
+		rocketProtocolFactory: NewRocketProtocolFactory(),
+	}
+}
+
+func (p *upgradeToRocketProtocolFactory) GetProtocol(trans Transport) Protocol {
+	headerProtocol := p.headerProtocolFactory.GetProtocol(trans).(*headerProtocol)
+	rocketProtocol := p.rocketProtocolFactory.GetProtocol(trans).(*rocketProtocol)
+	return NewUpgradeToRocketProtocol(rocketProtocol, headerProtocol)
+}
+
 type upgradeToRocketProtocol struct {
 	Protocol
 	rocketProtocol Protocol
 	headerProtocol Protocol
 }
 
-// NewUpgradeToRocketProtocol creates a protocol that upgrades from Header to Rocket protocol from a transport.
-func NewUpgradeToRocketProtocol(trans Transport) Protocol {
-	return &upgradeToRocketProtocol{
-		rocketProtocol: NewRocketProtocol(trans),
-		headerProtocol: NewHeaderProtocol(trans),
-	}
-}
-
-// NewUpgradeToRocketProtocol creates a protocol that upgrades from Header to Rocket protocol given both protocols.
-func NewUpgradeToRocketProtocols(rocketProtocol, headerProtocol Protocol) Protocol {
+// NewUpgradeToRocketProtocol creates a protocol that upgrades from Header to Rocket protocol.
+func NewUpgradeToRocketProtocol(rocketProtocol Protocol, headerProtocol Protocol) Protocol {
 	return &upgradeToRocketProtocol{
 		rocketProtocol: rocketProtocol,
 		headerProtocol: headerProtocol,
@@ -62,11 +74,11 @@ func (p *upgradeToRocketProtocol) upgradeToRocket() error {
 
 func (p *upgradeToRocketProtocol) SetPersistentHeader(key, value string) {
 	if p.Protocol == nil {
-		p.rocketProtocol.SetPersistentHeader(key, value)
-		p.headerProtocol.SetPersistentHeader(key, value)
+		p.rocketProtocol.(PersistentHeaders).SetPersistentHeader(key, value)
+		p.headerProtocol.(PersistentHeaders).SetPersistentHeader(key, value)
 		return
 	}
-	p.Protocol.SetPersistentHeader(key, value)
+	p.Protocol.(PersistentHeaders).SetPersistentHeader(key, value)
 }
 
 func (p *upgradeToRocketProtocol) GetPersistentHeader(key string) (string, bool) {
@@ -76,23 +88,23 @@ func (p *upgradeToRocketProtocol) GetPersistentHeader(key string) (string, bool)
 
 func (p *upgradeToRocketProtocol) GetPersistentHeaders() map[string]string {
 	if p.Protocol == nil {
-		headers := p.headerProtocol.GetPersistentHeaders()
-		rocketHeaders := p.rocketProtocol.GetPersistentHeaders()
+		headers := p.headerProtocol.(PersistentHeaders).GetPersistentHeaders()
+		rocketHeaders := p.rocketProtocol.(PersistentHeaders).GetPersistentHeaders()
 		for k, v := range rocketHeaders {
 			headers[k] = v
 		}
 		return headers
 	}
-	return p.Protocol.GetPersistentHeaders()
+	return p.Protocol.(PersistentHeaders).GetPersistentHeaders()
 }
 
 func (p *upgradeToRocketProtocol) ClearPersistentHeaders() {
 	if p.Protocol == nil {
-		p.rocketProtocol.ClearPersistentHeaders()
-		p.headerProtocol.ClearPersistentHeaders()
+		p.rocketProtocol.(PersistentHeaders).ClearPersistentHeaders()
+		p.headerProtocol.(PersistentHeaders).ClearPersistentHeaders()
 		return
 	}
-	p.Protocol.ClearPersistentHeaders()
+	p.Protocol.(PersistentHeaders).ClearPersistentHeaders()
 }
 
 func (p *upgradeToRocketProtocol) SetRequestHeader(key, value string) {
@@ -128,12 +140,12 @@ func (p *upgradeToRocketProtocol) GetResponseHeader(key string) (string, bool) {
 
 func (p *upgradeToRocketProtocol) GetResponseHeaders() map[string]string {
 	if p.Protocol == nil {
-		headers := p.headerProtocol.GetResponseHeaders()
-		rocketHeaders := p.rocketProtocol.GetResponseHeaders()
+		headers := p.headerProtocol.(ResponseHeaderGetter).GetResponseHeaders()
+		rocketHeaders := p.rocketProtocol.(ResponseHeaderGetter).GetResponseHeaders()
 		for k, v := range rocketHeaders {
 			headers[k] = v
 		}
 		return headers
 	}
-	return p.Protocol.GetResponseHeaders()
+	return p.Protocol.(ResponseHeaderGetter).GetResponseHeaders()
 }

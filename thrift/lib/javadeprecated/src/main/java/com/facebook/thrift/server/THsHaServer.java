@@ -223,9 +223,7 @@ public class THsHaServer extends TNonblockingServer {
     options_ = options;
   }
 
-  /**
-   * @inheritDoc
-   */
+  /** @inheritDoc */
   @Override
   public void serve() {
     if (!startInvokerPool()) {

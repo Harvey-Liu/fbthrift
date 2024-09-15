@@ -41,7 +41,7 @@ class ManagedStringView {
   static ManagedStringView from_static(string_view view) noexcept {
     static_assert(
         std::is_same_v<string_view, std::string_view>,
-        "This method is only safe to call with a constexpr std::string_view.");
+        "This method is only safe to call with a const std::string_view.");
     return ManagedStringView{view, FromStaticTag{}};
   }
 

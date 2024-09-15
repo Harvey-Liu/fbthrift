@@ -66,7 +66,9 @@ func compareStructs(m, m1 MyTestStruct) (bool, error) {
 	return true, nil
 }
 
-func ProtocolTest1(test *testing.T, serial *Serializer, deserial *Deserializer) (bool, error) {
+func ProtocolTest1(test *testing.T, pf ProtocolFactory) (bool, error) {
+	t := NewSerializer()
+	t.Protocol = pf.GetProtocol(t.Transport)
 	var m = MyTestStruct{}
 	m.On = true
 	m.B = byte(0)
@@ -81,13 +83,15 @@ func ProtocolTest1(test *testing.T, serial *Serializer, deserial *Deserializer) 
 	m.StringSet = make(map[string]bool, 5)
 	m.E = 2
 
-	s, err := serial.WriteString(&m)
+	s, err := t.WriteString(&m)
 	if err != nil {
 		return false, fmt.Errorf("Unable to Serialize struct\n\t %s", err)
 	}
 
+	t1 := NewDeserializer()
+	t1.Protocol = pf.GetProtocol(t1.Transport)
 	var m1 = MyTestStruct{}
-	if err = deserial.ReadString(&m1, s); err != nil {
+	if err = t1.ReadString(&m1, s); err != nil {
 		return false, fmt.Errorf("Unable to Deserialize struct\n\t %s", err)
 
 	}
@@ -96,7 +100,9 @@ func ProtocolTest1(test *testing.T, serial *Serializer, deserial *Deserializer) 
 
 }
 
-func ProtocolTest2(test *testing.T, serial *Serializer, deserial *Deserializer) (bool, error) {
+func ProtocolTest2(test *testing.T, pf ProtocolFactory) (bool, error) {
+	t := NewSerializer()
+	t.Protocol = pf.GetProtocol(t.Transport)
 	var m = MyTestStruct{}
 	m.On = false
 	m.B = byte(0)
@@ -111,14 +117,16 @@ func ProtocolTest2(test *testing.T, serial *Serializer, deserial *Deserializer) 
 	m.StringSet = make(map[string]bool, 5)
 	m.E = 2
 
-	s, err := serial.WriteString(&m)
+	s, err := t.WriteString(&m)
 	if err != nil {
 		return false, fmt.Errorf("Unable to Serialize struct\n\t %s", err)
 
 	}
 
+	t1 := NewDeserializer()
+	t1.Protocol = pf.GetProtocol(t1.Transport)
 	var m1 = MyTestStruct{}
-	if err = deserial.ReadString(&m1, s); err != nil {
+	if err = t1.ReadString(&m1, s); err != nil {
 		return false, fmt.Errorf("Unable to Deserialize struct\n\t %s", err)
 
 	}
@@ -129,25 +137,24 @@ func ProtocolTest2(test *testing.T, serial *Serializer, deserial *Deserializer) 
 
 func TestSerializer(t *testing.T) {
 
-	serializers := make(map[string]*Serializer)
-	serializers["Binary"] = NewSerializer()
-	serializers["Compact"] = NewCompactSerializer()
-	serializers["JSON"] = NewJSONSerializer()
-	deserializers := make(map[string]*Deserializer)
-	deserializers["Binary"] = NewDeserializer()
-	deserializers["Compact"] = NewCompactDeserializer()
-	deserializers["JSON"] = NewJSONDeserializer()
+	var protocol_factories map[string]ProtocolFactory
+	protocol_factories = make(map[string]ProtocolFactory)
+	protocol_factories["Binary"] = NewBinaryProtocolFactoryDefault()
+	protocol_factories["Compact"] = NewCompactProtocolFactory()
+	//protocol_factories["SimpleJSON"] = NewSimpleJSONProtocolFactory() - write only, can't be read back by design
+	protocol_factories["JSON"] = NewJSONProtocolFactory()
 
-	tests := make(map[string]func(*testing.T, *Serializer, *Deserializer) (bool, error))
+	var tests map[string]func(*testing.T, ProtocolFactory) (bool, error)
+	tests = make(map[string]func(*testing.T, ProtocolFactory) (bool, error))
 	tests["Test 1"] = ProtocolTest1
 	tests["Test 2"] = ProtocolTest2
 	//tests["Test 3"] = ProtocolTest3 // Example of how to add additional tests
 
-	for name, serial := range serializers {
+	for name, pf := range protocol_factories {
 
 		for test, f := range tests {
 
-			if s, err := f(t, serial, deserializers[name]); !s || err != nil {
+			if s, err := f(t, pf); !s || err != nil {
 				t.Errorf("%s Failed for %s protocol\n\t %s", test, name, err)
 			}
 

@@ -985,7 +985,7 @@ struct PoolNames {
   std::string_view suffix;
 };
 
-constexpr std::array<PoolNames, concurrency::N_PRIORITIES> kPoolNames = {
+const std::array<PoolNames, concurrency::N_PRIORITIES> kPoolNames = {
     {{"HIGH_IMPORTANT", "HI"},
      {"HIGH", "H"},
      {"IMPORTANT", "I"},

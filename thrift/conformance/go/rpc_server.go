@@ -78,7 +78,9 @@ func newServer(processor thrift.ProcessorContext, addr string) (thrift.Server, e
 	if err != nil {
 		return nil, err
 	}
-	return thrift.NewSimpleServer(processor, socket, thrift.TransportIDHeader), nil
+	protocol := thrift.NewHeaderProtocolFactory()
+	transport := thrift.NewHeaderTransportFactory(thrift.NewTransportFactory())
+	return thrift.NewSimpleServerContext(processor, socket, transport, protocol), nil
 }
 
 type rpcConformanceServiceHandler struct {

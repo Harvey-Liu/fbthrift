@@ -18,28 +18,28 @@ namespace detail {
 template <>
 struct TccStructTraits<::apache::thrift::test::MyStruct> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::apache::thrift::test::EmptiableStruct> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::apache::thrift::test::EmptiableTerseStruct> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::apache::thrift::test::NotEmptiableStruct> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };

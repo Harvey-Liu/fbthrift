@@ -17,7 +17,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::cpp2::RefUnion>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::cpp2::RefUnion>;
@@ -36,23 +36,23 @@ void TccStructTraits<::cpp2::RefUnion>::translateFieldName(
 namespace apache { namespace thrift {
 
 folly::Range<::cpp2::RefUnion::Type const*> const TEnumTraits<::cpp2::RefUnion::Type>::values = folly::range(TEnumDataStorage<::cpp2::RefUnion::Type>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::cpp2::RefUnion::Type>::names = folly::range(TEnumDataStorage<::cpp2::RefUnion::Type>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::cpp2::RefUnion::Type>::names = folly::range(TEnumDataStorage<::cpp2::RefUnion::Type>::names);
 
-bool TEnumTraits<::cpp2::RefUnion::Type>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::cpp2::RefUnion::Type>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::cpp2::RefUnion::Type>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::cpp2::RefUnion::Type>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 }} // apache::thrift
 namespace cpp2 {
 
-std::string_view RefUnion::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece RefUnion::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<RefUnion>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view RefUnion::__fbthrift_get_class_name() {
+const folly::StringPiece RefUnion::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<RefUnion>::name;
 }
 

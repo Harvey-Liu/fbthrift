@@ -21,17 +21,33 @@ import (
 )
 
 type headerProtocol struct {
-	Format
-	trans *headerTransport
+	Protocol
+	origTransport Transport
+	trans         *HeaderTransport
 
 	protoID ProtocolID
 }
 
+type HeaderProtocolFactory struct{}
+
+func NewHeaderProtocolFactory() *HeaderProtocolFactory {
+	return &HeaderProtocolFactory{}
+}
+
+func (p *HeaderProtocolFactory) GetProtocol(trans Transport) Protocol {
+	return NewHeaderProtocol(trans)
+}
+
 func NewHeaderProtocol(trans Transport) Protocol {
 	p := &headerProtocol{
-		protoID: ProtocolIDCompact,
+		origTransport: trans,
+		protoID:       ProtocolIDCompact,
 	}
-	p.trans = newHeaderTransport(trans)
+	if et, ok := trans.(*HeaderTransport); ok {
+		p.trans = et
+	} else {
+		p.trans = NewHeaderTransport(trans)
+	}
 
 	// Effectively an invariant violation.
 	if err := p.ResetProtocol(); err != nil {
@@ -41,7 +57,7 @@ func NewHeaderProtocol(trans Transport) Protocol {
 }
 
 func (p *headerProtocol) ResetProtocol() error {
-	if p.Format != nil && p.protoID == p.trans.ProtocolID() {
+	if p.Protocol != nil && p.protoID == p.trans.ProtocolID() {
 		return nil
 	}
 
@@ -49,9 +65,9 @@ func (p *headerProtocol) ResetProtocol() error {
 	switch p.protoID {
 	case ProtocolIDBinary:
 		// These defaults match cpp implementation
-		p.Format = NewBinaryProtocol(p.trans, false, true)
+		p.Protocol = NewBinaryProtocol(p.trans, false, true)
 	case ProtocolIDCompact:
-		p.Format = NewCompactProtocol(p.trans)
+		p.Protocol = NewCompactProtocol(p.trans)
 	default:
 		return NewProtocolException(fmt.Errorf("Unknown protocol id: %#x", p.protoID))
 	}
@@ -70,7 +86,7 @@ func (p *headerProtocol) WriteMessageBegin(name string, typeId MessageType, seqi
 	if typeId == CALL || typeId == ONEWAY {
 		p.trans.SetSeqID(uint32(seqid))
 	}
-	return p.Format.WriteMessageBegin(name, typeId, seqid)
+	return p.Protocol.WriteMessageBegin(name, typeId, seqid)
 }
 
 //
@@ -93,7 +109,7 @@ func (p *headerProtocol) ReadMessageBegin() (name string, typeId MessageType, se
 	// TODO:  This is a bug. if we are speaking header protocol, we should be using
 	// seq id from the header. However, doing it here creates a non-backwards
 	// compatible code between client and server, since they both use this code.
-	return p.Format.ReadMessageBegin()
+	return p.Protocol.ReadMessageBegin()
 }
 
 func (p *headerProtocol) Flush() (err error) {
@@ -105,7 +121,7 @@ func (p *headerProtocol) Skip(fieldType Type) (err error) {
 }
 
 func (p *headerProtocol) Close() error {
-	return p.trans.Close()
+	return p.origTransport.Close()
 }
 
 // Deprecated: SetSeqID() is a deprecated method.
@@ -190,13 +206,6 @@ func (p *headerProtocol) ProtocolID() ProtocolID {
 	return p.protoID
 }
 
-func (p *headerProtocol) SetProtocolID(protoID ProtocolID) error {
-	if err := p.trans.SetProtocolID(protoID); err != nil {
-		return err
-	}
-	return p.ResetProtocol()
-}
-
 // Deprecated: GetFlags() is a deprecated method.
 func (t *headerProtocol) GetFlags() HeaderFlags {
 	return t.trans.GetFlags()
@@ -241,7 +250,6 @@ var _ HeaderProtocolFlags = (*headerProtocol)(nil)
 // Deprecated: HeaderProtocolProtocolID is a deprecated type, temporarily introduced to ease transition to new API.
 type HeaderProtocolProtocolID interface {
 	ProtocolID() ProtocolID
-	SetProtocolID(protoID ProtocolID) error
 }
 
 // Compile time interface enforcer

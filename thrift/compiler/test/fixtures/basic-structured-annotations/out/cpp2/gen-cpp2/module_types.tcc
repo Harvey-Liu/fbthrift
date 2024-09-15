@@ -18,63 +18,63 @@ namespace detail {
 template <>
 struct TccStructTraits<::test::fixtures::basic-structured-annotations::runtime_annotation> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::test::fixtures::basic-structured-annotations::structured_annotation_inline> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::test::fixtures::basic-structured-annotations::structured_annotation_with_default> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::test::fixtures::basic-structured-annotations::structured_annotation_recursive> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::test::fixtures::basic-structured-annotations::structured_annotation_forward> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::test::fixtures::basic-structured-annotations::structured_annotation_nested> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::test::fixtures::basic-structured-annotations::MyStruct> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::test::fixtures::basic-structured-annotations::MyException> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::test::fixtures::basic-structured-annotations::MyUnion> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };

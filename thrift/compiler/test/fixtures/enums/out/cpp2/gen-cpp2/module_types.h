@@ -186,13 +186,17 @@ template <> struct TEnumTraits<::test::fixtures::enums::Metasyntactic> {
 
   static constexpr std::size_t const size = 4;
   static folly::Range<type const*> const values;
-  static folly::Range<std::string_view const*> const names;
+  static folly::Range<folly::StringPiece const*> const names;
 
-  static bool findName(type value, std::string_view* out) noexcept;
-  static bool findValue(std::string_view name, type* out) noexcept;
+  static bool findName(type value, folly::StringPiece* out) noexcept;
+  static bool findValue(folly::StringPiece name, type* out) noexcept;
 
+  static bool findName(type value, std::string_view* out) noexcept {
+    folly::StringPiece outp;
+    return findName(value, &outp) && ((*out = outp), true);
+  }
   static char const* findName(type value) noexcept {
-    std::string_view ret;
+    folly::StringPiece ret;
     (void)findName(value, &ret);
     return ret.data();
   }
@@ -208,13 +212,17 @@ template <> struct TEnumTraits<::test::fixtures::enums::MyEnum1> {
 
   static constexpr std::size_t const size = 6;
   static folly::Range<type const*> const values;
-  static folly::Range<std::string_view const*> const names;
+  static folly::Range<folly::StringPiece const*> const names;
 
-  static bool findName(type value, std::string_view* out) noexcept;
-  static bool findValue(std::string_view name, type* out) noexcept;
+  static bool findName(type value, folly::StringPiece* out) noexcept;
+  static bool findValue(folly::StringPiece name, type* out) noexcept;
 
+  static bool findName(type value, std::string_view* out) noexcept {
+    folly::StringPiece outp;
+    return findName(value, &outp) && ((*out = outp), true);
+  }
   static char const* findName(type value) noexcept {
-    std::string_view ret;
+    folly::StringPiece ret;
     (void)findName(value, &ret);
     return ret.data();
   }
@@ -230,13 +238,17 @@ template <> struct TEnumTraits<::test::fixtures::enums::MyEnum2> {
 
   static constexpr std::size_t const size = 3;
   static folly::Range<type const*> const values;
-  static folly::Range<std::string_view const*> const names;
+  static folly::Range<folly::StringPiece const*> const names;
 
-  static bool findName(type value, std::string_view* out) noexcept;
-  static bool findValue(std::string_view name, type* out) noexcept;
+  static bool findName(type value, folly::StringPiece* out) noexcept;
+  static bool findValue(folly::StringPiece name, type* out) noexcept;
 
+  static bool findName(type value, std::string_view* out) noexcept {
+    folly::StringPiece outp;
+    return findName(value, &outp) && ((*out = outp), true);
+  }
   static char const* findName(type value) noexcept {
-    std::string_view ret;
+    folly::StringPiece ret;
     (void)findName(value, &ret);
     return ret.data();
   }
@@ -252,13 +264,17 @@ template <> struct TEnumTraits<::test::fixtures::enums::MyEnum3> {
 
   static constexpr std::size_t const size = 6;
   static folly::Range<type const*> const values;
-  static folly::Range<std::string_view const*> const names;
+  static folly::Range<folly::StringPiece const*> const names;
 
-  static bool findName(type value, std::string_view* out) noexcept;
-  static bool findValue(std::string_view name, type* out) noexcept;
+  static bool findName(type value, folly::StringPiece* out) noexcept;
+  static bool findValue(folly::StringPiece name, type* out) noexcept;
 
+  static bool findName(type value, std::string_view* out) noexcept {
+    folly::StringPiece outp;
+    return findName(value, &outp) && ((*out = outp), true);
+  }
   static char const* findName(type value) noexcept {
-    std::string_view ret;
+    folly::StringPiece ret;
     (void)findName(value, &ret);
     return ret.data();
   }
@@ -274,13 +290,17 @@ template <> struct TEnumTraits<::test::fixtures::enums::MyEnum4> {
 
   static constexpr std::size_t const size = 4;
   static folly::Range<type const*> const values;
-  static folly::Range<std::string_view const*> const names;
+  static folly::Range<folly::StringPiece const*> const names;
 
-  static bool findName(type value, std::string_view* out) noexcept;
-  static bool findValue(std::string_view name, type* out) noexcept;
+  static bool findName(type value, folly::StringPiece* out) noexcept;
+  static bool findValue(folly::StringPiece name, type* out) noexcept;
 
+  static bool findName(type value, std::string_view* out) noexcept {
+    folly::StringPiece outp;
+    return findName(value, &outp) && ((*out = outp), true);
+  }
   static char const* findName(type value) noexcept {
-    std::string_view ret;
+    folly::StringPiece ret;
     (void)findName(value, &ret);
     return ret.data();
   }
@@ -296,13 +316,17 @@ template <> struct TEnumTraits<::test::fixtures::enums::MyBitmaskEnum1> {
 
   static constexpr std::size_t const size = 3;
   static folly::Range<type const*> const values;
-  static folly::Range<std::string_view const*> const names;
+  static folly::Range<folly::StringPiece const*> const names;
 
-  static bool findName(type value, std::string_view* out) noexcept;
-  static bool findValue(std::string_view name, type* out) noexcept;
+  static bool findName(type value, folly::StringPiece* out) noexcept;
+  static bool findValue(folly::StringPiece name, type* out) noexcept;
 
+  static bool findName(type value, std::string_view* out) noexcept {
+    folly::StringPiece outp;
+    return findName(value, &outp) && ((*out = outp), true);
+  }
   static char const* findName(type value) noexcept {
-    std::string_view ret;
+    folly::StringPiece ret;
     (void)findName(value, &ret);
     return ret.data();
   }
@@ -318,13 +342,17 @@ template <> struct TEnumTraits<::test::fixtures::enums::MyBitmaskEnum2> {
 
   static constexpr std::size_t const size = 3;
   static folly::Range<type const*> const values;
-  static folly::Range<std::string_view const*> const names;
+  static folly::Range<folly::StringPiece const*> const names;
 
-  static bool findName(type value, std::string_view* out) noexcept;
-  static bool findValue(std::string_view name, type* out) noexcept;
+  static bool findName(type value, folly::StringPiece* out) noexcept;
+  static bool findValue(folly::StringPiece name, type* out) noexcept;
 
+  static bool findName(type value, std::string_view* out) noexcept {
+    folly::StringPiece outp;
+    return findName(value, &outp) && ((*out = outp), true);
+  }
   static char const* findName(type value) noexcept {
-    std::string_view ret;
+    folly::StringPiece ret;
     (void)findName(value, &ret);
     return ret.data();
   }
@@ -367,8 +395,8 @@ class SomeStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::reasonable,
     ::apache::thrift::ident::fine,
@@ -679,8 +707,8 @@ class MyStruct final  {
   static constexpr bool __fbthrift_cpp2_gen_json = false;
   static constexpr bool __fbthrift_cpp2_is_runtime_annotation = false;
   static const char* __fbthrift_thrift_uri();
-  static std::string_view __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
-  static std::string_view __fbthrift_get_class_name();
+  static const folly::StringPiece __fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord);
+  static const folly::StringPiece __fbthrift_get_class_name();
   using __fbthrift_reflection_ident_list = folly::tag_t<
     ::apache::thrift::ident::me2_3,
     ::apache::thrift::ident::me3_n3,

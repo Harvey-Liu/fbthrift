@@ -15,13 +15,13 @@
 namespace apache { namespace thrift {
 
 folly::Range<::facebook::ns::qwerty::AnEnumA const*> const TEnumTraits<::facebook::ns::qwerty::AnEnumA>::values = folly::range(TEnumDataStorage<::facebook::ns::qwerty::AnEnumA>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::facebook::ns::qwerty::AnEnumA>::names = folly::range(TEnumDataStorage<::facebook::ns::qwerty::AnEnumA>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::facebook::ns::qwerty::AnEnumA>::names = folly::range(TEnumDataStorage<::facebook::ns::qwerty::AnEnumA>::names);
 
-bool TEnumTraits<::facebook::ns::qwerty::AnEnumA>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::facebook::ns::qwerty::AnEnumA>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::facebook::ns::qwerty::AnEnumA>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::facebook::ns::qwerty::AnEnumA>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -31,13 +31,13 @@ bool TEnumTraits<::facebook::ns::qwerty::AnEnumA>::findValue(std::string_view na
 namespace apache { namespace thrift {
 
 folly::Range<::facebook::ns::qwerty::AnEnumB const*> const TEnumTraits<::facebook::ns::qwerty::AnEnumB>::values = folly::range(TEnumDataStorage<::facebook::ns::qwerty::AnEnumB>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::facebook::ns::qwerty::AnEnumB>::names = folly::range(TEnumDataStorage<::facebook::ns::qwerty::AnEnumB>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::facebook::ns::qwerty::AnEnumB>::names = folly::range(TEnumDataStorage<::facebook::ns::qwerty::AnEnumB>::names);
 
-bool TEnumTraits<::facebook::ns::qwerty::AnEnumB>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::facebook::ns::qwerty::AnEnumB>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::facebook::ns::qwerty::AnEnumB>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::facebook::ns::qwerty::AnEnumB>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -47,13 +47,13 @@ bool TEnumTraits<::facebook::ns::qwerty::AnEnumB>::findValue(std::string_view na
 namespace apache { namespace thrift {
 
 folly::Range<::facebook::ns::qwerty::AnEnumC const*> const TEnumTraits<::facebook::ns::qwerty::AnEnumC>::values = folly::range(TEnumDataStorage<::facebook::ns::qwerty::AnEnumC>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::facebook::ns::qwerty::AnEnumC>::names = folly::range(TEnumDataStorage<::facebook::ns::qwerty::AnEnumC>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::facebook::ns::qwerty::AnEnumC>::names = folly::range(TEnumDataStorage<::facebook::ns::qwerty::AnEnumC>::names);
 
-bool TEnumTraits<::facebook::ns::qwerty::AnEnumC>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::facebook::ns::qwerty::AnEnumC>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::facebook::ns::qwerty::AnEnumC>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::facebook::ns::qwerty::AnEnumC>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -63,13 +63,13 @@ bool TEnumTraits<::facebook::ns::qwerty::AnEnumC>::findValue(std::string_view na
 namespace apache { namespace thrift {
 
 folly::Range<::facebook::ns::qwerty::AnEnumD const*> const TEnumTraits<::facebook::ns::qwerty::AnEnumD>::values = folly::range(TEnumDataStorage<::facebook::ns::qwerty::AnEnumD>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::facebook::ns::qwerty::AnEnumD>::names = folly::range(TEnumDataStorage<::facebook::ns::qwerty::AnEnumD>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::facebook::ns::qwerty::AnEnumD>::names = folly::range(TEnumDataStorage<::facebook::ns::qwerty::AnEnumD>::names);
 
-bool TEnumTraits<::facebook::ns::qwerty::AnEnumD>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::facebook::ns::qwerty::AnEnumD>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::facebook::ns::qwerty::AnEnumD>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::facebook::ns::qwerty::AnEnumD>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -79,13 +79,13 @@ bool TEnumTraits<::facebook::ns::qwerty::AnEnumD>::findValue(std::string_view na
 namespace apache { namespace thrift {
 
 folly::Range<::facebook::ns::qwerty::AnEnumE const*> const TEnumTraits<::facebook::ns::qwerty::AnEnumE>::values = folly::range(TEnumDataStorage<::facebook::ns::qwerty::AnEnumE>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::facebook::ns::qwerty::AnEnumE>::names = folly::range(TEnumDataStorage<::facebook::ns::qwerty::AnEnumE>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::facebook::ns::qwerty::AnEnumE>::names = folly::range(TEnumDataStorage<::facebook::ns::qwerty::AnEnumE>::names);
 
-bool TEnumTraits<::facebook::ns::qwerty::AnEnumE>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::facebook::ns::qwerty::AnEnumE>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::facebook::ns::qwerty::AnEnumE>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::facebook::ns::qwerty::AnEnumE>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -97,7 +97,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::facebook::ns::qwerty::SomeStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::facebook::ns::qwerty::SomeStruct>;
@@ -115,11 +115,11 @@ void TccStructTraits<::facebook::ns::qwerty::SomeStruct>::translateFieldName(
 
 namespace facebook { namespace ns { namespace qwerty {
 
-std::string_view SomeStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece SomeStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<SomeStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view SomeStruct::__fbthrift_get_class_name() {
+const folly::StringPiece SomeStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<SomeStruct>::name;
 }
 

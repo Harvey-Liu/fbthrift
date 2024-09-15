@@ -35,9 +35,7 @@ class SerializedAny<T> extends Any<T> {
     this.any = Objects.requireNonNull(any);
   }
 
-  /**
-   * @return Any payload
-   */
+  /** @return Any payload */
   public T get() {
     if (lazyValue != null) {
       return (T) lazyValue;
@@ -58,9 +56,7 @@ class SerializedAny<T> extends Any<T> {
     }
   }
 
-  /**
-   * @return AnyStruct
-   */
+  /** @return AnyStruct */
   @Override
   public AnyStruct getAny() {
     return any;

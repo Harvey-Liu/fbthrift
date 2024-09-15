@@ -22,14 +22,10 @@ package com.facebook.thrift.enums;
  */
 public interface BaseEnum {
 
-  /**
-   * @return Returns the i32 value of the enum
-   */
+  /** @return Returns the i32 value of the enum */
   public int getValue();
 
-  /**
-   * @return true for java enums, false for open enums.
-   */
+  /** @return true for java enums, false for open enums. */
   public default boolean isClosedEnum() {
     return true;
   }

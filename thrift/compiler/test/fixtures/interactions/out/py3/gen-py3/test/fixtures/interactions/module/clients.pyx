@@ -326,11 +326,6 @@ cdef class MyService(thrift.py3.client.Client):
         )
         return interaction
 
-    async def async_createMyInteraction(
-            MyService self
-    ):
-        return self.createMyInteraction()
-
     def createMyInteractionFast(
             MyService self
     ):
@@ -343,11 +338,6 @@ cdef class MyService(thrift.py3.client.Client):
         )
         return interaction
 
-    async def async_createMyInteractionFast(
-            MyService self
-    ):
-        return self.createMyInteractionFast()
-
     def createSerialInteraction(
             MyService self
     ):
@@ -359,11 +349,6 @@ cdef class MyService(thrift.py3.client.Client):
             <PyObject *> interaction
         )
         return interaction
-
-    async def async_createSerialInteraction(
-            MyService self
-    ):
-        return self.createSerialInteraction()
 
     @classmethod
     def __get_reflection__(cls):

@@ -1,4 +1,5 @@
-/* Generated @generated SBE (Simple Binary Encoding) message codec */
+// @generated using thrift/lib/thrift/generate-rpc-metadata-sbe.sh
+/* Generated SBE (Simple Binary Encoding) message codec */
 #ifndef _APACHE_THRIFT_SBE_INTERACTIONREQUEST_CXX_H_
 #define _APACHE_THRIFT_SBE_INTERACTIONREQUEST_CXX_H_
 
@@ -546,8 +547,6 @@ SBE_NODISCARD static std::size_t computeLength()
 #endif
 }
 };
-// prevent double free error
-#if defined(SBE_ENABLE_PRECEDENCE_CHECKS)
 
 const std::string InteractionRequest::STATE_NAME_LOOKUP[2] =
 {
@@ -561,7 +560,6 @@ const std::string InteractionRequest::STATE_TRANSITIONS_LOOKUP[2] =
     "\"interactionId(?)\"",
 };
 
-#endif
 }
 }
 }

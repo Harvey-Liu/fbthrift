@@ -166,15 +166,6 @@ struct ForEachField<::test::fixtures::patch::MyDataEnsureStruct> {
 };
 
 template <>
-struct ForEachField<::test::fixtures::patch::MyDataSafePatch> {
-  template <typename F, typename... T>
-  void operator()([[maybe_unused]] F&& f, [[maybe_unused]] T&&... t) const {
-    f(0, static_cast<T&&>(t).version_ref()...);
-    f(1, static_cast<T&&>(t).data_ref()...);
-  }
-};
-
-template <>
 struct ForEachField<::test::fixtures::patch::MyDataWithCustomDefaultPatchStruct> {
   template <typename F, typename... T>
   void operator()([[maybe_unused]] F&& f, [[maybe_unused]] T&&... t) const {
@@ -206,15 +197,6 @@ struct ForEachField<::test::fixtures::patch::MyDataWithCustomDefaultEnsureStruct
 };
 
 template <>
-struct ForEachField<::test::fixtures::patch::MyDataWithCustomDefaultSafePatch> {
-  template <typename F, typename... T>
-  void operator()([[maybe_unused]] F&& f, [[maybe_unused]] T&&... t) const {
-    f(0, static_cast<T&&>(t).version_ref()...);
-    f(1, static_cast<T&&>(t).data_ref()...);
-  }
-};
-
-template <>
 struct ForEachField<::test::fixtures::patch::InnerUnionPatchStruct> {
   template <typename F, typename... T>
   void operator()([[maybe_unused]] F&& f, [[maybe_unused]] T&&... t) const {
@@ -231,15 +213,6 @@ struct ForEachField<::test::fixtures::patch::InnerUnionFieldPatchStruct> {
   template <typename F, typename... T>
   void operator()([[maybe_unused]] F&& f, [[maybe_unused]] T&&... t) const {
     f(0, static_cast<T&&>(t).innerOption_ref()...);
-  }
-};
-
-template <>
-struct ForEachField<::test::fixtures::patch::InnerUnionSafePatch> {
-  template <typename F, typename... T>
-  void operator()([[maybe_unused]] F&& f, [[maybe_unused]] T&&... t) const {
-    f(0, static_cast<T&&>(t).version_ref()...);
-    f(1, static_cast<T&&>(t).data_ref()...);
   }
 };
 
@@ -262,15 +235,6 @@ struct ForEachField<::test::fixtures::patch::MyUnionFieldPatchStruct> {
     f(0, static_cast<T&&>(t).option1_ref()...);
     f(1, static_cast<T&&>(t).option2_ref()...);
     f(2, static_cast<T&&>(t).option3_ref()...);
-  }
-};
-
-template <>
-struct ForEachField<::test::fixtures::patch::MyUnionSafePatch> {
-  template <typename F, typename... T>
-  void operator()([[maybe_unused]] F&& f, [[maybe_unused]] T&&... t) const {
-    f(0, static_cast<T&&>(t).version_ref()...);
-    f(1, static_cast<T&&>(t).data_ref()...);
   }
 };
 
@@ -461,15 +425,6 @@ struct ForEachField<::test::fixtures::patch::MyStructEnsureStruct> {
 };
 
 template <>
-struct ForEachField<::test::fixtures::patch::MyStructSafePatch> {
-  template <typename F, typename... T>
-  void operator()([[maybe_unused]] F&& f, [[maybe_unused]] T&&... t) const {
-    f(0, static_cast<T&&>(t).version_ref()...);
-    f(1, static_cast<T&&>(t).data_ref()...);
-  }
-};
-
-template <>
 struct ForEachField<::test::fixtures::patch::LateDefStructPatchStruct> {
   template <typename F, typename... T>
   void operator()([[maybe_unused]] F&& f, [[maybe_unused]] T&&... t) const {
@@ -493,15 +448,6 @@ template <>
 struct ForEachField<::test::fixtures::patch::LateDefStructEnsureStruct> {
   template <typename F, typename... T>
   void operator()([[maybe_unused]] F&& f, [[maybe_unused]] T&&... t) const {
-  }
-};
-
-template <>
-struct ForEachField<::test::fixtures::patch::LateDefStructSafePatch> {
-  template <typename F, typename... T>
-  void operator()([[maybe_unused]] F&& f, [[maybe_unused]] T&&... t) const {
-    f(0, static_cast<T&&>(t).version_ref()...);
-    f(1, static_cast<T&&>(t).data_ref()...);
   }
 };
 
@@ -544,15 +490,6 @@ struct ForEachField<::test::fixtures::patch::RecursiveEnsureStruct> {
 };
 
 template <>
-struct ForEachField<::test::fixtures::patch::RecursiveSafePatch> {
-  template <typename F, typename... T>
-  void operator()([[maybe_unused]] F&& f, [[maybe_unused]] T&&... t) const {
-    f(0, static_cast<T&&>(t).version_ref()...);
-    f(1, static_cast<T&&>(t).data_ref()...);
-  }
-};
-
-template <>
 struct ForEachField<::test::fixtures::patch::BarPatchStruct> {
   template <typename F, typename... T>
   void operator()([[maybe_unused]] F&& f, [[maybe_unused]] T&&... t) const {
@@ -582,29 +519,11 @@ struct ForEachField<::test::fixtures::patch::BarEnsureStruct> {
 };
 
 template <>
-struct ForEachField<::test::fixtures::patch::BarSafePatch> {
-  template <typename F, typename... T>
-  void operator()([[maybe_unused]] F&& f, [[maybe_unused]] T&&... t) const {
-    f(0, static_cast<T&&>(t).version_ref()...);
-    f(1, static_cast<T&&>(t).data_ref()...);
-  }
-};
-
-template <>
 struct ForEachField<::test::fixtures::patch::LoopPatchStruct> {
   template <typename F, typename... T>
   void operator()([[maybe_unused]] F&& f, [[maybe_unused]] T&&... t) const {
     f(0, static_cast<T&&>(t).assign_ref()...);
     f(1, static_cast<T&&>(t).clear_ref()...);
-  }
-};
-
-template <>
-struct ForEachField<::test::fixtures::patch::LoopSafePatch> {
-  template <typename F, typename... T>
-  void operator()([[maybe_unused]] F&& f, [[maybe_unused]] T&&... t) const {
-    f(0, static_cast<T&&>(t).version_ref()...);
-    f(1, static_cast<T&&>(t).data_ref()...);
   }
 };
 
@@ -675,15 +594,6 @@ struct ForEachField<::test::fixtures::patch::RefFieldsEnsureStruct> {
     f(4, static_cast<T&&>(t).opt_shared_const_ref()...);
     f(5, static_cast<T&&>(t).opt_shared_mustable_ref()...);
     f(6, static_cast<T&&>(t).opt_box_ref()...);
-  }
-};
-
-template <>
-struct ForEachField<::test::fixtures::patch::RefFieldsSafePatch> {
-  template <typename F, typename... T>
-  void operator()([[maybe_unused]] F&& f, [[maybe_unused]] T&&... t) const {
-    f(0, static_cast<T&&>(t).version_ref()...);
-    f(1, static_cast<T&&>(t).data_ref()...);
   }
 };
 } // namespace detail

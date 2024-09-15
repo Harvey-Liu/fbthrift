@@ -18,231 +18,231 @@ namespace detail {
 template <>
 struct TccStructTraits<::facebook::thrift::test::MyAnnotation> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::Foo> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::Baz> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::Bar> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::detail::DirectlyAdapted> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::detail::IndependentDirectlyAdapted> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::StructWithFieldAdapter> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::TerseAdaptedFields> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::B> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::A> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::Config> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::MyStruct> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::AdaptTestStruct> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::AdaptTemplatedTestStruct> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::AdaptTemplatedNestedTestStruct> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::ThriftAdaptTestUnion> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::ThriftAdaptedStruct> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::detail::DirectlyAdaptedStruct> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::StructFieldAdaptedStruct> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::CircularAdaptee> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::CircularStruct> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::ReorderedStruct> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::detail::DeclaredAfterStruct> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::UnderlyingRenamedStruct> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::UnderlyingSameNamespaceStruct> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::detail::HeapAllocated> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::MoveOnly> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::AlsoMoveOnly> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::ApplyAdapter> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::detail::TransitiveAdapted> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::CountingStruct> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::Person> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };
 template <>
 struct TccStructTraits<::facebook::thrift::test::Person2> {
   static void translateFieldName(
-      std::string_view _fname,
+      folly::StringPiece _fname,
       int16_t& fid,
       apache::thrift::protocol::TType& _ftype) noexcept;
 };

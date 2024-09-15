@@ -15,8 +15,8 @@
  */
 
 #include <algorithm>
-#include <filesystem>
 #include <memory>
+#include <boost/algorithm/string.hpp>
 
 #include <thrift/compiler/detail/mustache/mstch.h>
 #include <thrift/compiler/generate/json.h>
@@ -48,8 +48,8 @@ std::string get_filepath(
   if (auto full_path = sm.found_include_file(path)) {
     path = std::move(*full_path);
   }
-  return std::filesystem::relative(
-             std::filesystem::canonical(std::filesystem::path(path)),
+  return boost::filesystem::relative(
+             boost::filesystem::canonical(boost::filesystem::path(path)),
              compiler_path)
       .generic_string();
 }
@@ -124,7 +124,7 @@ class json_experimental_program : public mstch_program {
           domain_prefix.end(), domain.begin(), std::prev(domain.end()));
       result.push_back(mstch::map{
           {"key", std::string("domain_prefix")},
-          {"value", fmt::format("{}", fmt::join(domain_prefix, "."))},
+          {"value", boost::join(domain_prefix, ".")},
           {"last?", false}});
       result.push_back(mstch::map{
           {"key", std::string("domain_suffix")},
@@ -134,7 +134,7 @@ class json_experimental_program : public mstch_program {
     if (!package.path().empty()) {
       result.push_back(mstch::map{
           {"key", std::string("path")},
-          {"value", fmt::format("{}", fmt::join(package.path(), "/"))},
+          {"value", boost::join(package.path(), "/")},
           {"last?", false}});
     }
     result.push_back(mstch::map{
@@ -151,7 +151,7 @@ class json_experimental_program : public mstch_program {
     if (prefix.empty()) {
       return std::string();
     }
-    return std::filesystem::path(prefix).has_root_directory()
+    return boost::filesystem::path(prefix).has_root_directory()
         ? context_.options["include_prefix"]
         : prefix;
   }
@@ -427,7 +427,7 @@ void t_json_experimental_generator::generate_program() {
   out_dir_base_ = "gen-json_experimental";
   const auto* program = get_program();
   data_.current_program = program;
-  data_.compiler_path = std::filesystem::current_path().generic_string();
+  data_.compiler_path = boost::filesystem::current_path().generic_string();
   data_.sm = &source_mgr_;
   set_mstch_factories();
   auto mstch_program = mstch_context_.program_factory->make_mstch_object(

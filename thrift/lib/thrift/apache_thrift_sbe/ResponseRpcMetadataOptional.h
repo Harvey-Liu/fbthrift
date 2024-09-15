@@ -1,4 +1,5 @@
-/* Generated @generated SBE (Simple Binary Encoding) message codec */
+// @generated using thrift/lib/thrift/generate-rpc-metadata-sbe.sh
+/* Generated SBE (Simple Binary Encoding) message codec */
 #ifndef _APACHE_THRIFT_SBE_RESPONSERPCMETADATAOPTIONAL_CXX_H_
 #define _APACHE_THRIFT_SBE_RESPONSERPCMETADATAOPTIONAL_CXX_H_
 
@@ -729,25 +730,6 @@ public:
         return bytesToCopy;
     }
 
-    char* putFrameworkMetadata(const std::uint32_t length)
-    {
-#if defined(SBE_ENABLE_PRECEDENCE_CHECKS)
-        onFrameworkMetadataAccessed();
-#endif
-        std::uint64_t lengthOfLengthField = 4;
-        std::uint64_t lengthPosition = sbePosition();
-        std::uint32_t lengthFieldValue = SBE_LITTLE_ENDIAN_ENCODE_32(length);
-        sbePosition(lengthPosition + lengthOfLengthField);
-        std::memcpy(m_buffer + lengthPosition, &lengthFieldValue, sizeof(std::uint32_t));
-        if (length != std::uint32_t(0))
-        {
-            std::uint64_t pos = sbePosition();
-            sbePosition(pos + length);
-            return m_buffer + pos;
-        }
-        return nullptr;
-    }
-
     ResponseRpcMetadataOptional &putFrameworkMetadata(const char *src, const std::uint32_t length)
     {
 #if defined(SBE_ENABLE_PRECEDENCE_CHECKS)
@@ -843,7 +825,7 @@ public:
     {
         if (str.length() > 1073741824)
         {
-            throw std::runtime_error("std::string too long for length type [E109] in ResponseRpcMetadataOptional");
+            throw std::runtime_error("std::string too long for length type [E109]");
         }
         return putFrameworkMetadata(str.data(), static_cast<std::uint32_t>(str.length()));
     }
@@ -853,7 +835,7 @@ public:
     {
         if (str.length() > 1073741824)
         {
-            throw std::runtime_error("std::string too long for length type [E109] in ResponseRpcMetadataOptional");
+            throw std::runtime_error("std::string too long for length type [E109]");
         }
         return putFrameworkMetadata(str.data(), static_cast<std::uint32_t>(str.length()));
     }
@@ -917,7 +899,7 @@ SBE_NODISCARD static std::size_t computeLength(std::size_t frameworkMetadataLeng
     length += frameworkMetadataHeaderLength();
     if (frameworkMetadataLength > 1073741824LL)
     {
-        throw std::runtime_error("frameworkMetadataLength too long for length type [E109]  in ResponseRpcMetadataOptional");
+        throw std::runtime_error("frameworkMetadataLength too long for length type [E109]");
     }
     length += frameworkMetadataLength;
 
@@ -927,8 +909,6 @@ SBE_NODISCARD static std::size_t computeLength(std::size_t frameworkMetadataLeng
 #endif
 }
 };
-// prevent double free error
-#if defined(SBE_ENABLE_PRECEDENCE_CHECKS)
 
 const std::string ResponseRpcMetadataOptional::STATE_NAME_LOOKUP[3] =
 {
@@ -944,7 +924,6 @@ const std::string ResponseRpcMetadataOptional::STATE_TRANSITIONS_LOOKUP[3] =
     "",
 };
 
-#endif
 }
 }
 }

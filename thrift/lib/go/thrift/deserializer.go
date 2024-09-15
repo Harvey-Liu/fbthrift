@@ -18,32 +18,26 @@ package thrift
 
 type Deserializer struct {
 	Transport Transport
-	Protocol  Format
+	Protocol  Protocol
 }
 
 func NewDeserializer() *Deserializer {
 	transport := NewMemoryBufferLen(1024)
-	protocol := NewBinaryProtocolTransport(transport)
+	protocol := NewBinaryProtocolFactoryDefault().GetProtocol(transport)
 	return &Deserializer{transport, protocol}
 }
 
 // NewCompactDeserializer creates a new deserializer using the compact protocol
 func NewCompactDeserializer() *Deserializer {
 	transport := NewMemoryBufferLen(1024)
-	protocol := NewCompactProtocol(transport)
+	protocol := NewCompactProtocolFactory().GetProtocol(transport)
 	return &Deserializer{transport, protocol}
 }
 
 // NewJSONDeserializer creates a new deserializer using the JSON protocol
 func NewJSONDeserializer() *Deserializer {
 	transport := NewMemoryBufferLen(1024)
-	protocol := NewJSONProtocol(transport)
-	return &Deserializer{transport, protocol}
-}
-
-func NewSimpleJSONDeserializer() *Deserializer {
-	transport := NewMemoryBufferLen(1024)
-	protocol := NewSimpleJSONProtocol(transport)
+	protocol := NewJSONProtocolFactory().GetProtocol(transport)
 	return &Deserializer{transport, protocol}
 }
 

@@ -15,8 +15,6 @@
  */
 
 #include <algorithm>
-#include <cassert>
-#include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <iterator>
@@ -24,7 +22,9 @@
 #include <string>
 #include <utility>
 
-namespace fs = std::filesystem;
+#include <boost/filesystem.hpp>
+
+namespace fs = boost::filesystem;
 
 namespace {
 

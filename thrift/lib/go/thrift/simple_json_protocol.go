@@ -82,6 +82,17 @@ func NewSimpleJSONProtocol(t Transport) *SimpleJSONProtocol {
 	return v
 }
 
+// Factory
+type SimpleJSONProtocolFactory struct{}
+
+func (p *SimpleJSONProtocolFactory) GetProtocol(trans Transport) Protocol {
+	return NewSimpleJSONProtocol(trans)
+}
+
+func NewSimpleJSONProtocolFactory() *SimpleJSONProtocolFactory {
+	return &SimpleJSONProtocolFactory{}
+}
+
 var (
 	JSON_COMMA                   []byte
 	JSON_COLON                   []byte

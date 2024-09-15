@@ -83,7 +83,7 @@ pub mod service {
                         ::fbthrift::TType::I32,
                         0i16,
                     );
-                    ::fbthrift::Serialize::write(&<crate::types::adapters::MyI32 as ::fbthrift::adapter::ThriftAdapter>::to_thrift_field::<fbthrift::metadata::NoThriftAnnotations>(inner, 0), p);
+                    inner.write(p);
                     p.write_field_end();
                 }
                 Self::ApplicationException(_aexn) => unreachable!(),
@@ -113,7 +113,7 @@ pub mod service {
                     }
                     ((::fbthrift::TType::I32, 0i32), false) => {
                         once = true;
-                        alt = ::std::option::Option::Some(Self::Success(<crate::types::adapters::MyI32 as ::fbthrift::adapter::ThriftAdapter>::from_thrift_field::<fbthrift::metadata::NoThriftAnnotations>(fbthrift::Deserialize::read(p)?, 0)?));
+                        alt = ::std::option::Option::Some(Self::Success(::fbthrift::Deserialize::read(p)?));
                     }
                     ((ty, _id), false) => p.skip(ty)?,
                     ((badty, badid), true) => return ::std::result::Result::Err(::std::convert::From::from(

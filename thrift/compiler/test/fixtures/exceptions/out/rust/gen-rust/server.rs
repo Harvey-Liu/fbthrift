@@ -138,7 +138,6 @@ pub struct RaiserProcessor<P, H, R, RS> {
 
 struct Args_Raiser_doBland {
 }
-
 impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_Raiser_doBland {
     #[inline]
     #[::tracing::instrument(skip_all, level = "trace", name = "deserialize_args", fields(method = "Raiser.doBland"))]
@@ -162,7 +161,6 @@ impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_Ra
 
 struct Args_Raiser_doRaise {
 }
-
 impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_Raiser_doRaise {
     #[inline]
     #[::tracing::instrument(skip_all, level = "trace", name = "deserialize_args", fields(method = "Raiser.doRaise"))]
@@ -186,7 +184,6 @@ impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_Ra
 
 struct Args_Raiser_get200 {
 }
-
 impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_Raiser_get200 {
     #[inline]
     #[::tracing::instrument(skip_all, level = "trace", name = "deserialize_args", fields(method = "Raiser.get200"))]
@@ -210,7 +207,6 @@ impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_Ra
 
 struct Args_Raiser_get500 {
 }
-
 impl<P: ::fbthrift::ProtocolReader> ::fbthrift::Deserialize<P> for self::Args_Raiser_get500 {
     #[inline]
     #[::tracing::instrument(skip_all, level = "trace", name = "deserialize_args", fields(method = "Raiser.get500"))]

@@ -158,14 +158,8 @@ class Cpp2Connection : public HeaderServerChannel::Callback,
     friend class QueueTimeout;
     friend class TaskTimeout;
 
-    template <typename... Args>
-    static auto colocateWithDebugStub(
-        RequestsRegistry::DebugStubColocator& /* alloc */, Args&...) {
-      return [](auto&& /* make */) { return folly::unit; };
-    }
-
     Cpp2Request(
-        RequestsRegistry::ColocatedData<folly::Unit> colocationParams,
+        RequestsRegistry::DebugStub* debugStubToInit,
         std::unique_ptr<HeaderServerChannel::HeaderRequest> req,
         std::shared_ptr<folly::RequestContext> rctx,
         std::shared_ptr<Cpp2Connection> con,

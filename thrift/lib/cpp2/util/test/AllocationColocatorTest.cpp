@@ -23,7 +23,7 @@
 using apache::thrift::util::AllocationColocator;
 
 TEST(AllocationColocatorTest, Basic) {
-  constexpr std::string_view kStr = "hello world";
+  const std::string_view kStr = "hello world";
   struct Foo {
     struct Bar {
       int first, second;
@@ -97,7 +97,7 @@ TEST(AllocationColocatorTest, Basic) {
 }
 
 TEST(AllocationColocatorTest, StringLengthDeathTest) {
-  constexpr std::string_view kStr = "hello world";
+  const std::string_view kStr = "hello world";
   struct Foo {
     std::string_view str;
   };
@@ -116,7 +116,7 @@ TEST(AllocationColocatorTest, StringLengthDeathTest) {
 }
 
 TEST(AllocationColocatorTest, NoExcept) {
-  constexpr std::string_view kStr = "hello world";
+  const std::string_view kStr = "hello world";
   struct Foo {
     int* a;
     int* b;
@@ -174,23 +174,6 @@ TEST(AllocationColocatorTest, Alignment) {
 
   auto cursor = AllocationColocator<Foo>::unsafeCursor(foo);
   EXPECT_EQ(cursor.object<FatInt>()->value, 1);
-}
-
-TEST(AllocationColocator, Void) {
-  AllocationColocator<void> alloc;
-  auto ptr = alloc.allocate(
-      [&, i = alloc.object<int>(), s = alloc.string(2)](auto make) mutable {
-        make(std::move(i), 42);
-        make(std::move(s), "hi");
-      });
-
-  auto cursor = AllocationColocator<void>::unsafeCursor(ptr.get());
-  auto i = cursor.object<int>();
-  EXPECT_EQ(*i, 42);
-  EXPECT_EQ(cursor.string(2), "hi");
-
-  // No memory should be allocated for the root object
-  EXPECT_EQ(std::uintptr_t(ptr.get()), std::uintptr_t(i));
 }
 
 TEST(AllocationColocatorTest, NonTrivialDestructor) {

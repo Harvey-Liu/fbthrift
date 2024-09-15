@@ -16,7 +16,6 @@
 
 #include <algorithm>
 #include <cctype>
-#include <filesystem>
 #include <iomanip>
 #include <set>
 
@@ -44,8 +43,8 @@ namespace {
  * Gets the java namespace, throws a runtime error if not found.
  */
 std::string get_namespace_or_default(const t_program& prog) {
-  auto prog_namespace = fmt::format(
-      "{}", fmt::join(prog.gen_namespace_or_default("java.swift", {}), "."));
+  auto prog_namespace = boost::algorithm::join(
+      prog.gen_namespace_or_default("java.swift", {}), ".");
   if (prog_namespace != "") {
     return prog_namespace;
   } else {
@@ -180,7 +179,7 @@ class t_mstch_java_generator : public t_mstch_generator {
           mstch_context_.program_factory->make_mstch_object(
               program, mstch_context_);
     }
-    auto raw_package_dir = std::filesystem::path{
+    auto raw_package_dir = boost::filesystem::path{
         java::package_to_path(get_namespace_or_default(*program))};
     auto package_dir = has_option("separate_data_type_from_services")
         ? "services" / raw_package_dir
@@ -213,7 +212,7 @@ class t_mstch_java_generator : public t_mstch_generator {
           mstch_context_.program_factory->make_mstch_object(
               program, mstch_context_);
     }
-    auto raw_package_dir = std::filesystem::path{
+    auto raw_package_dir = boost::filesystem::path{
         java::package_to_path(get_namespace_or_default(*program))};
     auto package_dir = has_option("separate_data_type_from_services")
         ? "data-type" / raw_package_dir
@@ -254,7 +253,7 @@ class t_mstch_java_generator : public t_mstch_generator {
               program, mstch_context_);
     }
 
-    auto raw_package_dir = std::filesystem::path{
+    auto raw_package_dir = boost::filesystem::path{
         java::package_to_path(get_namespace_or_default(*program))};
 
     auto package_dir = has_option("separate_data_type_from_services")
@@ -393,7 +392,7 @@ class t_mstch_java_generator : public t_mstch_generator {
     auto name = program->name();
     const auto& prog = cached_program(program);
 
-    auto raw_package_dir = std::filesystem::path{
+    auto raw_package_dir = boost::filesystem::path{
         java::package_to_path(get_namespace_or_default(*program))};
     auto package_dir = has_option("separate_data_type_from_services")
         ? "data-type" / raw_package_dir
@@ -404,7 +403,7 @@ class t_mstch_java_generator : public t_mstch_generator {
   }
 
   void generate_placeholder(const t_program* program) {
-    auto package_dir = std::filesystem::path{
+    auto package_dir = boost::filesystem::path{
         java::package_to_path(get_namespace_or_default(*program))};
     auto placeholder_file_name = ".generated_" + program->name();
     if (has_option("separate_data_type_from_services")) {
@@ -422,7 +421,7 @@ class t_mstch_java_generator : public t_mstch_generator {
 
     auto java_namespace = get_namespace_or_default(*program);
     auto raw_package_dir =
-        std::filesystem::path{java::package_to_path(java_namespace)};
+        boost::filesystem::path{java::package_to_path(java_namespace)};
     auto package_dir = has_option("separate_data_type_from_services")
         ? "data-type" / raw_package_dir
         : raw_package_dir;

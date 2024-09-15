@@ -31,7 +31,7 @@ class ThriftServer;
 
 namespace instrumentation {
 
-constexpr std::string_view kThriftServerTrackerKey = "thrift_server";
+const std::string_view kThriftServerTrackerKey = "thrift_server";
 
 class ServerTrackerRef {
  public:

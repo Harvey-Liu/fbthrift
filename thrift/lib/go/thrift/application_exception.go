@@ -31,8 +31,8 @@ const (
 type ApplicationException interface {
 	Exception
 	TypeID() int32
-	Read(prot Format) (ApplicationException, error)
-	Write(prot Format) error
+	Read(iprot Protocol) (ApplicationException, error)
+	Write(oprot Protocol) error
 }
 
 type applicationException struct {
@@ -67,8 +67,8 @@ func (e *applicationException) Unwrap() error {
 }
 
 // Read reads an ApplicationException from the protocol
-func (e *applicationException) Read(prot Format) (ApplicationException, error) {
-	_, err := prot.ReadStructBegin()
+func (e *applicationException) Read(iprot Protocol) (ApplicationException, error) {
+	_, err := iprot.ReadStructBegin()
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +77,7 @@ func (e *applicationException) Read(prot Format) (ApplicationException, error) {
 	exceptionType := int32(UNKNOWN_APPLICATION_EXCEPTION)
 
 	for {
-		_, ttype, id, err := prot.ReadFieldBegin()
+		_, ttype, id, err := iprot.ReadFieldBegin()
 		if err != nil {
 			return nil, err
 		}
@@ -87,83 +87,83 @@ func (e *applicationException) Read(prot Format) (ApplicationException, error) {
 		switch id {
 		case 1:
 			if ttype == STRING {
-				if message, err = prot.ReadString(); err != nil {
+				if message, err = iprot.ReadString(); err != nil {
 					return nil, err
 				}
 			} else {
-				if err = SkipDefaultDepth(prot, ttype); err != nil {
+				if err = SkipDefaultDepth(iprot, ttype); err != nil {
 					return nil, err
 				}
 			}
 		case 2:
 			if ttype == I32 {
-				if exceptionType, err = prot.ReadI32(); err != nil {
+				if exceptionType, err = iprot.ReadI32(); err != nil {
 					return nil, err
 				}
 			} else {
-				if err = SkipDefaultDepth(prot, ttype); err != nil {
+				if err = SkipDefaultDepth(iprot, ttype); err != nil {
 					return nil, err
 				}
 			}
 		default:
-			if err = SkipDefaultDepth(prot, ttype); err != nil {
+			if err = SkipDefaultDepth(iprot, ttype); err != nil {
 				return nil, err
 			}
 		}
-		if err = prot.ReadFieldEnd(); err != nil {
+		if err = iprot.ReadFieldEnd(); err != nil {
 			return nil, err
 		}
 	}
-	return NewApplicationException(exceptionType, message), prot.ReadStructEnd()
+	return NewApplicationException(exceptionType, message), iprot.ReadStructEnd()
 }
 
 // Write writes an exception to the protocol
-func (e *applicationException) Write(prot Format) (err error) {
-	err = prot.WriteStructBegin("TApplicationException")
+func (e *applicationException) Write(oprot Protocol) (err error) {
+	err = oprot.WriteStructBegin("TApplicationException")
 	if len(e.Error()) > 0 {
-		err = prot.WriteFieldBegin("message", STRING, 1)
+		err = oprot.WriteFieldBegin("message", STRING, 1)
 		if err != nil {
 			return
 		}
-		err = prot.WriteString(e.Error())
+		err = oprot.WriteString(e.Error())
 		if err != nil {
 			return
 		}
-		err = prot.WriteFieldEnd()
+		err = oprot.WriteFieldEnd()
 		if err != nil {
 			return
 		}
 	}
-	err = prot.WriteFieldBegin("type", I32, 2)
+	err = oprot.WriteFieldBegin("type", I32, 2)
 	if err != nil {
 		return
 	}
-	err = prot.WriteI32(e.exceptionType)
+	err = oprot.WriteI32(e.exceptionType)
 	if err != nil {
 		return
 	}
-	err = prot.WriteFieldEnd()
+	err = oprot.WriteFieldEnd()
 	if err != nil {
 		return
 	}
-	err = prot.WriteFieldStop()
+	err = oprot.WriteFieldStop()
 	if err != nil {
 		return
 	}
-	err = prot.WriteStructEnd()
+	err = oprot.WriteStructEnd()
 	return
 }
 
 // sendException is a utility function to send the exception for the specified
 // method.
-func sendException(prot Format, name string, seqID int32, err ApplicationException) error {
-	if e2 := prot.WriteMessageBegin(name, EXCEPTION, seqID); e2 != nil {
+func sendException(oprot Protocol, name string, seqID int32, err ApplicationException) error {
+	if e2 := oprot.WriteMessageBegin(name, EXCEPTION, seqID); e2 != nil {
 		return e2
-	} else if e2 := err.Write(prot); e2 != nil {
+	} else if e2 := err.Write(oprot); e2 != nil {
 		return e2
-	} else if e2 := prot.WriteMessageEnd(); e2 != nil {
+	} else if e2 := oprot.WriteMessageEnd(); e2 != nil {
 		return e2
-	} else if e2 := prot.Flush(); e2 != nil {
+	} else if e2 := oprot.Flush(); e2 != nil {
 		return e2
 	}
 	return nil

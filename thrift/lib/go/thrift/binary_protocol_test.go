@@ -25,13 +25,15 @@ import (
 )
 
 func TestReadWriteBinaryProtocol(t *testing.T) {
-	ReadWriteProtocolTest(t, func(transport Transport) Format { return NewBinaryProtocolTransport(transport) })
+	ReadWriteProtocolTest(t, NewBinaryProtocolFactoryDefault())
 }
 
 func TestWriteBinaryEmptyBinaryProtocol(t *testing.T) {
 	m := NewMyTestStruct()
 	m.Bin = nil
 	s := NewDeserializer()
+	f := NewBinaryProtocolFactoryDefault()
+	s.Protocol = f.GetProtocol(s.Transport)
 	transport := s.Transport.(*MemoryBuffer)
 	transport.Buffer = bytes.NewBuffer([]byte(nil))
 	if err := m.Write(s.Protocol); err != nil {
@@ -42,6 +44,8 @@ func TestWriteBinaryEmptyBinaryProtocol(t *testing.T) {
 func TestSkipUnknownTypeBinaryProtocol(t *testing.T) {
 	var m MyTestStruct
 	d := NewDeserializer()
+	f := NewBinaryProtocolFactoryDefault()
+	d.Protocol = f.GetProtocol(d.Transport)
 	// skip over a map with invalid key/value type and ~550M entries
 	data := make([]byte, 1100000000)
 	copy(data[:], []byte("\n\x10\rO\t6\x03\n\n\n\x10\r\n\tsl ce\x00"))
@@ -63,6 +67,8 @@ func TestSkipUnknownTypeBinaryProtocol(t *testing.T) {
 func TestInitialAllocationMapBinaryProtocol(t *testing.T) {
 	var m MyTestStruct
 	d := NewDeserializer()
+	f := NewBinaryProtocolFactoryDefault()
+	d.Protocol = f.GetProtocol(d.Transport)
 	// attempts to allocate a map with 1.8B elements for a 20 byte message
 	data := []byte("\n\x10\rO\t6\x03\n\n\n\x10\r\n\tslice\x00")
 	err := d.Read(&m, data)
@@ -76,6 +82,8 @@ func TestInitialAllocationMapBinaryProtocol(t *testing.T) {
 func TestInitialAllocationListBinaryProtocol(t *testing.T) {
 	var m MyTestStruct
 	d := NewDeserializer()
+	f := NewBinaryProtocolFactoryDefault()
+	d.Protocol = f.GetProtocol(d.Transport)
 	// attempts to allocate a list with 1.8B elements for a 20 byte message
 	data := []byte("\n\x10\rO\t6\x03\n\n\n\x10\x0f\n\tslice\x00")
 	err := d.Read(&m, data)
@@ -89,6 +97,8 @@ func TestInitialAllocationListBinaryProtocol(t *testing.T) {
 func TestInitialAllocationSetBinaryProtocol(t *testing.T) {
 	var m MyTestStruct
 	d := NewDeserializer()
+	f := NewBinaryProtocolFactoryDefault()
+	d.Protocol = f.GetProtocol(d.Transport)
 	// attempts to allocate a set with 1.8B elements for a 20 byte message
 	data := []byte("\n\x12\rO\t6\x03\n\n\n\x10\x0e\n\tslice\x00")
 	err := d.Read(&m, data)

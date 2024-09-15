@@ -21,8 +21,27 @@ import (
 )
 
 type DebugProtocol struct {
-	Delegate  Format
+	Delegate  Protocol
 	LogPrefix string
+}
+
+type DebugProtocolFactory struct {
+	Underlying ProtocolFactory
+	LogPrefix  string
+}
+
+func NewDebugProtocolFactory(underlying ProtocolFactory, logPrefix string) *DebugProtocolFactory {
+	return &DebugProtocolFactory{
+		Underlying: underlying,
+		LogPrefix:  logPrefix,
+	}
+}
+
+func (t *DebugProtocolFactory) GetProtocol(trans Transport) Protocol {
+	return &DebugProtocol{
+		Delegate:  t.Underlying.GetProtocol(trans),
+		LogPrefix: t.LogPrefix,
+	}
 }
 
 func (tdp *DebugProtocol) WriteMessageBegin(name string, typeId MessageType, seqid int32) error {
@@ -250,4 +269,8 @@ func (tdp *DebugProtocol) Flush() (err error) {
 	err = tdp.Delegate.Flush()
 	log.Printf("%sFlush() (err=%#v)", tdp.LogPrefix, err)
 	return
+}
+
+func (tdp *DebugProtocol) Close() error {
+	return tdp.Delegate.Close()
 }

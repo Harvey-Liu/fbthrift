@@ -73,6 +73,16 @@ func init() {
 	}
 }
 
+type CompactProtocolFactory struct{}
+
+func NewCompactProtocolFactory() *CompactProtocolFactory {
+	return &CompactProtocolFactory{}
+}
+
+func (p *CompactProtocolFactory) GetProtocol(trans Transport) Protocol {
+	return NewCompactProtocol(trans)
+}
+
 type CompactProtocol struct {
 	trans         RichTransport
 	origTransport Transport

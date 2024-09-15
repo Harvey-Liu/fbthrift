@@ -15,13 +15,13 @@
 namespace apache { namespace thrift {
 
 folly::Range<::apache::thrift::test::MyEnum const*> const TEnumTraits<::apache::thrift::test::MyEnum>::values = folly::range(TEnumDataStorage<::apache::thrift::test::MyEnum>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::apache::thrift::test::MyEnum>::names = folly::range(TEnumDataStorage<::apache::thrift::test::MyEnum>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::apache::thrift::test::MyEnum>::names = folly::range(TEnumDataStorage<::apache::thrift::test::MyEnum>::names);
 
-bool TEnumTraits<::apache::thrift::test::MyEnum>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::apache::thrift::test::MyEnum>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::apache::thrift::test::MyEnum>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::apache::thrift::test::MyEnum>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -33,7 +33,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::apache::thrift::test::MyStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::apache::thrift::test::MyStruct>;
@@ -51,11 +51,11 @@ void TccStructTraits<::apache::thrift::test::MyStruct>::translateFieldName(
 
 namespace apache { namespace thrift { namespace test {
 
-std::string_view MyStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MyStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MyStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MyStruct::__fbthrift_get_class_name() {
+const folly::StringPiece MyStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MyStruct>::name;
 }
 
@@ -104,7 +104,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::apache::thrift::test::EmptiableStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::apache::thrift::test::EmptiableStruct>;
@@ -122,11 +122,11 @@ void TccStructTraits<::apache::thrift::test::EmptiableStruct>::translateFieldNam
 
 namespace apache { namespace thrift { namespace test {
 
-std::string_view EmptiableStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece EmptiableStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<EmptiableStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view EmptiableStruct::__fbthrift_get_class_name() {
+const folly::StringPiece EmptiableStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<EmptiableStruct>::name;
 }
 
@@ -337,7 +337,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::apache::thrift::test::EmptiableTerseStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::apache::thrift::test::EmptiableTerseStruct>;
@@ -355,11 +355,11 @@ void TccStructTraits<::apache::thrift::test::EmptiableTerseStruct>::translateFie
 
 namespace apache { namespace thrift { namespace test {
 
-std::string_view EmptiableTerseStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece EmptiableTerseStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<EmptiableTerseStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view EmptiableTerseStruct::__fbthrift_get_class_name() {
+const folly::StringPiece EmptiableTerseStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<EmptiableTerseStruct>::name;
 }
 
@@ -565,7 +565,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::apache::thrift::test::NotEmptiableStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::apache::thrift::test::NotEmptiableStruct>;
@@ -583,11 +583,11 @@ void TccStructTraits<::apache::thrift::test::NotEmptiableStruct>::translateField
 
 namespace apache { namespace thrift { namespace test {
 
-std::string_view NotEmptiableStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece NotEmptiableStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<NotEmptiableStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view NotEmptiableStruct::__fbthrift_get_class_name() {
+const folly::StringPiece NotEmptiableStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<NotEmptiableStruct>::name;
 }
 

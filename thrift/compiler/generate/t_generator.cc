@@ -19,6 +19,7 @@
 #include <stdexcept>
 #include <utility>
 
+#include <boost/filesystem.hpp>
 #include <fmt/core.h>
 
 namespace apache {
@@ -29,9 +30,9 @@ void t_generator::process_options(
     const std::map<std::string, std::string>& options,
     std::string out_path,
     bool add_gen_dir) {
-  std::filesystem::path path = {out_path};
+  boost::filesystem::path path = {out_path};
   if (!out_path.empty() && out_path.back() != '/' && out_path.back() != '\\') {
-    path += std::filesystem::path::preferred_separator;
+    path += boost::filesystem::path::preferred_separator;
   }
   out_path_ = path.make_preferred().string();
   add_gen_dir_ = add_gen_dir;

@@ -15,13 +15,13 @@
 namespace apache { namespace thrift {
 
 folly::Range<::cpp2::MyEnum const*> const TEnumTraits<::cpp2::MyEnum>::values = folly::range(TEnumDataStorage<::cpp2::MyEnum>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::cpp2::MyEnum>::names = folly::range(TEnumDataStorage<::cpp2::MyEnum>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::cpp2::MyEnum>::names = folly::range(TEnumDataStorage<::cpp2::MyEnum>::names);
 
-bool TEnumTraits<::cpp2::MyEnum>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::cpp2::MyEnum>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::cpp2::MyEnum>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::cpp2::MyEnum>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -33,7 +33,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::cpp2::MyStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::cpp2::MyStruct>;
@@ -51,11 +51,11 @@ void TccStructTraits<::cpp2::MyStruct>::translateFieldName(
 
 namespace cpp2 {
 
-std::string_view MyStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MyStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MyStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MyStruct::__fbthrift_get_class_name() {
+const folly::StringPiece MyStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MyStruct>::name;
 }
 
@@ -163,7 +163,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::cpp2::MyDataItem>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::cpp2::MyDataItem>;
@@ -181,11 +181,11 @@ void TccStructTraits<::cpp2::MyDataItem>::translateFieldName(
 
 namespace cpp2 {
 
-std::string_view MyDataItem::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MyDataItem::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MyDataItem>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MyDataItem::__fbthrift_get_class_name() {
+const folly::StringPiece MyDataItem::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MyDataItem>::name;
 }
 
@@ -234,7 +234,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::cpp2::MyUnion>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::cpp2::MyUnion>;
@@ -253,23 +253,23 @@ void TccStructTraits<::cpp2::MyUnion>::translateFieldName(
 namespace apache { namespace thrift {
 
 folly::Range<::cpp2::MyUnion::Type const*> const TEnumTraits<::cpp2::MyUnion::Type>::values = folly::range(TEnumDataStorage<::cpp2::MyUnion::Type>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::cpp2::MyUnion::Type>::names = folly::range(TEnumDataStorage<::cpp2::MyUnion::Type>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::cpp2::MyUnion::Type>::names = folly::range(TEnumDataStorage<::cpp2::MyUnion::Type>::names);
 
-bool TEnumTraits<::cpp2::MyUnion::Type>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::cpp2::MyUnion::Type>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::cpp2::MyUnion::Type>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::cpp2::MyUnion::Type>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 }} // apache::thrift
 namespace cpp2 {
 
-std::string_view MyUnion::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MyUnion::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MyUnion>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MyUnion::__fbthrift_get_class_name() {
+const folly::StringPiece MyUnion::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MyUnion>::name;
 }
 

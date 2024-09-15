@@ -32,23 +32,23 @@ class RpcOptions;
 namespace detail {
 
 // User exception name
-inline constexpr std::string_view kHeaderUex = "uex";
-inline constexpr std::string_view kHeaderProxiedUex = "puex";
+inline const std::string_view kHeaderUex = "uex";
+inline const std::string_view kHeaderProxiedUex = "puex";
 // User exception message
-inline constexpr std::string_view kHeaderUexw = "uexw";
-inline constexpr std::string_view kHeaderProxiedUexw = "puexw";
+inline const std::string_view kHeaderUexw = "uexw";
+inline const std::string_view kHeaderProxiedUexw = "puexw";
 // Server exception (code defined in ResponseChannel.h)
-inline constexpr std::string_view kHeaderEx = "ex";
-inline constexpr std::string_view kHeaderProxiedEx = "pex";
+inline const std::string_view kHeaderEx = "ex";
+inline const std::string_view kHeaderProxiedEx = "pex";
 // Exception metadata (base64-encoded compact-serialized ErrorClassification)
-inline constexpr std::string_view kHeaderExMeta = "exm";
+inline const std::string_view kHeaderExMeta = "exm";
 // Any exception data (base64-encoded compact-serialized data without wrapping
 // AnyStruct)
-inline constexpr std::string_view kHeaderAnyex = "anyex";
-inline constexpr std::string_view kHeaderProxiedAnyex = "panyex";
+inline const std::string_view kHeaderAnyex = "anyex";
+inline const std::string_view kHeaderProxiedAnyex = "panyex";
 // Any exception type
-inline constexpr std::string_view kHeaderAnyexType = "anyext";
-inline constexpr std::string_view kHeaderProxiedAnyexType = "panyext";
+inline const std::string_view kHeaderAnyexType = "anyext";
+inline const std::string_view kHeaderProxiedAnyexType = "panyext";
 
 RequestRpcMetadata makeRequestRpcMetadata(
     const RpcOptions& rpcOptions,

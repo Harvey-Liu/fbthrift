@@ -1,4 +1,5 @@
-/* Generated @generated SBE (Simple Binary Encoding) message codec */
+// @generated using thrift/lib/thrift/generate-rpc-metadata-sbe.sh
+/* Generated SBE (Simple Binary Encoding) message codec */
 #ifndef _APACHE_THRIFT_SBE_ERRORCLASSIFICATION_CXX_H_
 #define _APACHE_THRIFT_SBE_ERRORCLASSIFICATION_CXX_H_
 
@@ -128,7 +129,7 @@ public:
     {
         if (SBE_BOUNDS_CHECK_EXPECT(((m_offset + 3) > m_bufferLength), false))
         {
-            throw std::runtime_error("buffer too short for flyweight [E107] in ErrorClassification");
+            throw std::runtime_error("buffer too short for flyweight [E107]");
         }
     }
 
@@ -160,7 +161,7 @@ public:
 
         if (SBE_BOUNDS_CHECK_EXPECT(((m_offset + 3) > m_bufferLength), false))
         {
-            throw std::runtime_error("buffer too short for flyweight [E107] in ErrorClassification");
+            throw std::runtime_error("buffer too short for flyweight [E107]");
         }
 
         return *this;

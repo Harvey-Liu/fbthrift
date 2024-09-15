@@ -56,6 +56,17 @@ func NewJSONProtocol(t Transport) *JSONProtocol {
 	return v
 }
 
+// Factory
+type JSONProtocolFactory struct{}
+
+func (p *JSONProtocolFactory) GetProtocol(trans Transport) Protocol {
+	return NewJSONProtocol(trans)
+}
+
+func NewJSONProtocolFactory() *JSONProtocolFactory {
+	return &JSONProtocolFactory{}
+}
+
 func (p *JSONProtocol) WriteMessageBegin(name string, typeID MessageType, seqID int32) error {
 	p.resetContextStack() // THRIFT-3735
 	if e := p.OutputListBegin(); e != nil {

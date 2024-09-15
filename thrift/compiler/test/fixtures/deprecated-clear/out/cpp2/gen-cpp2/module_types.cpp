@@ -15,13 +15,13 @@
 namespace apache { namespace thrift {
 
 folly::Range<::apache::thrift::test::MyEnum const*> const TEnumTraits<::apache::thrift::test::MyEnum>::values = folly::range(TEnumDataStorage<::apache::thrift::test::MyEnum>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::apache::thrift::test::MyEnum>::names = folly::range(TEnumDataStorage<::apache::thrift::test::MyEnum>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::apache::thrift::test::MyEnum>::names = folly::range(TEnumDataStorage<::apache::thrift::test::MyEnum>::names);
 
-bool TEnumTraits<::apache::thrift::test::MyEnum>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::apache::thrift::test::MyEnum>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::apache::thrift::test::MyEnum>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::apache::thrift::test::MyEnum>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -33,7 +33,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::apache::thrift::test::StructWithDefaultStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::apache::thrift::test::StructWithDefaultStruct>;
@@ -51,11 +51,11 @@ void TccStructTraits<::apache::thrift::test::StructWithDefaultStruct>::translate
 
 namespace apache { namespace thrift { namespace test {
 
-std::string_view StructWithDefaultStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece StructWithDefaultStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<StructWithDefaultStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view StructWithDefaultStruct::__fbthrift_get_class_name() {
+const folly::StringPiece StructWithDefaultStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<StructWithDefaultStruct>::name;
 }
 

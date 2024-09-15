@@ -15,13 +15,13 @@
 namespace apache { namespace thrift {
 
 folly::Range<::test::fixtures::basic-structured-annotations::MyEnum const*> const TEnumTraits<::test::fixtures::basic-structured-annotations::MyEnum>::values = folly::range(TEnumDataStorage<::test::fixtures::basic-structured-annotations::MyEnum>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::test::fixtures::basic-structured-annotations::MyEnum>::names = folly::range(TEnumDataStorage<::test::fixtures::basic-structured-annotations::MyEnum>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::test::fixtures::basic-structured-annotations::MyEnum>::names = folly::range(TEnumDataStorage<::test::fixtures::basic-structured-annotations::MyEnum>::names);
 
-bool TEnumTraits<::test::fixtures::basic-structured-annotations::MyEnum>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::test::fixtures::basic-structured-annotations::MyEnum>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::test::fixtures::basic-structured-annotations::MyEnum>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::test::fixtures::basic-structured-annotations::MyEnum>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 
@@ -33,7 +33,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::basic-structured-annotations::runtime_annotation>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::basic-structured-annotations::runtime_annotation>;
@@ -55,11 +55,11 @@ const char* runtime_annotation::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/basic-structured-annotations/runtime_annotation";
 }
 
-std::string_view runtime_annotation::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece runtime_annotation::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<runtime_annotation>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view runtime_annotation::__fbthrift_get_class_name() {
+const folly::StringPiece runtime_annotation::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<runtime_annotation>::name;
 }
 
@@ -108,7 +108,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::basic-structured-annotations::structured_annotation_inline>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::basic-structured-annotations::structured_annotation_inline>;
@@ -130,11 +130,11 @@ const char* structured_annotation_inline::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/basic-structured-annotations/structured_annotation_inline";
 }
 
-std::string_view structured_annotation_inline::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece structured_annotation_inline::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<structured_annotation_inline>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view structured_annotation_inline::__fbthrift_get_class_name() {
+const folly::StringPiece structured_annotation_inline::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<structured_annotation_inline>::name;
 }
 
@@ -217,7 +217,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::basic-structured-annotations::structured_annotation_with_default>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::basic-structured-annotations::structured_annotation_with_default>;
@@ -239,11 +239,11 @@ const char* structured_annotation_with_default::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/basic-structured-annotations/structured_annotation_with_default";
 }
 
-std::string_view structured_annotation_with_default::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece structured_annotation_with_default::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<structured_annotation_with_default>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view structured_annotation_with_default::__fbthrift_get_class_name() {
+const folly::StringPiece structured_annotation_with_default::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<structured_annotation_with_default>::name;
 }
 
@@ -319,7 +319,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::basic-structured-annotations::structured_annotation_recursive>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::basic-structured-annotations::structured_annotation_recursive>;
@@ -341,11 +341,11 @@ const char* structured_annotation_recursive::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/basic-structured-annotations/structured_annotation_recursive";
 }
 
-std::string_view structured_annotation_recursive::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece structured_annotation_recursive::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<structured_annotation_recursive>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view structured_annotation_recursive::__fbthrift_get_class_name() {
+const folly::StringPiece structured_annotation_recursive::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<structured_annotation_recursive>::name;
 }
 
@@ -464,7 +464,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::basic-structured-annotations::structured_annotation_forward>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::basic-structured-annotations::structured_annotation_forward>;
@@ -486,11 +486,11 @@ const char* structured_annotation_forward::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/basic-structured-annotations/structured_annotation_forward";
 }
 
-std::string_view structured_annotation_forward::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece structured_annotation_forward::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<structured_annotation_forward>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view structured_annotation_forward::__fbthrift_get_class_name() {
+const folly::StringPiece structured_annotation_forward::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<structured_annotation_forward>::name;
 }
 
@@ -546,7 +546,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::basic-structured-annotations::structured_annotation_nested>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::basic-structured-annotations::structured_annotation_nested>;
@@ -568,11 +568,11 @@ const char* structured_annotation_nested::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/basic-structured-annotations/structured_annotation_nested";
 }
 
-std::string_view structured_annotation_nested::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece structured_annotation_nested::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<structured_annotation_nested>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view structured_annotation_nested::__fbthrift_get_class_name() {
+const folly::StringPiece structured_annotation_nested::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<structured_annotation_nested>::name;
 }
 
@@ -667,7 +667,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::basic-structured-annotations::MyStruct>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::basic-structured-annotations::MyStruct>;
@@ -689,11 +689,11 @@ const char* MyStruct::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/basic-structured-annotations/MyStruct";
 }
 
-std::string_view MyStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MyStruct::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MyStruct>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MyStruct::__fbthrift_get_class_name() {
+const folly::StringPiece MyStruct::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MyStruct>::name;
 }
 
@@ -788,7 +788,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::basic-structured-annotations::MyException>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::basic-structured-annotations::MyException>;
@@ -810,11 +810,11 @@ const char* MyException::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/basic-structured-annotations/MyException";
 }
 
-std::string_view MyException::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MyException::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MyException>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MyException::__fbthrift_get_class_name() {
+const folly::StringPiece MyException::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MyException>::name;
 }
 
@@ -889,7 +889,7 @@ namespace thrift {
 namespace detail {
 
 void TccStructTraits<::test::fixtures::basic-structured-annotations::MyUnion>::translateFieldName(
-    std::string_view _fname,
+    folly::StringPiece _fname,
     int16_t& fid,
     apache::thrift::protocol::TType& _ftype) noexcept {
   using data = apache::thrift::TStructDataStorage<::test::fixtures::basic-structured-annotations::MyUnion>;
@@ -908,13 +908,13 @@ void TccStructTraits<::test::fixtures::basic-structured-annotations::MyUnion>::t
 namespace apache { namespace thrift {
 
 folly::Range<::test::fixtures::basic-structured-annotations::MyUnion::Type const*> const TEnumTraits<::test::fixtures::basic-structured-annotations::MyUnion::Type>::values = folly::range(TEnumDataStorage<::test::fixtures::basic-structured-annotations::MyUnion::Type>::values);
-folly::Range<std::string_view const*> const TEnumTraits<::test::fixtures::basic-structured-annotations::MyUnion::Type>::names = folly::range(TEnumDataStorage<::test::fixtures::basic-structured-annotations::MyUnion::Type>::names);
+folly::Range<folly::StringPiece const*> const TEnumTraits<::test::fixtures::basic-structured-annotations::MyUnion::Type>::names = folly::range(TEnumDataStorage<::test::fixtures::basic-structured-annotations::MyUnion::Type>::names);
 
-bool TEnumTraits<::test::fixtures::basic-structured-annotations::MyUnion::Type>::findName(type value, std::string_view* out) noexcept {
+bool TEnumTraits<::test::fixtures::basic-structured-annotations::MyUnion::Type>::findName(type value, folly::StringPiece* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_name(value, out);
 }
 
-bool TEnumTraits<::test::fixtures::basic-structured-annotations::MyUnion::Type>::findValue(std::string_view name, type* out) noexcept {
+bool TEnumTraits<::test::fixtures::basic-structured-annotations::MyUnion::Type>::findValue(folly::StringPiece name, type* out) noexcept {
   return ::apache::thrift::detail::st::enum_find_value(name, out);
 }
 }} // apache::thrift
@@ -924,11 +924,11 @@ const char* MyUnion::__fbthrift_thrift_uri() {
   return "test.dev/fixtures/basic-structured-annotations/MyUnion";
 }
 
-std::string_view MyUnion::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
+const folly::StringPiece MyUnion::__fbthrift_get_field_name(::apache::thrift::FieldOrdinal ord) {
   if (ord == ::apache::thrift::FieldOrdinal{0}) { return {}; }
   return apache::thrift::TStructDataStorage<MyUnion>::fields_names[folly::to_underlying(ord) - 1];
 }
-std::string_view MyUnion::__fbthrift_get_class_name() {
+const folly::StringPiece MyUnion::__fbthrift_get_class_name() {
   return apache::thrift::TStructDataStorage<MyUnion>::name;
 }
 

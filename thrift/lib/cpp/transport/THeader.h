@@ -415,14 +415,14 @@ class THeader final {
   static const uint32_t BIG_FRAME_MAGIC = 0x42494746; // BIGF
 
   static const uint32_t MAX_FRAME_SIZE = 0x3FFFFFFF;
-  static constexpr std::string_view PRIORITY_HEADER = "thrift_priority";
-  static constexpr std::string_view CLIENT_TIMEOUT_HEADER = "client_timeout";
-  static constexpr std::string_view QUEUE_TIMEOUT_HEADER = "queue_timeout";
-  static constexpr std::string_view QUERY_LOAD_HEADER = "load";
-  static constexpr std::string_view kClientId = "client_id";
-  static constexpr std::string_view kServiceTraceMeta = "service_trace_meta";
-  static constexpr std::string_view kTenantId = "tenant_id";
-  static constexpr std::string_view CLIENT_METADATA_HEADER = "client_metadata";
+  static const inline std::string_view PRIORITY_HEADER = "thrift_priority";
+  static const inline std::string_view CLIENT_TIMEOUT_HEADER = "client_timeout";
+  static const inline std::string_view QUEUE_TIMEOUT_HEADER = "queue_timeout";
+  static const inline std::string_view QUERY_LOAD_HEADER = "load";
+  static const inline std::string_view kClientId = "client_id";
+  static const inline std::string_view kServiceTraceMeta = "service_trace_meta";
+  static const inline std::string_view kTenantId = "tenant_id";
+  static const inline std::string_view CLIENT_METADATA_HEADER = "client_metadata";
 
  private:
   static bool isFramed(CLIENT_TYPE clientType);
@@ -466,9 +466,9 @@ class THeader final {
   StringToStringMap& ensureReadHeaders();
   StringToStringMap& ensureWriteHeaders();
 
-  static constexpr std::string_view IDENTITY_HEADER = "identity";
-  static constexpr std::string_view ID_VERSION_HEADER = "id_version";
-  static constexpr std::string_view ID_VERSION = "1";
+  static const inline std::string_view IDENTITY_HEADER = "identity";
+  static const inline std::string_view ID_VERSION_HEADER = "id_version";
+  static const inline std::string_view ID_VERSION = "1";
 
   // IMPORTANT: Anything not in this sub-struct must be copied explicitly by
   // `copyOrDfatalIfReceived`.

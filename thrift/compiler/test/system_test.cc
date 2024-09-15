@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-#include <filesystem>
 #include <string>
 #include <utility>
 #include <vector>
@@ -33,9 +32,9 @@ struct TestCase {
         path{std::move(path)},
         expected_path{std::move(expected_path)} {}
 
-  std::filesystem::path base_path;
-  std::filesystem::path path;
-  std::filesystem::path expected_path;
+  boost::filesystem::path base_path;
+  boost::filesystem::path path;
+  boost::filesystem::path expected_path;
 };
 
 TEST(SystemTest, MakeAbsPath) {
